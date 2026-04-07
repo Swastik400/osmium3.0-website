@@ -1,0 +1,20 @@
+.theme-toggle {
+  position: relative;
+}
+
+.theme-toggle .absolute {
+  transform: translateX(-1px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.theme-toggle.light .absolute {
+  transform: translateX(-1px);
+}
+
+.theme-toggle.system .absolute {
+  transform: translateX(12px);
+}
+
+.theme-toggle.dark .absolute {
+  transform: translateX(25px);
+}

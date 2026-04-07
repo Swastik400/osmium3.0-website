@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Hub | Navchetna</title>
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .ph { display: inline-block; font-size: 1em; line-height: 1; }
+        .h-4.w-4.ph { width: 1rem; height: 1rem; font-size: 1rem; }
+        .theme-toggle.light .absolute { transform: translateX(-1px) !important; }
+        .theme-toggle.system .absolute { transform: translateX(12px) !important; }
+        .theme-toggle.dark .absolute { transform: translateX(25px) !important; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; position: relative; }
+        code { font-family: 'Courier New', monospace; font-size: 0.875rem; }
+        .copy-icon { position: absolute; top: 0.5rem; right: 0.5rem; cursor: pointer; width: 1rem; height: 1rem; color: #d4d4d4; transition: all 0.2s; }
+        .copy-icon:hover { color: #ffffff; }
+        .copy-icon.copied { color: rgb(16 185 129); }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header class="fixed top-0 left-0 right-0 z-50 py-4 px-0 transition-all duration-300 ease-in-out backdrop-blur-xl border-b border-border/30">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="relative"><a class="block" href="/"><img src="/assets/logo.svg" alt="Logo" class="h-9 w-auto transition-all p-1 hover:bg-neutral-900 hover:dark:bg-neutral-900 dark:invert-0 invert"></a></div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/about">About</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/services">Services</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/products">Products</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/career">Career</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/news">News</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative flex h-6 w-auto bg-neutral-50 dark:bg-neutral-900 px-0.5 py-1 rounded-full border border-neutral-200/50 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 theme-toggle light">
+                        <button class="relative -top-[1px] -left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-900 dark:text-white" aria-label="Light mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-3 w-3"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors hover:text-neutral-900 dark:hover:text-white text-neutral-500" aria-label="System theme" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor h-3 w-3"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="Dark mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-3 w-3"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button>
+                    </div>
+                    <a href="/contact"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent h-10 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">Contact</button></a>
+                </div>
+            </div>
+        </header>
+        <div class="pt-20 min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <div class="flex">
+                <aside class="fixed md:sticky top-20 h-[calc(100vh-4rem)] z-40 transition-all duration-300 -translate-x-full md:translate-x-0 md:block">
+                    <div class="transform -translate-y-2 h-full">
+                        <div class="bg-gray-50/70 dark:bg-neutral-900/30 border-r border-gray-200 dark:border-white/5 h-full transition-all duration-300 backdrop-blur-xl md:backdrop-blur-none w-64">
+                            <div class="p-4 sticky top-0">
+                                <!-- Mobile Navigation -->
+                                <div class="md:hidden mb-6 -mx-4 px-4">
+                                    <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                        <a href="/about" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">About</a>
+                                        <a href="/services" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Services</a>
+                                        <a href="/products" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Products</a>
+                                        <a href="/career" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Career</a>
+                                        <a href="/news" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">News</a>
+                                        <a href="/contact" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Contact</a>
+                                    </div>
+                                </div>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Navigation</h3>
+                                        <ul class="space-y-1">
+                                            <li><a href="#overview" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-house h-4 w-4 flex-shrink-0"></i>Overview</a></li>
+                                            <li><a href="#aegis-auth" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-shield-check h-4 w-4 flex-shrink-0"></i>Aegis Auth</a></li>
+                                            <li><a href="#lmlense" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-scan h-4 w-4 flex-shrink-0"></i>LMLense</a></li>
+                                            <li><a href="#nsl" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-currency-circle-dollar h-4 w-4 flex-shrink-0"></i>NSL Ledger</a></li>
+                                            <li><a href="#troubleshooting" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-wrench h-4 w-4 flex-shrink-0"></i>Troubleshooting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Tags</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">API</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Auth</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Security</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Docs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="absolute top-0 -right-[38px] z-50 p-2 bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-md shadow-md md:hidden transition-all duration-300 opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left h-3 w-3 text-gray-700 dark:text-neutral-300"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg></button>
+                </aside>
+                <main class="flex-1 transition-all duration-300 p-8 md:ml-0 w-full">
+                    <div class="relative flex flex-col xl:flex-row xl:gap-8 max-w-7xl mx-auto">
+                        <div class="prose dark:prose-invert max-w-4xl w-full transition-colors duration-300">
+                            
+                            <article id="overview" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Navchetna Developer Hub</h1>
+                                <p class="text-xl text-gray-600 dark:text-neutral-400 mb-6"><strong>Build with Independence</strong></p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed">The Navchetna Platform provides a unified suite of Made in India tools for Identity Data Extraction and Financial Ledger management. Our stack is designed for zero dependency high security and absolute data sovereignty.</p>
+                                
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Base Configuration</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">All API requests are served over HTTPS. Unencrypted HTTP is not supported.</p>
+                                <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-neutral-400 space-y-2">
+                                    <li><strong>Production:</strong> <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">https://api.navchetna.tech/v1</code></li>
+                                    <li><strong>Sandbox:</strong> <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">https://sandbox.navchetna.tech/v1</code></li>
+                                </ul>
+                            </article>
+                            <article id="aegis-auth" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(236 72 153 / 0.1); color: rgb(236 72 153);">Product</span>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Aegis Auth</h2>
+                                <p class="text-lg text-gray-600 dark:text-neutral-400 mb-6"><strong>Secure Memory Safe Unified</strong></p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed">Aegis Auth is a comprehensive identity platform built in Rust. It provides a single source of truth for user identity across web mobile and backend services.</p>
+                                
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">1 Installation</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">Choose your environment to install the official Aegis SDK.</p>
+                                
+                                <div class="space-y-4 mb-6">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">JavaScript TypeScript Client Side</p>
+                                        <pre><code>npm i aegis-auth-navchetna</code></pre>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Rust Backend High Performance</p>
+                                        <pre><code>cargo add aegis-auth-navchetna</code></pre>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Python Backend Data Science</p>
+                                        <pre><code>pip install aegis-auth-navchetna</code></pre>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Flutter Mobile</p>
+                                        <pre><code>dependencies:
+  aegis_auth: ^1.0.0</code></pre>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">2 Quickstart Client Side JavaScript</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">Initialize the Aegis client in your frontend application to handle user login and session management.</p>
+                                <pre class="mb-6"><code>import { AegisClient } from 'aegis-auth-navchetna';
+
+// 1 Initialize the client
+const aegis = new AegisClient({
+  apiKey: 'YOUR_PUBLIC_API_KEY',
+  environment: 'production'
+});
+
+// 2 Authenticate a User
+async function loginUser() {
+  try {
+    const session = await aegis.login({
+      email: 'user@example.com',
+      password: 'user_password'
+    });
+
+    console.log('User Logged In:', session.user.id);
+    console.log('Aegis Token:', session.token); // Send this to your backend
+  } catch (error) {
+    console.error('Login Failed:', error.message);
+  }
+}</code></pre>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">3 Quickstart Server Side Verification Rust</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">Never trust the client. Verify the <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">aegis_token</code> on your backend using our memory safe Rust crate.</p>
+                                <pre class="mb-6"><code>use aegis_auth_navchetna::{AegisVerifier, Token};
+
+#[tokio::main]
+async fn main() {
+    // 1 Initialize the Verifier
+    let verifier = AegisVerifier::new("YOUR_SECRET_KEY");
+
+    // 2 Verify an incoming token
+    let token_string = "eyJhbGciOiJFZDI1NTE5I..."; 
+    
+    match verifier.verify(token_string).await {
+        Ok(claims) => {
+            println!("Valid User: {}", claims.user_id);
+            println!("Permissions: {:?}", claims.roles);
+        },
+        Err(e) => println!("Invalid Token: {}", e),
+    }
+}</code></pre>
+                            </article>
+                            <article id="lmlense" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(16 185 129 / 0.1); color: rgb(16 185 129);">Product</span>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">LMLense</h2>
+                                <p class="text-lg text-gray-600 dark:text-neutral-400 mb-6"><strong>Context Aware Data Extraction</strong></p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed">LMLense allows you to transform unstructured documents into structured JSON data. It uses our proprietary NineLLMs architecture to understand layout and context eliminating the need for rigid templates.</p>
+                                
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">1 API Endpoint</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-2"><strong>Endpoint:</strong> <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">POST /v1/lmlense/extract</code></p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4"><strong>Content-Type:</strong> <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">multipart/form-data</code></p>
+                                
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full border border-gray-200 dark:border-neutral-800">
+                                        <thead class="bg-gray-50 dark:bg-neutral-800/30">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Parameter</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Type</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Required</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>file</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Binary</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Yes</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">The document or image file PDF JPG PNG TIFF. Max 25MB.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>mode</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">String</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">No</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Extraction mode. Default auto. Options invoice receipt id_card table.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>webhook_url</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">String</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">No</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">URL to receive the result for large files Async processing.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">2 Integration Examples</h3>
+                                <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Node.js Axios</p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">Upload a local file to the extraction engine.</p>
+                                <pre class="mb-6"><code>const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+
+const form = new FormData();
+form.append('file', fs.createReadStream('./invoice_scan.pdf'));
+form.append('mode', 'invoice');
+
+async function extractData() {
+  try {
+    const response = await axios.post('https://api.navchetna.tech/v1/lmlense/extract', form, {
+      headers: {
+        ...form.getHeaders(),
+        'Authorization': 'Bearer YOUR_AEGIS_TOKEN' // Secured by Aegis Auth
+      }
+    });
+
+    console.log('Extraction Result:', response.data);
+  } catch (error) {
+    console.error('Error:', error.response.data);
+  }
+}
+
+extractData();</code></pre>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">3 Sample Response</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">LMLense returns a structured JSON object with confidence scores.</p>
+                                <pre class="mb-6"><code>{
+  "status": "success",
+  "document_id": "doc_8823n29",
+  "confidence": 0.98,
+  "data": {
+    "type": "invoice",
+    "invoice_number": "INV-2026-001",
+    "date": "2026-01-12",
+    "vendor": {
+      "name": "AWS India",
+      "address": "Delhi, India"
+    },
+    "total": 4500.00,
+    "currency": "INR"
+  }
+}</code></pre>
+                            </article>
+                            <article id="nsl" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(59 130 246 / 0.1); color: rgb(59 130 246);">Product</span>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">NSL Navchetna Smart Ledger</h2>
+                                <p class="text-lg text-gray-600 dark:text-neutral-400 mb-6"><strong>Programmable Financial Infrastructure</strong></p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed">The NSL API allows developers to programmatically record usage track credits and trigger invoicing logic. It serves as the immutable backend for your financial operations.</p>
+                                
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">1 Core Concepts</h3>
+                                <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-neutral-400 space-y-2">
+                                    <li><strong>Ledger:</strong> The immutable record of all transactions.</li>
+                                    <li><strong>Meter:</strong> A usage tracker like API calls or storage used that accumulates over a billing period.</li>
+                                    <li><strong>Invoice:</strong> The generated financial document at the end of a cycle.</li>
+                                </ul>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">2 Record Transaction API</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">Use this endpoint to record a billable event or a credit adjustment.</p>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4"><strong>Endpoint:</strong> <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">POST /v1/nsl/transaction</code></p>
+                                <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Request Body</p>
+                                <pre class="mb-6"><code>{
+  "user_id": "usr_5521a",
+  "type": "DEBIT", 
+  "amount": 299.00,
+  "currency": "INR",
+  "category": "subscription_renewal",
+  "description": "Monthly Pro Plan January 2026",
+  "metadata": {
+    "plan_id": "plan_pro_v1"
+  }
+}</code></pre>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">3 Webhook Events</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">NSL pushes events to your system when financial states change.</p>
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full border border-gray-200 dark:border-neutral-800">
+                                        <thead class="bg-gray-50 dark:bg-neutral-800/30">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Event Name</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Trigger</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Payload includes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>invoice.generated</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Month end billing cycle completes.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Invoice PDF URL Total Amount</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>invoice.paid</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">User payment is confirmed.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Payment method Transaction ID</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>ledger.threshold</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">User balance exceeds a set limit.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Current Balance User ID</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                            <article id="troubleshooting" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(245 158 11 / 0.1); color: rgb(245 158 11);">Support</span>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Troubleshooting Guide</h2>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed">Errors are part of the development process. When the API returns an error we provide a standard HTTP status code and a JSON error object to help you identify the issue immediately.</p>
+                                
+                                <p class="text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Standard Error Response Format</p>
+                                <pre class="mb-6"><code>{
+  "status": "error",
+  "code": "auth_token_expired",
+  "message": "The Aegis token provided has expired. Please refresh the session.",
+  "request_id": "req_8829910a-f9c2"
+}</code></pre>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">1 Authentication Errors 401 and 403</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">These errors are related to <strong>Aegis Auth</strong>. They occur when the identity of the requester cannot be verified or lacks permission.</p>
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full border border-gray-200 dark:border-neutral-800">
+                                        <thead class="bg-gray-50 dark:bg-neutral-800/30">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Status Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Error Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Meaning</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Recommended Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>401 Unauthorized</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>missing_token</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">No Authorization header found.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Ensure you send Authorization: Bearer &lt;token&gt; in your headers.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>401 Unauthorized</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>token_invalid</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">The token is malformed or forged.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">The token signature verification failed. Re authenticate the user to get a new valid token.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>403 Forbidden</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>insufficient_scope</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Valid user but wrong permissions.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">The user tried to access a resource that their Role RBAC does not allow. Check the user role in the Aegis dashboard.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">2 Request and Validation Errors 400 and 422</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">These errors happen when the data sent to <strong>LMLense</strong> or <strong>NSL</strong> is incorrect or unprocessable by our engines.</p>
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full border border-gray-200 dark:border-neutral-800">
+                                        <thead class="bg-gray-50 dark:bg-neutral-800/30">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Status Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Error Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Meaning</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Recommended Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>400 Bad Request</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>invalid_json</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Malformed JSON body.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Check your request syntax. Ensure all braces {} and quotes "" are closed properly.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>413 Payload Too Large</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>file_too_large</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">File exceeds the size limit.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">LMLense The file upload limit is 25MB. Compress the PDF or image before uploading.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>415 Unsupported Media</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>invalid_file_type</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">File format not supported.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">LMLense Ensure the file is a PDF JPG PNG or TIFF. ZIP files are not supported.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>422 Unprocessable</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>extraction_failed</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">AI could not read the document.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">LMLense The image might be too blurry corrupted or password protected. Retry with a clearer scan.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">3 Server and System Errors 500 Plus</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4">These indicate an issue on the <strong>Navchetna</strong> side.</p>
+                                <div class="overflow-x-auto mb-6">
+                                    <table class="min-w-full border border-gray-200 dark:border-neutral-800">
+                                        <thead class="bg-gray-50 dark:bg-neutral-800/30">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Status Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Error Code</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Meaning</th>
+                                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-900 dark:text-white">Recommended Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>429 Too Many Requests</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>rate_limit_exceeded</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">You are sending too many requests.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Slow down. Implement exponential backoff in your code. Check your plan limits.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><strong>500 Internal Error</strong></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400"><code>internal_server_error</code></td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Something went wrong on our end.</td>
+                                                <td class="px-4 py-2 text-sm text-gray-600 dark:text-neutral-400">Do not retry immediately. Check the Status Page or contact support with the request_id.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="border-l-4 pl-6 py-3 my-6 rounded-r-lg" style="border-color: rgb(245 158 11); background-color: rgb(245 158 11 / 0.05);">
+                                    <p class="text-sm font-medium uppercase tracking-wider mb-1" style="color: rgb(245 158 11);">Need Help</p>
+                                    <p class="text-gray-600 dark:text-neutral-400 mb-2">If you are stuck on an error not listed here please include the <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">request_id</code> in your support ticket. This ID allows our engineering team to trace the exact call in our logs.</p>
+                                    <ul class="list-disc pl-6 text-gray-600 dark:text-neutral-400 space-y-1">
+                                        <li><strong>Email Support:</strong> dev-support@navchetna.tech</li>
+                                        <li><strong>System Status:</strong> status.navchetna.tech</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightBtn = document.querySelector('button[aria-label="Light mode"]');
+            const systemBtn = document.querySelector('button[aria-label="System theme"]');
+            const darkBtn = document.querySelector('button[aria-label="Dark mode"]');
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.relative.flex.h-6');
+            themeToggle?.classList.add('theme-toggle');
+
+            function updateButtonStates(active) {
+                [lightBtn, systemBtn, darkBtn].forEach(btn => {
+                    btn?.classList.remove('text-neutral-900', 'dark:text-white');
+                    btn?.classList.add('text-neutral-500');
+                });
+                active?.classList.remove('text-neutral-500');
+                active?.classList.add('text-neutral-900', 'dark:text-white');
+            }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                themeToggle?.classList.remove('light', 'system', 'dark');
+                themeToggle?.classList.add(theme);
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    updateButtonStates(lightBtn);
+                } else if (theme === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    html.classList.toggle('dark', prefersDark);
+                    updateButtonStates(systemBtn);
+                } else {
+                    html.classList.add('dark');
+                    updateButtonStates(darkBtn);
+                }
+            }
+
+            lightBtn?.addEventListener('click', () => setTheme('light'));
+            systemBtn?.addEventListener('click', () => setTheme('system'));
+            darkBtn?.addEventListener('click', () => setTheme('dark'));
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            const sidebarCloseButton = document.querySelector('.lucide-panel-left')?.closest('button');
+            const sidebar = document.querySelector('aside.fixed');
+            sidebarCloseButton?.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // Add copy buttons to all code blocks
+            document.querySelectorAll('pre').forEach(pre => {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('class', 'copy-icon');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('stroke', 'currentColor');
+                svg.setAttribute('stroke-width', '2');
+                svg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+                
+                svg.addEventListener('click', () => {
+                    const code = pre.querySelector('code').textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        svg.classList.add('copied');
+                        svg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+                        setTimeout(() => {
+                            svg.classList.remove('copied');
+                            svg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+                        }, 2000);
+                    });
+                });
+                pre.appendChild(svg);
+            });
+        });
+    </script>
+</body>
+</html>

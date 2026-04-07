@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Navchetna</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp { animation: fadeInUp 0.4s ease; }
+    .animate-slideUp { animation: slideUp 0.4s ease; }
+    .animate-fadeInUp-delay-1 { animation: fadeInUp 0.6s ease 0.2s both; }
+    .animate-fadeInUp-delay-2 { animation: fadeInUp 0.6s ease 0.3s both; }
+    .animate-fadeInUp-delay-3 { animation: fadeInUp 0.6s ease 0.4s both; }
+
+    /* adjust main content for mobile scroll */
+    @media (max-height: 700px) {
+      .main-content { padding-bottom: 200px !important; }
+      .nav-controls { bottom: 160px !important; }
+      .footer-area { min-height: 160px; }
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-black">
+  <div class="relative w-full min-h-screen flex flex-col bg-white overflow-x-hidden">
+    <!-- Progress bar -->
+    <div class="absolute top-1 sm:top-2 left-0 w-full h-0.5 bg-black/10 z-50">
+      <div class="h-full bg-black w-1/5 transition-all duration-300" id="progressBar"></div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex-1 flex items-center justify-center px-3 sm:px-5 pt-6 sm:pt-10 pb-48 overflow-y-auto main-content">
+      <div class="bg-white w-full max-w-5xl text-center relative animate-fadeInUp rounded-b-2xl sm:rounded-b-3xl pb-8 sm:pb-12 z-10 mx-auto">
+        
+        <!-- Step 0: Welcome -->
+        <div class="tour-step block px-3 sm:px-6 lg:mt-16" id="step-0">
+          <h1 class="text-2xl sm:text-4xl lg:text-5xl font-semibold mb-3 sm:mb-4 -tracking-wide leading-tight animate-fadeInUp-delay-1">Discover Navchetna</h1>
+          <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 animate-fadeInUp-delay-2">From education to enterprise, we empower growth through technology, <br>creativity, and conscious innovation.</p>
+          <button class="bg-black text-white py-2 sm:py-3 px-4 sm:px-6 text-sm font-medium rounded-md cursor-pointer transition-all duration-200 inline-flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg animate-fadeInUp-delay-3" onclick="startTour()">
+            Start the tour <span class="transition-transform duration-200">→</span>
+          </button>
+        </div>
+
+        <!-- Step 1: Introduction -->
+        <div class="tour-step hidden animate-fadeInUp px-3 sm:px-6 lg:mt-16" id="step-1">
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 h-full">
+            <!-- Text content -->
+            <div class="flex-1 text-left">
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl mb-1 sm:mb-2 font-semibold">Navchetna as a<br>Service Provider.</h2>
+              <b class="text-lg sm:text-xl text-black mb-4 sm:mb-6">We are more than a product company.</b>
+              <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3 sm:mb-4">At Navchetna, we deliver complete IT solutions, from development to design, automation to branding, helping you grow smarter in the digital era.</p>
+              <a href="https://navchetna.tech/services" target="_blank" class="bg-black text-white py-2 sm:py-3 px-4 sm:px-6 text-sm font-medium rounded-md cursor-pointer transition-all duration-200 inline-flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg mt-4">
+                Try now <span class="transition-transform duration-200">→</span>
+              </a>
+            </div>
+            
+            <!-- Image -->
+            <div class="flex-1 flex justify-center items-end">
+              <img src="../assets/nav.svg" alt="Zeytal interface" class="max-w-full h-auto">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Installation -->
+        <div class="tour-step hidden animate-fadeInUp px-3 sm:px-6 lg:mt-16" id="step-2">
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 h-full">
+            <!-- Text content -->
+            <div class="flex-1 text-left">
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl mb-1 sm:mb-2 font-semibold">Meet Osmium.</h2>
+              <b class="text-lg sm:text-xl text-black mb-4 sm:mb-6">The AI Mentor Tailored for you.</b>
+              <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3 sm:mb-4">From code to chemistry Osmium finds what works best for you and helps you master it.</p>
+              <a href="https://osmium.co.in" target="_blank" class="bg-black text-white py-2 sm:py-3 px-4 sm:px-6 text-sm font-medium rounded-md cursor-pointer transition-all duration-200 inline-flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg mt-4">
+                Try now <span class="transition-transform duration-200">→</span>
+              </a>
+            </div>
+            
+            <!-- Osmium image -->
+            <div class="flex-1 flex justify-center items-end">
+              <img src="../assets/osmium.png" alt="Osmium app" class="max-w-full h-auto">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Connect Figma -->
+        <div class="tour-step hidden animate-fadeInUp px-3 sm:px-6 lg:mt-16" id="step-3">
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <!-- Text content -->
+            <div class="flex-1 text-left">
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl mb-1 sm:mb-2 font-semibold animate-fadeInUp">Explore Natraj.</h2>
+              <b class="text-lg sm:text-xl text-black mb-4 sm:mb-6">An AR anatomy learning app.</b>
+              <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3 sm:mb-4">See bones overlaid on the human body, tap to learn, ask questions, and test yourself with quizzes.</p>
+              <a href="https://natraj.navchetna.tech" target="_blank" class="bg-black text-white py-2 sm:py-3 px-4 sm:px-6 text-sm font-medium rounded-md cursor-pointer transition-all duration-200 inline-flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg mt-4">
+                Try now <span class="transition-transform duration-200">→</span>
+              </a>
+            </div>
+            
+            <!-- Natraj image -->
+            <div class="flex-1 flex justify-center items-center">
+              <img src="../assets/natraj.png" alt="Natraj AR anatomy app" class="max-w-full h-auto">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Try Aegis auth -->
+        <div class="tour-step hidden animate-fadeInUp px-3 sm:px-6 lg:mt-16" id="step-4">
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <!-- Text content -->
+            <div class="flex-1 text-left">
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl mb-1 sm:mb-2 font-semibold">Try Aegis auth.</h2>
+              <b class="text-lg sm:text-xl text-black mb-4 sm:mb-6">One platform. Endless possibilities.</b>
+              <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3 sm:mb-4">Aegis auth is an AI platform that can write, code, create, and automate workflows - bringing all your tasks together in one place.</p>
+              <a href="https://Aegis auth.com" target="_blank" class="bg-black text-white py-2 sm:py-3 px-4 sm:px-6 text-sm font-medium rounded-md cursor-pointer transition-all duration-200 inline-flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg mt-4">
+                Try now <span class="transition-transform duration-200">→</span>
+              </a>
+            </div>
+            
+            <!-- Aegis auth image -->
+            <div class="flex-1 flex justify-center items-center">
+              <img src="../assets/Aegis authss.jpeg" alt="Aegis auth AI platform" class="max-w-full h-auto">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Success -->
+        <div class="tour-step hidden animate-fadeInUp px-3 sm:px-6 lg:mt-16" id="step-5">
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4 font-semibold">That's the tour.</h2>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3 sm:mb-4">You've seen what Navchetna builds.<br>Now explore our products and services to experience the future of AI and technology.</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="fixed bottom-24 sm:bottom-44 left-1/2 transform -translate-x-1/2 flex flex-wrap items-center gap-2 sm:gap-6 bg-white/95 backdrop-blur-sm px-3 sm:px-5 py-2 rounded-xl sm:rounded-2xl border border-black/10 shadow-lg transition-all duration-300 z-50 hidden nav-controls" id="navControls">
+          <button class="flex-shrink-0 bg-none border-none text-xs sm:text-sm text-gray-600 cursor-pointer font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl transition-all duration-200 hover:text-black hover:bg-black/5 hover:-translate-y-0.5 disabled:opacity-30 disabled:cursor-not-allowed" onclick="previousStep()" id="backBtn" disabled>← Back</button>
+          <span class="text-xs sm:text-sm text-gray-600 px-1" id="stepIndicator">1 / 5</span>
+          <button class="flex-shrink-0 bg-none border-none text-xs sm:text-sm text-gray-600 cursor-pointer font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl transition-all duration-200 hover:text-black hover:bg-black/5 hover:-translate-y-0.5" onclick="nextStep()" id="nextBtn">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-black flex items-center justify-center px-3 sm:px-5 mt-auto min-h-[160px] sm:min-h-[200px] footer-area">
+      <div class="flex flex-wrap gap-2 sm:gap-3 animate-slideUp hidden justify-center" id="bottomControls">
+        <a class="bg-transparent border border-white/30 text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md cursor-pointer text-xs sm:text-sm font-medium flex items-center gap-1 transition-all duration-200 hover:bg-white/10 hover:border-white/60 hover:-translate-y-0.5" href="/">← Home</a>
+        <button class="bg-transparent border border-white/30 text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md cursor-pointer text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/60 hover:-translate-y-0.5" onclick="restartTour()">Restart</button>
+        <button class="bg-transparent border border-white/30 text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md cursor-pointer text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/60 hover:-translate-y-0.5" onclick="skipTour()">Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 0;
+    const totalSteps = 5;
+    let autoAdvanceTimer;
+
+    function updateProgress() {
+      const progress = ((currentStep + 1) / (totalSteps + 1)) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function updateStepIndicator() {
+      document.getElementById('stepIndicator').textContent = `${currentStep} / ${totalSteps}`;
+    }
+
+    function clearAutoAdvance() {
+      if (autoAdvanceTimer) {
+        clearTimeout(autoAdvanceTimer);
+        autoAdvanceTimer = null;
+      }
+    }
+
+    function setAutoAdvance() {
+      clearAutoAdvance();
+      if (currentStep > 0 && currentStep < totalSteps) {
+        autoAdvanceTimer = setTimeout(() => {
+          nextStep();
+        }, 6000);
+      }
+    }
+
+    function showStep(stepNumber) {
+      document.querySelectorAll('.tour-step').forEach(step => {
+        step.classList.add('hidden');
+        step.classList.remove('block');
+      });
+      document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+      document.getElementById(`step-${stepNumber}`).classList.add('block');
+      
+      const backBtn = document.getElementById('backBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      backBtn.disabled = stepNumber <= 1;
+      nextBtn.textContent = stepNumber >= totalSteps ? 'Finish' : 'Next →';
+      
+      updateProgress();
+      updateStepIndicator();
+      setAutoAdvance();
+    }
+
+    function startTour() {
+      currentStep = 1;
+      showStep(currentStep);
+      document.getElementById('navControls').classList.remove('hidden');
+      document.getElementById('bottomControls').classList.remove('hidden');
+    }
+
+    function nextStep() {
+      clearAutoAdvance();
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        finishTour();
+      }
+    }
+
+    function previousStep() {
+      clearAutoAdvance();
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    function restartTour() {
+      clearAutoAdvance();
+      currentStep = 0;
+      showStep(0);
+      document.getElementById('navControls').classList.add('hidden');
+      document.getElementById('bottomControls').classList.add('hidden');
+    }
+
+    function skipTour() {
+      clearAutoAdvance();
+      finishTour();
+    }
+
+    function finishTour() {
+      clearAutoAdvance();
+      window.location.href = '/';
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (currentStep === 0) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextStep(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); previousStep(); }
+      else if (e.key === 'Escape') { e.preventDefault(); restartTour(); }
+    });
+  </script>
+</body>
+</html>

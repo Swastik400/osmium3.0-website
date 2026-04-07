@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services - NAVCHETNA</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Image Preloader -->
+    <script src="/assets/js/imagePreloader.js"></script>
+    <style>
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes slideInBlur {
+            0% {
+                opacity: 0;
+                transform: translateY(32px);
+                filter: blur(4px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(3px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .scroll-fade-delay {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-fade-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .scroll-fade-delay-3 {
+            transition-delay: 0.6s;
+        }
+        /* Black & White Theme Override */
+        .text-cyan-300, .text-cyan-400, .text-emerald-300, .text-emerald-400,
+        .text-indigo-300, .text-indigo-400, .text-violet-300, .text-violet-400,
+        .text-blue-300, .text-blue-400, .text-green-300, .text-green-400,
+        .text-orange-300, .text-orange-400, .text-purple-300, .text-purple-400,
+        .text-pink-300, .text-pink-400, .text-teal-300, .text-teal-400,
+        .text-yellow-300, .text-yellow-400 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .from-emerald-400\/30, .to-emerald-400\/0, .from-purple-400\/30, .to-purple-400\/0,
+        .from-cyan-400\/30, .to-cyan-400\/0, .from-pink-400\/30, .to-pink-400\/0,
+        .from-orange-400\/30, .to-orange-400\/0, .from-yellow-400\/30, .to-yellow-400\/0,
+        .from-indigo-400\/30, .to-indigo-400\/0, .from-red-400\/30, .to-red-400\/0,
+        .from-green-400\/30, .to-green-400\/0, .from-teal-400\/30, .to-teal-400\/0,
+        .from-violet-400\/30, .to-violet-400\/0, .from-rose-400\/30, .to-rose-400\/0,
+        .from-blue-400\/30, .to-blue-400\/10, .from-blue-400\/40, .to-blue-400\/10 {
+            --tw-gradient-from: rgba(255, 255, 255, 0.1) !important;
+            --tw-gradient-to: rgba(255, 255, 255, 0) !important;
+        }
+        .from-neutral-500\/20, .to-neutral-600\/20 {
+            --tw-gradient-from: rgba(255, 255, 255, 0.05) !important;
+            --tw-gradient-to: rgba(255, 255, 255, 0.05) !important;
+        }
+        .border-blue-400\/30 {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .ring-blue-400\/20, .ring-neutral-500\/30, .ring-neutral-400\/40 {
+            --tw-ring-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .bg-neutral-500\/20, .bg-neutral-400\/20 {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+        .bg-neutral-400 {
+            background-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .shadow-\[0_0_0_3px_rgba\(255\,255\,255\,0\.15\)\] {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15) !important;
+        }
+        /* Override all hover gradient colors to gray */
+        .service-card:hover {
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-neutral-500/30 selection:text-neutral-200 text-white bg-black">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900/50 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/20 to-neutral-950"></div>
+        <div class="pointer-events-none absolute inset-0" style="background-image:url('https://uploads-ssl.webflow.com/5f6d66c5f1e4a5f0c1b3b1a1/63a4d9b4b4c7d418f9ed2c73_noise.png'); opacity: 0.3;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 inset-x-0 z-40 transition animate-[slideInBlur_0.8s_ease-out_0.2s_forwards] bg-neutral-950/40 border-white/10 border-b blur-sm backdrop-blur translate-y-[-20px]">
+        <div class="w-full">
+            <div class="supports-[backdrop-filter]:bg-neutral-900/30 border-0 rounded-none pt-4 backdrop-blur-none">
+                <div class="flex sm:px-6 pt-0 pr-4 pb-3 pl-4 items-center justify-between">
+                    <div class="flex items-center gap-8">
+                        <a href="/" class="flex items-center gap-2">
+                            <img src="/assets/logo.svg" alt="Logo" class="h-6 w-auto filter brightness-0 invert">
+                        </a>
+                        <nav class="hidden md:flex gap-8 flex sm:px-6 rounded-full pt-3 pr-4 pb-3 pl-4 items-center justify-center">
+                            <a class="transition hover:text-neutral-100 text-sm font-normal text-neutral-300/80" href="/about">About</a>
+                            <a class="text-sm font-normal transition text-neutral-100 hover:text-neutral-100" href="/services">Services</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/products">Products</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/career">Career</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/news">News</a>
+                        </nav>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <a href="/contact" class="hidden sm:inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                            </svg>
+                            Contact Us
+                        </a>
+                        <button id="mobile-menu-btn" class="inline-flex md:hidden items-center justify-center h-9 w-9 rounded-full border border-white/10 bg-neutral-900/60 hover:bg-neutral-800/60">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-neutral-200">
+                                <path d="M4 5h16"></path>
+                                <path d="M4 12h16"></path>
+                                <path d="M4 19h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-[72px] z-30 bg-neutral-950/95 backdrop-blur-lg border-b border-white/10">
+            <nav class="px-4 py-6 space-y-4">
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/about">About</a>
+                <a class="block text-sm font-normal text-neutral-100 hover:text-neutral-100 transition py-2" href="/services">Services</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/products">Products</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/career">Career</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/news">News</a>
+                <a href="/contact" class="inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60 mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Contact Us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative">
+        <section class="max-w-7xl sm:pt-44 md:pt-48 md:pb-32 mr-auto ml-auto pt-40 pr-6 pb-24 pl-6">
+            <div class="flex flex-col text-center space-y-6 items-center">
+                <div class="mb-6 opacity-0 translate-y-4 blur-sm animate-[slideInBlur_0.8s_ease-out_0.8s_forwards]">
+                    <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] border-white/10 bg-neutral-900/50 text-neutral-300">
+                        <span class="h-1.5 w-1.5 rounded-full shadow-[0_0_0_3px_rgba(255,255,255,0.15)] bg-white"></span>
+                        Comprehensive Solutions
+                    </span>
+                </div>
+
+                <h1 class="max-w-4xl text-5xl md:text-7xl font-light tracking-tighter leading-[0.9] text-white opacity-0 translate-y-8 blur-sm animate-[slideInBlur_1s_ease-out_1s_forwards]" style="font-family: 'Space Grotesk', sans-serif;">
+                    <span class="block">Intelligent Services for</span>
+                    <span class="block">Every Challenge</span>
+                </h1>
+
+                <p class="max-w-2xl sm:text-lg animate-[slideInBlur_0.8s_ease-out_1.2s_forwards] text-base text-neutral-300/80 opacity-0 mt-6 blur-sm translate-y-6">
+                    From AI development to digital transformation, we deliver cutting-edge solutions that drive growth and innovation across industries.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Services Grid -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="flex mt-6 mb-12 items-center justify-center scroll-fade">
+            <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-neutral-300">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                Our Services
+            </span>
+        </div>
+
+        <div class="max-w-3xl scroll-fade scroll-fade-delay text-center mr-auto ml-auto mb-16">
+            <h2 class="md:text-6xl text-4xl font-light tracking-tighter leading-[0.9] text-slate-50" style="font-family: 'Space Grotesk', sans-serif;">
+                Comprehensive Solutions
+            </h2>
+            <p class="md:text-lg text-base text-slate-400 mt-4">Click on any service to explore our detailed offerings and capabilities.</p>
+        </div>
+
+        <!-- Featured Service -->
+        <div class="mb-12">
+            <article class="scroll-fade group relative overflow-hidden bg-gradient-to-br from-neutral-500/20 to-neutral-600/20 border-blue-400/30 border-2 rounded-3xl p-8 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-blue-400/40 hover:to-blue-400/10 cursor-pointer service-card ring-1 ring-blue-400/20" data-service="Project Management & Operations" data-description="End-to-end project planning, Agile methodologies, team management, risk analysis, and business process optimization">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 16px 16px;"></div>
+                <div class="flex items-start justify-between mb-6">
+                    <div class="relative flex w-14 h-14 ring-2 ring-neutral-400/40 bg-neutral-500/20 rounded-2xl shadow-xl items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256" class="text-neutral-300"><path d="M240,104H229.2L201.42,41.5A16,16,0,0,0,186.8,32H69.2a16,16,0,0,0-14.62,9.5L26.8,104H16a8,8,0,0,0,0,16h8v80a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16v-8h96v8a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V120h8a8,8,0,0,0,0-16ZM69.2,48H186.8l24.89,56H44.31ZM64,200H40V184H64Zm128,0V184h24v16Zm24-32H40V120H216ZM56,144a8,8,0,0,1,8-8H80a8,8,0,0,1,0,16H64A8,8,0,0,1,56,144Zm112,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,144Z"></path></svg>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 bg-neutral-400/20 text-neutral-300 rounded-full text-xs font-medium uppercase tracking-wider">Core Service</span>
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-400/20 ring-1 ring-neutral-400/30 text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                <path d="M7 7h10v10"></path>
+                                <path d="M7 17 17 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white mb-2" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Project Management & Operations</h3>
+                    <p class="text-neutral-300/80 font-medium mb-4">End-to-End Excellence</p>
+                    <p class="text-base text-white/80 leading-relaxed mb-6">
+                        Comprehensive project planning and execution using Agile, Scrum, and Kanban methodologies. Expert team and resource management with strategic operations optimization, risk analysis, and performance monitoring.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center gap-2 text-neutral-200/80">
+                            <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full"></div>
+                            Agile & Scrum Methodologies
+                        </div>
+                        <div class="flex items-center gap-2 text-neutral-200/80">
+                            <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full"></div>
+                            Risk Analysis & Mitigation
+                        </div>
+                        <div class="flex items-center gap-2 text-neutral-200/80">
+                            <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full"></div>
+                            Team & Resource Management
+                        </div>
+                        <div class="flex items-center gap-2 text-neutral-200/80">
+                            <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full"></div>
+                            Performance Monitoring
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Software & Application Development -->
+            <article class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-emerald-400/30 hover:to-emerald-400/0 cursor-pointer service-card" data-service="Software & Application Development" data-description="Android/iOS apps, web development, cross-platform solutions, desktop software, games, ERP/CRM, and custom OS development">
+
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Software Development</h3>
+                    <p class="text-sm text-white/60 mt-1">Full-Stack Solutions</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Mobile apps, web platforms, desktop software, games, and enterprise solutions.
+                    </p>
+                </div>
+            </article>
+
+            <!-- AI & Machine Learning -->
+            <article class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-purple-400/30 hover:to-purple-400/0 cursor-pointer service-card" data-service="Artificial Intelligence & Machine Learning" data-description="LLMs development, recommendation systems, AI automation, NLP, computer vision, and generative AI solutions">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a8,8,0,0,1,0-16h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4a8,8,0,0,1,0,16Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">AI & Machine Learning</h3>
+                    <p class="text-sm text-white/60 mt-1">Intelligence Systems</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        LLMs, computer vision, NLP, generative AI, and intelligent automation systems.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Cloud, DevOps & Infrastructure -->
+            <article class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-cyan-400/30 hover:to-cyan-400/0 cursor-pointer service-card" data-service="Cloud, DevOps & Infrastructure" data-description="Cloud development, IoT integration, server maintenance, CI/CD pipelines, cloud migration, and data center solutions">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M160,40a88.09,88.09,0,0,0-78.71,48.67A64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Cloud & Infrastructure</h3>
+                    <p class="text-sm text-white/60 mt-1">Scalable Systems</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        AWS/Azure/GCP, IoT development, DevOps automation, and hybrid cloud solutions.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Design & Branding -->
+            <article class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-pink-400/30 hover:to-pink-400/0 cursor-pointer service-card" data-service="Design & Branding" data-description="UI/UX design, logo creation, branding identity, motion graphics, and comprehensive visual design solutions">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M200.77,53.89A103.27,103.27,0,0,0,128,24h-1.07A104,104,0,0,0,24,128c0,43,26.58,79.06,69.36,94.17A32,32,0,0,0,136,192a8,8,0,0,0-16,0,16,16,0,0,1-32,0c0-5.42,4.09-10.68,11.16-14.42A8,8,0,0,0,96,162.16,24,24,0,0,1,109.26,136h37.48A24,24,0,0,1,160,162.16a8,8,0,0,0-3.16,15.42C164.91,181.32,169,186.58,169,192a16,16,0,0,1-32,0,8,8,0,0,0-16,0,32,32,0,0,0,63,5.53,115.11,115.11,0,0,0,26.36-7.76A104,104,0,0,0,200.77,53.89ZM128,40a88,88,0,0,1,87.93,86.4,8,8,0,0,0-3.24,1.39C206.28,132.12,203.29,136,200,136s-6.28-3.88-12.69-8.21a35.38,35.38,0,0,0-38.62,0C142.28,132.12,139.29,136,136,136s-6.28-3.88-12.69-8.21a35.38,35.38,0,0,0-38.62,0C78.28,132.12,75.29,136,72,136s-6.28-3.88-12.69-8.21a35.38,35.38,0,0,0-38.62,0A8,8,0,0,0,16,126.4,88,88,0,0,1,128,40Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Design & Branding</h3>
+                    <p class="text-sm text-white/60 mt-1">Visual Identity</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        UI/UX design, logos, branding identity, motion graphics, and visual communications.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Marketing & Outreach -->
+            <article class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-orange-400/30 hover:to-orange-400/0 cursor-pointer service-card" data-service="Marketing & Outreach" data-description="Digital marketing, SEO/SEM, social media marketing, email campaigns, influencer marketing, and analytics strategy">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M228.54,86.66l-176.06-54A16,16,0,0,0,32,48V192a16,16,0,0,0,16,16,16,16,0,0,0,4.52-.65L136,181.73V192a16,16,0,0,0,16,16h32a16,16,0,0,0,16-16v-29.9l28.54-8.75A16.09,16.09,0,0,0,240,138V102A16.09,16.09,0,0,0,228.54,86.66ZM136,165,48,192V48l88,27Zm48,27H152V176.82L184,167Zm40-54-40,12.27V103.72L224,91.91Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Marketing & Outreach</h3>
+                    <p class="text-sm text-white/60 mt-1">Growth Strategy</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Digital marketing, SEO/SEM, social media, email campaigns, and analytics.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Content & Media Creation -->
+            <article class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-yellow-400/30 hover:to-yellow-400/0 cursor-pointer service-card" data-service="Content & Media Creation" data-description="Video production, content writing, video editing, podcast production, and comprehensive media creation services">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M232,80v96a16,16,0,0,1-16,16H147.88L101,229.33A15.86,15.86,0,0,1,90.67,232H88a16,16,0,0,1-16-16V192H40a16,16,0,0,1-16-16V80A16,16,0,0,1,40,64H216A16,16,0,0,1,232,80Zm-16,96V80H40v96H72a8,8,0,0,1,8,8v24.1l42.67-32a8,8,0,0,1,4.8-1.6H216Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Content & Media</h3>
+                    <p class="text-sm text-white/60 mt-1">Creative Production</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Video production, content writing, editing, and podcast creation services.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Research & Consulting -->
+            <article class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-indigo-400/30 hover:to-indigo-400/0 cursor-pointer service-card" data-service="Research, Strategy & Consulting" data-description="Technical research, business strategy consulting, feasibility studies, market research, and technology consulting">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M164.47,195.63a8,8,0,0,1-6.7,12.37H10.23a8,8,0,0,1-6.7-12.37l78.77-120a8,8,0,0,1,13.4,0Zm87.91-.15-41.67-96a8,8,0,0,0-14.7,0l-41.67,96a8,8,0,0,0,14.7,6.38L179.39,184h41.22l10.35,23.85A8,8,0,0,0,238.38,195.48ZM187.72,168,200,139.88,212.28,168ZM80,144a8,8,0,0,0,8-8V80a8,8,0,0,0-16,0v56A8,8,0,0,0,80,144Zm24,0a8,8,0,0,0,8-8V96a8,8,0,0,0-16,0v40A8,8,0,0,0,104,144Zm24,0a8,8,0,0,0,8-8V112a8,8,0,0,0-16,0v24A8,8,0,0,0,128,144Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Research & Consulting</h3>
+                    <p class="text-sm text-white/60 mt-1">Strategic Guidance</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Business strategy, market research, feasibility studies, and technology consulting.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Legal & Compliance -->
+            <article class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-red-400/30 hover:to-red-400/0 cursor-pointer service-card" data-service="Legal & Compliance Services" data-description="IT contract drafting, IP protection, licensing compliance, corporate documentation, and legal tech solutions">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,136a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h32A8,8,0,0,1,128,136Zm40-8H152a8,8,0,0,0,0,16h16a8,8,0,0,0,0-16Zm-24,32H136a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Zm64-96H176V56a24,24,0,0,0-24-24H104A24,24,0,0,0,80,56v8H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V80A16,16,0,0,0,208,64ZM96,56a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM208,208H48V80H208V208Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Legal & Compliance</h3>
+                    <p class="text-sm text-white/60 mt-1">Risk Management</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Contract drafting, IP protection, compliance management, and legal tech solutions.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Cybersecurity & Data Protection -->
+            <article class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-green-400/30 hover:to-green-400/0 cursor-pointer service-card" data-service="Cybersecurity & Data Protection" data-description="Penetration testing, security audits, network security, data protection, and SOC services">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a8,8,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.91-13.53-5.19-80-31.09-80-109.91V56H208Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Cybersecurity</h3>
+                    <p class="text-sm text-white/60 mt-1">Security Solutions</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Penetration testing, security audits, network protection, and SOC services.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Emerging Tech Development -->
+            <article class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-teal-400/30 hover:to-teal-400/0 cursor-pointer service-card" data-service="Emerging Tech Development" data-description="Blockchain development, AR/VR solutions, robotics, embedded systems, and quantum computing research">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M152,224a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,224Zm70.88-102.4-32-80A8,8,0,0,0,183.42,37l-32,80A8,8,0,0,0,158.88,122.4ZM128,152a8,8,0,0,0-7.42,5l-32,80a8,8,0,0,0,14.84,5.92l32-80A8,8,0,0,0,128,152Zm-24-40a8,8,0,0,0,7.42-5l32-80a8,8,0,0,0-14.84-5.92l-32,80A8,8,0,0,0,104,112Zm120,40a8,8,0,0,0-7.42,5l-32,80a8,8,0,0,0,14.84,5.92l32-80A8,8,0,0,0,224,152ZM80,112a8,8,0,0,0,7.42-5l32-80a8,8,0,0,0-14.84-5.92l-32,80A8,8,0,0,0,80,112Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Emerging Technologies</h3>
+                    <p class="text-sm text-white/60 mt-1">Future Innovation</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Blockchain, AR/VR, robotics, embedded systems, and quantum computing.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Enterprise Services -->
+            <article class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-violet-400/30 hover:to-violet-400/0 cursor-pointer service-card" data-service="Enterprise Services" data-description="IT outsourcing, SaaS development, ERP/CRM systems, and HR tech solutions for enterprise organizations">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H164a4,4,0,0,1-4-4V48a16,16,0,0,0-16-16H112A16,16,0,0,0,96,48V80a4,4,0,0,1-4,4H48A16,16,0,0,0,32,100V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM112,48h32V208H112ZM48,100H92a4,4,0,0,1,4,4V208H48Zm160,108H160V96h48Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Enterprise Services</h3>
+                    <p class="text-sm text-white/60 mt-1">Business Solutions</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        IT outsourcing, SaaS development, ERP/CRM systems, and HR tech solutions.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Game Development -->
+            <article class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-rose-400/30 hover:to-rose-400/0 cursor-pointer service-card" data-service="Game Development" data-description="Mobile games, PC games, web games, AR/VR gaming experiences, and interactive entertainment solutions">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="flex items-start justify-between">
+                    <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M176,112H152a8,8,0,0,1,0-16h24a8,8,0,0,1,0,16ZM104,96H96V88a8,8,0,0,0-16,0v8H72a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0v-8h8a8,8,0,0,0,0-16ZM241.48,200.65a36,36,0,0,1-54.94,4.81c-.12-.12-.24-.24-.35-.37L146.48,160h-37L69.81,205.09l-.35.37A36.08,36.08,0,0,1,44,216,36,36,0,0,1,8.56,173.75a.68.68,0,0,1,0-.14L24.93,89.52A59.88,59.88,0,0,1,83.89,40H172a60.08,60.08,0,0,1,59,49.25c0,.06,0,.12,0,.18l16.37,84.17a.68.68,0,0,1,0,.14A35.74,35.74,0,0,1,241.48,200.65ZM172,144a44,44,0,0,0,0-88H83.89A43.9,43.9,0,0,0,40.68,92.37l0,.13L24.3,176.59A20,20,0,0,0,58,194.3l41.92-47.59a8,8,0,0,1,6-2.71Zm59.7,32.59-8.74-45A60,60,0,0,1,172,160h-4.2L198,194.31a20.09,20.09,0,0,0,17.46,5.39,20,20,0,0,0,16.23-23.11Z"></path></svg>
+                    </div>
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 ring-1 ring-white/10 text-white/70">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-lg md:text-2xl tracking-tight uppercase leading-[1.2] font-light text-white">Game Development</h3>
+                    <p class="text-sm text-white/60 mt-1">Interactive Entertainment</p>
+                    <p class="mt-3 text-sm text-white/70">
+                        Mobile, PC, and web games with AR/VR experiences and interactive entertainment solutions.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+
+    </section>
+
+    <!-- Process Section -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="flex mt-6 mb-6 items-center justify-center scroll-fade">
+            <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-neutral-300">
+                    <circle cx="12" cy="4.5" r="2.5"></circle>
+                    <path d="m10.2 6.3-3.9 3.9"></path>
+                    <circle cx="4.5" cy="12" r="2.5"></circle>
+                    <path d="M7 12h10"></path>
+                    <circle cx="19.5" cy="12" r="2.5"></circle>
+                    <path d="m13.8 17.7 3.9-3.9"></path>
+                    <circle cx="12" cy="19.5" r="2.5"></circle>
+                </svg>
+                Our Process
+            </span>
+        </div>
+
+        <div class="max-w-3xl scroll-fade scroll-fade-delay text-center mr-auto ml-auto">
+            <h2 class="md:text-6xl text-4xl font-light tracking-tighter leading-[0.9] text-slate-50">
+                How We Deliver
+            </h2>
+            <p class="md:text-lg text-base text-slate-400 mt-4">From discovery to deployment, our proven methodology ensures successful project outcomes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+            <div class="scroll-fade text-center">
+                <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/20 flex items-center justify-center ring-1 ring-neutral-500/30 mb-4">
+                    <span class="text-2xl font-bold text-neutral-300">1</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Plan</h3>
+                <p class="text-sm text-neutral-400">We discuss your vision, research market needs, and create a comprehensive project roadmap.</p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay text-center">
+                <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/20 flex items-center justify-center ring-1 ring-neutral-500/30 mb-4">
+                    <span class="text-2xl font-bold text-neutral-300">2</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Strategy</h3>
+                <p class="text-sm text-neutral-400">Crafting a tailored solution strategy with clear milestones and deliverables.</p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay-2 text-center">
+                <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/20 flex items-center justify-center ring-1 ring-neutral-500/30 mb-4">
+                    <span class="text-2xl font-bold text-neutral-300">3</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Development</h3>
+                <p class="text-sm text-neutral-400">Building your solution with agile methodology and continuous feedback loops.</p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay-3 text-center">
+                <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/20 flex items-center justify-center ring-1 ring-neutral-500/30 mb-4">
+                    <span class="text-2xl font-bold text-neutral-300">4</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Deployment</h3>
+                <p class="text-sm text-neutral-400">Launching your solution with ongoing support and optimization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="relative scroll-fade pt-20">
+            <div class="flex items-center justify-center">
+                <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full px-3 py-1 text-slate-300/80 bg-white/5 border-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-neutral-300">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Ready to Start?
+                </span>
+            </div>
+
+            <div class="max-w-3xl text-center mx-auto mt-6 scroll-fade scroll-fade-delay">
+                <h2 class="md:text-6xl text-4xl font-light tracking-tighter leading-[0.9] text-slate-50">Let's Build Something</h2>
+                <h2 class="text-3xl md:text-5xl font-light tracking-tighter leading-[0.9] text-slate-50 mt-1">
+                    Amazing Together
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-slate-400">
+                    Ready to transform your business with cutting-edge technology? Let's discuss your project.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 scroll-fade scroll-fade-delay-2">
+                    <a href="/contact" class="inline-flex items-center gap-2 rounded-xl border px-6 py-3 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                            <path d="M8 2v4"></path>
+                            <path d="M16 2v4"></path>
+                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                            <path d="M3 10h18"></path>
+                        </svg>
+                        Schedule Consultation
+                    </a>
+                    <a href="/products" class="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition">
+                        View Our Products
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                            <path d="M5 12h14"></path>
+                            <path d="M13 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Contact Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-black/20 backdrop-blur-2xl border border-white/10 rounded-2xl p-8">
+                <button id="close-service-modal" class="absolute top-4 right-4 text-neutral-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-slate-100 mb-2">Get Quote for <span id="service-title"></span></h2>
+                <p class="text-neutral-400 mb-6" id="service-description"></p>
+                
+                <form id="service-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-neutral-300 mb-2">Full Name</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all placeholder-neutral-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all placeholder-neutral-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-neutral-300 mb-2">Phone</label>
+                            <input type="tel" required class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all placeholder-neutral-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-neutral-300 mb-2">Company</label>
+                            <input type="text" class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all placeholder-neutral-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-neutral-300 mb-2">Service Required</label>
+                        <input type="text" id="service-input" readonly class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-neutral-300 mb-2">Project Details</label>
+                        <textarea rows="4" placeholder="Tell us about your project requirements..." class="w-full px-4 py-3 border border-white/10 bg-black/20 backdrop-blur-sm text-neutral-100 rounded-lg focus:ring-2 focus:ring-white/20 focus:border-white/30 transition-all resize-none placeholder-neutral-500"></textarea>
+                    </div>
+                    <div class="flex gap-4">
+                        <button type="button" id="cancel-service" class="flex-1 px-6 py-3 border border-white/20 text-neutral-300 rounded-lg hover:bg-white/10 transition-all">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all px-6 py-3">
+                            Send Inquiry
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pt-10 pr-4 pb-10 pl-4 scroll-fade">
+        <div class="relative">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10"></div>
+        </div>
+        
+        <div class="flex gap-4 flex-wrap items-center justify-between">
+            <a href="/" class="inline-flex items-center gap-2">
+                <img class="h-6 tracking-tight" src="/assets/NAVCHETNA.svg" alt="NAVCHETNA">
+            </a>
+
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect width="4" height="12" x="2" y="9"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <nav class="flex flex-wrap gap-6 text-sm text-slate-400 mt-6">
+            <a href="/about" class="hover:text-slate-200 transition">About</a>
+            <a href="/services" class="hover:text-slate-200 transition">Services</a>
+            <a href="/products" class="hover:text-slate-200 transition">Products</a>
+            <a href="/career" class="hover:text-slate-200 transition">Career</a>
+            <a href="/news" class="hover:text-slate-200 transition">News</a>
+            <a href="/contact" class="hover:text-slate-200 transition">Contact</a>
+            <a href="/privacy/" class="hover:text-slate-200 transition">Privacy</a>
+            <a href="/terms/" class="hover:text-slate-200 transition">Terms</a>
+        </nav>
+
+        <div class="mt-8 flex items-center justify-between text-xs text-slate-500 flex-wrap gap-4">
+            <span>� 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</span>
+            <a href="https://nineone152.com">Co-Brand with NINEONE15�</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => preloader.remove(), 500);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-fade elements
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Service card interactions
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const serviceName = this.dataset.service;
+                const serviceDescription = this.dataset.description;
+                
+                document.getElementById('service-title').textContent = serviceName;
+                document.getElementById('service-description').textContent = serviceDescription;
+                document.getElementById('service-input').value = serviceName;
+                document.getElementById('service-modal').classList.remove('hidden');
+            });
+        });
+
+        // Modal controls
+        document.getElementById('close-service-modal').addEventListener('click', function() {
+            document.getElementById('service-modal').classList.add('hidden');
+        });
+
+        document.getElementById('cancel-service').addEventListener('click', function() {
+            document.getElementById('service-modal').classList.add('hidden');
+        });
+
+        // Close modal on outside click
+        document.getElementById('service-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Form submission
+        document.getElementById('service-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will get back to you soon.');
+            document.getElementById('service-modal').classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>

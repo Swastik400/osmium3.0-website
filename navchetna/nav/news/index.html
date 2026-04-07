@@ -1,0 +1,1169 @@
+<html lang="en" class="" style="--syntax-bg: rgb(23, 23, 23); --syntax-color: rgb(245, 245, 245); scroll-behavior: smooth;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Navchetna</title>
+
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" crossorigin="" href="/assets/css/styles.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .ph {
+            display: inline-block;
+            font-size: 1em;
+            line-height: 1;
+        }
+        .h-4.w-4.ph {
+            width: 1rem;
+            height: 1rem;
+            font-size: 1rem;
+        }
+    </style>
+    <style>
+        .theme-toggle.light .absolute {
+            transform: translateX(-1px) !important;
+        }
+
+        .theme-toggle.system .absolute {
+            transform: translateX(12px) !important;
+        }
+
+        .theme-toggle.dark .absolute {
+            transform: translateX(25px) !important;
+        }
+    </style>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <style type="text/css">
+        :where(html[dir="ltr"]),
+        :where([data-sonner-toaster][dir="ltr"]) {
+            --toast-icon-margin-start: -3px;
+            --toast-icon-margin-end: 4px;
+            --toast-svg-margin-start: -1px;
+            --toast-svg-margin-end: 0px;
+            --toast-button-margin-start: auto;
+            --toast-button-margin-end: 0;
+            --toast-close-button-start: 0;
+            --toast-close-button-end: unset;
+            --toast-close-button-transform: translate(-35%, -35%)
+        }
+
+        :where(html[dir="rtl"]),
+        :where([data-sonner-toaster][dir="rtl"]) {
+            --toast-icon-margin-start: 4px;
+            --toast-icon-margin-end: -3px;
+            --toast-svg-margin-start: 0px;
+            --toast-svg-margin-end: -1px;
+            --toast-button-margin-start: 0;
+            --toast-button-margin-end: auto;
+            --toast-close-button-start: unset;
+            --toast-close-button-end: 0;
+            --toast-close-button-transform: translate(35%, -35%)
+        }
+
+        :where([data-sonner-toaster]) {
+            position: fixed;
+            width: var(--width);
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            --gray1: hsl(0, 0%, 99%);
+            --gray2: hsl(0, 0%, 97.3%);
+            --gray3: hsl(0, 0%, 95.1%);
+            --gray4: hsl(0, 0%, 93%);
+            --gray5: hsl(0, 0%, 90.9%);
+            --gray6: hsl(0, 0%, 88.7%);
+            --gray7: hsl(0, 0%, 85.8%);
+            --gray8: hsl(0, 0%, 78%);
+            --gray9: hsl(0, 0%, 56.1%);
+            --gray10: hsl(0, 0%, 52.3%);
+            --gray11: hsl(0, 0%, 43.5%);
+            --gray12: hsl(0, 0%, 9%);
+            --border-radius: 8px;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            outline: none;
+            z-index: 999999999
+        }
+
+        :where([data-sonner-toaster][data-x-position="right"]) {
+            right: max(var(--offset), env(safe-area-inset-right))
+        }
+
+        :where([data-sonner-toaster][data-x-position="left"]) {
+            left: max(var(--offset), env(safe-area-inset-left))
+        }
+
+        :where([data-sonner-toaster][data-x-position="center"]) {
+            left: 50%;
+            transform: translate(-50%)
+        }
+
+        :where([data-sonner-toaster][data-y-position="top"]) {
+            top: max(var(--offset), env(safe-area-inset-top))
+        }
+
+        :where([data-sonner-toaster][data-y-position="bottom"]) {
+            bottom: max(var(--offset), env(safe-area-inset-bottom))
+        }
+
+        :where([data-sonner-toast]) {
+            --y: translateY(100%);
+            --lift-amount: calc(var(--lift) * var(--gap));
+            z-index: var(--z-index);
+            position: absolute;
+            opacity: 0;
+            transform: var(--y);
+            filter: blur(0);
+            touch-action: none;
+            transition: transform .4s, opacity .4s, height .4s, box-shadow .2s;
+            box-sizing: border-box;
+            outline: none;
+            overflow-wrap: anywhere
+        }
+
+        :where([data-sonner-toast][data-styled="true"]) {
+            padding: 16px;
+            background: var(--normal-bg);
+            border: 1px solid var(--normal-border);
+            color: var(--normal-text);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px #0000001a;
+            width: var(--width);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        :where([data-sonner-toast]:focus-visible) {
+            box-shadow: 0 4px 12px #0000001a, 0 0 0 2px #0003
+        }
+
+        :where([data-sonner-toast][data-y-position="top"]) {
+            top: 0;
+            --y: translateY(-100%);
+            --lift: 1;
+            --lift-amount: calc(1 * var(--gap))
+        }
+
+        :where([data-sonner-toast][data-y-position="bottom"]) {
+            bottom: 0;
+            --y: translateY(100%);
+            --lift: -1;
+            --lift-amount: calc(var(--lift) * var(--gap))
+        }
+
+        :where([data-sonner-toast]) :where([data-description]) {
+            font-weight: 400;
+            line-height: 1.4;
+            color: inherit
+        }
+
+        :where([data-sonner-toast]) :where([data-title]) {
+            font-weight: 500;
+            line-height: 1.5;
+            color: inherit
+        }
+
+        :where([data-sonner-toast]) :where([data-icon]) {
+            display: flex;
+            height: 16px;
+            width: 16px;
+            position: relative;
+            justify-content: flex-start;
+            align-items: center;
+            flex-shrink: 0;
+            margin-left: var(--toast-icon-margin-start);
+            margin-right: var(--toast-icon-margin-end)
+        }
+
+        :where([data-sonner-toast][data-promise="true"]) :where([data-icon])>svg {
+            opacity: 0;
+            transform: scale(.8);
+            transform-origin: center;
+            animation: sonner-fade-in .3s ease forwards
+        }
+
+        :where([data-sonner-toast]) :where([data-icon])>* {
+            flex-shrink: 0
+        }
+
+        :where([data-sonner-toast]) :where([data-icon]) svg {
+            margin-left: var(--toast-svg-margin-start);
+            margin-right: var(--toast-svg-margin-end)
+        }
+
+        :where([data-sonner-toast]) :where([data-content]) {
+            display: flex;
+            flex-direction: column;
+            gap: 2px
+        }
+
+        [data-sonner-toast][data-styled=true] [data-button] {
+            border-radius: 4px;
+            padding-left: 8px;
+            padding-right: 8px;
+            height: 24px;
+            font-size: 12px;
+            color: var(--normal-bg);
+            background: var(--normal-text);
+            margin-left: var(--toast-button-margin-start);
+            margin-right: var(--toast-button-margin-end);
+            border: none;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            transition: opacity .4s, box-shadow .2s
+        }
+
+        :where([data-sonner-toast]) :where([data-button]):focus-visible {
+            box-shadow: 0 0 0 2px #0006
+        }
+
+        :where([data-sonner-toast]) :where([data-button]):first-of-type {
+            margin-left: var(--toast-button-margin-start);
+            margin-right: var(--toast-button-margin-end)
+        }
+
+        :where([data-sonner-toast]) :where([data-cancel]) {
+            color: var(--normal-text);
+            background: rgba(0, 0, 0, .08)
+        }
+
+        :where([data-sonner-toast][data-theme="dark"]) :where([data-cancel]) {
+            background: rgba(255, 255, 255, .3)
+        }
+
+        :where([data-sonner-toast]) :where([data-close-button]) {
+            position: absolute;
+            left: var(--toast-close-button-start);
+            right: var(--toast-close-button-end);
+            top: 0;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            background: var(--gray1);
+            color: var(--gray12);
+            border: 1px solid var(--gray4);
+            transform: var(--toast-close-button-transform);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+            transition: opacity .1s, background .2s, border-color .2s
+        }
+
+        :where([data-sonner-toast]) :where([data-close-button]):focus-visible {
+            box-shadow: 0 4px 12px #0000001a, 0 0 0 2px #0003
+        }
+
+        :where([data-sonner-toast]) :where([data-disabled="true"]) {
+            cursor: not-allowed
+        }
+
+        :where([data-sonner-toast]):hover :where([data-close-button]):hover {
+            background: var(--gray2);
+            border-color: var(--gray5)
+        }
+
+        :where([data-sonner-toast][data-swiping="true"]):before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 100%;
+            z-index: -1
+        }
+
+        :where([data-sonner-toast][data-y-position="top"][data-swiping="true"]):before {
+            bottom: 50%;
+            transform: scaleY(3) translateY(50%)
+        }
+
+        :where([data-sonner-toast][data-y-position="bottom"][data-swiping="true"]):before {
+            top: 50%;
+            transform: scaleY(3) translateY(-50%)
+        }
+
+        :where([data-sonner-toast][data-swiping="false"][data-removed="true"]):before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: scaleY(2)
+        }
+
+        :where([data-sonner-toast]):after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: calc(var(--gap) + 1px);
+            bottom: 100%;
+            width: 100%
+        }
+
+        :where([data-sonner-toast][data-mounted="true"]) {
+            --y: translateY(0);
+            opacity: 1
+        }
+
+        :where([data-sonner-toast][data-expanded="false"][data-front="false"]) {
+            --scale: var(--toasts-before) * .05 + 1;
+            --y: translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));
+            height: var(--front-toast-height)
+        }
+
+        :where([data-sonner-toast])>* {
+            transition: opacity .4s
+        }
+
+        :where([data-sonner-toast][data-expanded="false"][data-front="false"][data-styled="true"])>* {
+            opacity: 0
+        }
+
+        :where([data-sonner-toast][data-visible="false"]) {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        :where([data-sonner-toast][data-mounted="true"][data-expanded="true"]) {
+            --y: translateY(calc(var(--lift) * var(--offset)));
+            height: var(--initial-height)
+        }
+
+        :where([data-sonner-toast][data-removed="true"][data-front="true"][data-swipe-out="false"]) {
+            --y: translateY(calc(var(--lift) * -100%));
+            opacity: 0
+        }
+
+        :where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="true"]) {
+            --y: translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));
+            opacity: 0
+        }
+
+        :where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="false"]) {
+            --y: translateY(40%);
+            opacity: 0;
+            transition: transform .5s, opacity .2s
+        }
+
+        :where([data-sonner-toast][data-removed="true"][data-front="false"]):before {
+            height: calc(var(--initial-height) + 20%)
+        }
+
+        [data-sonner-toast][data-swiping=true] {
+            transform: var(--y) translateY(var(--swipe-amount, 0px));
+            transition: none
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-y-position=bottom],
+        [data-sonner-toast][data-swipe-out=true][data-y-position=top] {
+            animation: swipe-out .2s ease-out forwards
+        }
+
+        @keyframes swipe-out {
+            0% {
+                transform: translateY(calc(var(--lift) * var(--offset) + var(--swipe-amount)));
+                opacity: 1
+            }
+
+            to {
+                transform: translateY(calc(var(--lift) * var(--offset) + var(--swipe-amount) + var(--lift) * -100%));
+                opacity: 0
+            }
+        }
+
+        @media (max-width: 600px) {
+            [data-sonner-toaster] {
+                position: fixed;
+                --mobile-offset: 16px;
+                right: var(--mobile-offset);
+                left: var(--mobile-offset);
+                width: 100%
+            }
+
+            [data-sonner-toaster] [data-sonner-toast] {
+                left: 0;
+                right: 0;
+                width: calc(100% - var(--mobile-offset) * 2)
+            }
+
+            [data-sonner-toaster][data-x-position=left] {
+                left: var(--mobile-offset)
+            }
+
+            [data-sonner-toaster][data-y-position=bottom] {
+                bottom: 20px
+            }
+
+            [data-sonner-toaster][data-y-position=top] {
+                top: 20px
+            }
+
+            [data-sonner-toaster][data-x-position=center] {
+                left: var(--mobile-offset);
+                right: var(--mobile-offset);
+                transform: none
+            }
+        }
+
+        [data-sonner-toaster][data-theme=light] {
+            --normal-bg: #fff;
+            --normal-border: var(--gray4);
+            --normal-text: var(--gray12);
+            --success-bg: hsl(143, 85%, 96%);
+            --success-border: hsl(145, 92%, 91%);
+            --success-text: hsl(140, 100%, 27%);
+            --info-bg: hsl(208, 100%, 97%);
+            --info-border: hsl(221, 91%, 91%);
+            --info-text: hsl(210, 92%, 45%);
+            --warning-bg: hsl(49, 100%, 97%);
+            --warning-border: hsl(49, 91%, 91%);
+            --warning-text: hsl(31, 92%, 45%);
+            --error-bg: hsl(359, 100%, 97%);
+            --error-border: hsl(359, 100%, 94%);
+            --error-text: hsl(360, 100%, 45%)
+        }
+
+        [data-sonner-toaster][data-theme=light] [data-sonner-toast][data-invert=true] {
+            --normal-bg: #000;
+            --normal-border: hsl(0, 0%, 20%);
+            --normal-text: var(--gray1)
+        }
+
+        [data-sonner-toaster][data-theme=dark] [data-sonner-toast][data-invert=true] {
+            --normal-bg: #fff;
+            --normal-border: var(--gray3);
+            --normal-text: var(--gray12)
+        }
+
+        [data-sonner-toaster][data-theme=dark] {
+            --normal-bg: #000;
+            --normal-border: hsl(0, 0%, 20%);
+            --normal-text: var(--gray1);
+            --success-bg: hsl(150, 100%, 6%);
+            --success-border: hsl(147, 100%, 12%);
+            --success-text: hsl(150, 86%, 65%);
+            --info-bg: hsl(215, 100%, 6%);
+            --info-border: hsl(223, 100%, 12%);
+            --info-text: hsl(216, 87%, 65%);
+            --warning-bg: hsl(64, 100%, 6%);
+            --warning-border: hsl(60, 100%, 12%);
+            --warning-text: hsl(46, 87%, 65%);
+            --error-bg: hsl(358, 76%, 10%);
+            --error-border: hsl(357, 89%, 16%);
+            --error-text: hsl(358, 100%, 81%)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=success],
+        [data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button] {
+            background: var(--success-bg);
+            border-color: var(--success-border);
+            color: var(--success-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=info],
+        [data-rich-colors=true][data-sonner-toast][data-type=info] [data-close-button] {
+            background: var(--info-bg);
+            border-color: var(--info-border);
+            color: var(--info-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=warning],
+        [data-rich-colors=true][data-sonner-toast][data-type=warning] [data-close-button] {
+            background: var(--warning-bg);
+            border-color: var(--warning-border);
+            color: var(--warning-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=error],
+        [data-rich-colors=true][data-sonner-toast][data-type=error] [data-close-button] {
+            background: var(--error-bg);
+            border-color: var(--error-border);
+            color: var(--error-text)
+        }
+
+        .sonner-loading-wrapper {
+            --size: 16px;
+            height: var(--size);
+            width: var(--size);
+            position: absolute;
+            inset: 0;
+            z-index: 10
+        }
+
+        .sonner-loading-wrapper[data-visible=false] {
+            transform-origin: center;
+            animation: sonner-fade-out .2s ease forwards
+        }
+
+        .sonner-spinner {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            height: var(--size);
+            width: var(--size)
+        }
+
+        .sonner-loading-bar {
+            animation: sonner-spin 1.2s linear infinite;
+            background: var(--gray11);
+            border-radius: 6px;
+            height: 8%;
+            left: -10%;
+            position: absolute;
+            top: -3.9%;
+            width: 24%
+        }
+
+        .sonner-loading-bar:nth-child(1) {
+            animation-delay: -1.2s;
+            transform: rotate(.0001deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(2) {
+            animation-delay: -1.1s;
+            transform: rotate(30deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(3) {
+            animation-delay: -1s;
+            transform: rotate(60deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(4) {
+            animation-delay: -.9s;
+            transform: rotate(90deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(5) {
+            animation-delay: -.8s;
+            transform: rotate(120deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(6) {
+            animation-delay: -.7s;
+            transform: rotate(150deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(7) {
+            animation-delay: -.6s;
+            transform: rotate(180deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(8) {
+            animation-delay: -.5s;
+            transform: rotate(210deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(9) {
+            animation-delay: -.4s;
+            transform: rotate(240deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(10) {
+            animation-delay: -.3s;
+            transform: rotate(270deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(11) {
+            animation-delay: -.2s;
+            transform: rotate(300deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(12) {
+            animation-delay: -.1s;
+            transform: rotate(330deg) translate(146%)
+        }
+
+        @keyframes sonner-fade-in {
+            0% {
+                opacity: 0;
+                transform: scale(.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes sonner-fade-out {
+            0% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            to {
+                opacity: 0;
+                transform: scale(.8)
+            }
+        }
+
+        @keyframes sonner-spin {
+            0% {
+                opacity: 1
+            }
+
+            to {
+                opacity: .15
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+
+            [data-sonner-toast],
+            [data-sonner-toast]>*,
+            .sonner-loading-bar {
+                transition: none !important;
+                animation: none !important
+            }
+        }
+
+        .sonner-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+            transition: opacity .2s, transform .2s
+        }
+
+        .sonner-loader[data-visible=false] {
+            opacity: 0;
+            transform: scale(.8) translate(-50%, -50%)
+        }
+    </style>
+    <link rel="image_src" href="/screenshot02.jpg" data-rh="true">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" data-rh="true">
+    <meta name="author" content="Aura" data-rh="true">
+    <meta name="language" content="en" data-rh="true">
+    <meta property="og:type" content="website" data-rh="true">
+    <meta property="og:image" content="/screenshot02.jpg" data-rh="true">
+    <meta property="og:image:secure_url" content="/screenshot02.jpg" data-rh="true">
+    <meta property="og:image:width" content="800" data-rh="true">
+    <meta property="og:image:height" content="600" data-rh="true">
+    <meta property="og:image:type" content="image/jpeg" data-rh="true">
+    <meta property="og:site_name" content="Aura" data-rh="true">
+    <meta property="og:locale" content="en_US" data-rh="true">
+    <meta name="twitter:card" content="summary_large_image" data-rh="true">
+    <meta name="twitter:site" content="@mengto" data-rh="true">
+    <meta name="twitter:image" content="/screenshot02.jpg" data-rh="true">
+    <meta name="application-name" content="Aura" data-rh="true">
+    <meta name="apple-mobile-web-app-capable" content="yes" data-rh="true">
+    <meta name="apple-mobile-web-app-title" content="Aura" data-rh="true">
+    <meta name="format-detection" content="telephone=no" data-rh="true">
+    <meta name="theme-color" content="#000000" data-rh="true">
+    <meta name="mobile-web-app-capable" content="yes" data-rh="true">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" data-rh="true">
+    <meta name="googlebot" content="index, follow" data-rh="true">
+    <meta name="google" content="notranslate" data-rh="true">
+    <meta name="keywords" content="vibe coding, vibe design, HTML export, Figma export, AI design, web design" data-rh="true">
+    <style>
+        @keyframes fadeInSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+                backdrop-filter: blur(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                backdrop-filter: blur(12px);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <header class="fixed top-0 left-0 right-0 z-50 py-4 px-0  transition-all duration-300 ease-in-out backdrop-blur-xl border-b border-border/30">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="relative"><a class="block" href="/"><img src="/assets/logo.svg" alt="Logo" class="h-9 w-auto transition-all p-1 hover:bg-neutral-900 hover:dark:bg-neutral-900 dark:invert-0 invert"></a>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/about">About</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/services">Services</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/products">Products</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/career">Career</a>
+                      <a class="text-xs items-center gap-1 px-4 py-2 rounded-md hidden dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 lg:inline-flex" href="/news">News</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative flex h-6 w-auto bg-neutral-50 dark:bg-neutral-900 px-0.5 py-1 rounded-full border border-neutral-200/50 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 theme-toggle light">
+                        <button class="relative -top-[1px] -left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-900 dark:text-white" aria-label="Light mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-3 w-3">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg></button><button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors hover:text-neutral-900 dark:hover:text-white text-neutral-500" aria-label="System theme" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor h-3 w-3">
+                                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                                <line x1="8" x2="16" y1="21" y2="21"></line>
+                                <line x1="12" x2="12" y1="17" y2="21"></line>
+                            </svg></button><button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="Dark mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-3 w-3">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg></button>
+                    </div><a href="/contact"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-10 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">Contact</button></a>
+                </div>
+            </div>
+        </header>
+        <div class="pt-20 min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <div class="flex">
+<aside class="fixed md:sticky top-20 h-[calc(100vh-4rem)] z-40 transition-all duration-300 -translate-x-full md:translate-x-0 md:block">
+                    <div class="transform -translate-y-2 h-full">
+                        <div class="bg-gray-50/70 dark:bg-neutral-900/30 border-r border-gray-200 dark:border-white/5 h-full transition-all duration-300 backdrop-blur-xl md:backdrop-blur-none w-64">
+                            <div class="p-4 sticky top-0">
+                                <!-- Mobile Navigation -->
+                                <div class="md:hidden mb-6 -mx-4 px-4">
+                                    <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                        <a href="/about" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">About</a>
+                                        <a href="/services" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Services</a>
+                                        <a href="/products" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Products</a>
+                                        <a href="/career" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Career</a>
+                                        <a href="/news" class="flex-shrink-0 px-3 py-2 text-xs bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 rounded-md">News</a>
+                                        <a href="/contact" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Contact</a>
+                                    </div>
+                                </div>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                            Categories</h3>
+                                        <ul class="space-y-1">
+                                            <li><a href="/news" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400"><i class="ph ph-newspaper h-4 w-4 flex-shrink-0"></i>All News</a></li>
+                                            <li><a href="/news/product" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-rocket h-4 w-4 flex-shrink-0"></i>Product Launches</a></li>
+                                            <li><a href="/news/company" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-buildings h-4 w-4 flex-shrink-0"></i>Company Updates</a></li>
+                                         
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                            Recent Posts</h3>
+                                        <ul class="space-y-1">
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">January 15, 2025</span></button></li>
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">January 10, 2025</span></button></li>
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">December 22, 2025</span></button></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                            Tags</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">AI</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Innovation</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Product</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Updates</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Team</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><button class="absolute top-0 -right-[38px] z-50 p-2 bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-md shadow-md md:hidden transition-all duration-300 opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left h-3 w-3 text-gray-700 dark:text-neutral-300">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <path d="M9 3v18"></path>
+                        </svg></button>
+                </aside>
+                <main class="flex-1 transition-all duration-300 p-8 md:ml-0 w-full">
+                    <div class="relative flex flex-col xl:flex-row xl:gap-8 max-w-7xl mx-auto">
+                        <div class="prose dark:prose-invert max-w-4xl w-full transition-colors duration-300">
+                            <div class="xl:hidden">
+                                <div class="mb-10 xl:hidden p-5 border border-gray-200 dark:border-neutral-800 rounded-lg bg-gray-50 dark:bg-neutral-900/30 transition-colors duration-300">
+                                    <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                        On this page</h2>
+                                    <div class="grid grid-cols-1 gap-2">
+                                        <a href="#founding-story" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-coffee h-4 w-4 mr-2 opacity-70"></i>
+                                            Founding Story
+                                        </a>
+                                        <a href="#government-recognition" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-seal-check h-4 w-4 mr-2 opacity-70"></i>
+                                            Government Recognition
+                                        </a>
+                                        <a href="#tech-independence" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-shield-check h-4 w-4 mr-2 opacity-70"></i>
+                                            Tech Independence
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <h1 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Latest News</h1>
+                                <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-12" style="font-family: 'Geist', sans-serif; line-height: 1.625;">Stay updated with the latest from Navchetna</p>
+                            </div>
+                            <!-- Featured Article 1: Founding Story -->
+                            <article id="founding-story" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="flex items-center space-x-3">
+                                        <div>
+                                            <h1 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Innovation Served Hotter Than Coffee: The Navchetna Story</h1>
+                                            <p class="text-sm text-gray-500 dark:text-neutral-500 transition-colors duration-300">Published on January 15, 2025 • Company Feature</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium transition-colors duration-300" style="background-color: rgb(171 235 63 / 10%); color: rgb(171 235 63 / 99%);">Featured</span>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">From Five Friends to Innovation Leaders</h2>
+                                    <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-4" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                        Every great journey starts with a simple idea and ours started on 6th September 2024. Five friends Ayushmaan, Varun, Suman, Swastik, and Dhraval were sitting together, talking about school, college, and life, and suddenly realized something: education could be so much better with the right tools and technology.
+                                    </p>
+                                    <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-4" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                        From that conversation, late-night brainstorming sessions, and countless cups of coffee, Navchetna was born. Back then, we were just a bunch of dreamers with laptops and big ideas. No fancy offices, no investors, no roadmap just a shared vision and a lot of determination.
+                                    </p>
+                                </div>
+
+                                <div class="border-l-4 pl-6 py-3 my-6 rounded-lg" style="border-color: rgb(171 235 63 / 99%); background-color: rgb(171 235 63 / 5%);">
+                                    <h3 class="font-semibold mb-2" style="color: rgb(171 235 63 / 99%);">Company Milestone</h3>
+                                    <p class="text-sm leading-relaxed" style="color: rgb(171 235 63 / 99%);">
+                                        Today, Navchetna is proud to be based in Jodhpur, Rajasthan, India, and has grown into a company that delivers both innovative products and comprehensive services, with official AWS India collaboration ensuring enterprise-grade reliability.
+                                    </p>
+                                </div>
+
+                                <div class="mb-6">
+                                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Product Portfolio &amp; Innovation</h2>
+                                    <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-4" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                        Our flagship products Osmium, Natraj, and Aegis auth are designed to make learning smarter and more accessible. Our services span everything from web, iOS, and Android development to AI/ML solutions, cybersecurity, and more. Basically, if it involves technology and innovation, we're on it.
+                                    </p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                        <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                            <h4 class="font-medium text-gray-900 dark:text-white mb-2">Our Approach</h4>
+                                            <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                                <li>• Plan – Listen, understand, and map out solutions</li>
+                                                <li>• Strategy – Clear steps and milestones</li>
+                                                <li>• Development – Build, tweak, and perfect</li>
+                                                <li>• Deployment – Launch, monitor, and support</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                            <h4 class="font-medium text-gray-900 dark:text-white mb-2">Growth Journey</h4>
+                                            <p class="text-sm text-gray-600 dark:text-neutral-400">
+                                                From five friends with a shared dream to a core team of six and a family of 15 passionate people, our growth has always been powered by curiosity, creativity, and a love for building things that matter.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-l-4 pl-6 py-4 my-6 rounded-r-lg" style="border-color: rgb(78 242 255); background-color: rgb(78 242 255 / 0.05);">
+                                    <p class="text-sm font-medium uppercase tracking-wider mb-1" style="color: rgb(78 242 255);">Company Philosophy</p>
+                                    <p class="text-gray-600 dark:text-neutral-400 italic">
+                                        "Navchetna isn't just a company. It's a story of friendship, late-night ideas, challenges, and small wins. It's about dreaming big, working hard, and believing that learning and innovation can truly change the world. And honestly? We're just getting started."
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+    <!-- Left section -->
+    <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-neutral-500 mb-2 sm:mb-0">
+        <span>By Navchetna Team</span>
+        <span class="hidden sm:inline">•</span>
+        <span>8 min read</span>
+    </div>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2">
+        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Innovation</span>
+        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Startup</span>
+        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">EdTech</span>
+    </div>
+</div>
+
+                            </article>
+
+                            <!-- Article 2: Government Recognition -->
+                            <article id="government-recognition" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(16 185 129 / 0.1); color: rgb(16 185 129);">Government Recognition</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 12, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    Innovation Fueled by Pure Adrenaline: Navchetna Recognized by DPIIT
+                                </h2>
+                                <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                    We are thrilled to announce that Navchetna has been officially recognized by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India. This recognition validates our commitment to innovation and positions us among India's most promising startups.
+                                </p>
+                                <div class="border-l-4 pl-6 py-3 my-6 rounded-r-lg" style="border-color: rgb(16 185 129); background-color: rgb(16 185 129 / 0.05);">
+                                    <p class="text-sm font-medium uppercase tracking-wider mb-1" style="color: rgb(16 185 129);">Official Recognition</p>
+                                    <p class="text-gray-600 dark:text-neutral-400">The DPIIT recognition opens doors to various benefits including tax exemptions, easier compliance, faster patent examination, and access to government schemes. This milestone reflects our dedication to building innovative solutions that contribute to India's technological advancement.</p>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">What This Means for Us</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4 leading-relaxed transition-colors duration-300">
+                                    This recognition is more than just a certificate. It's a testament to our team's hard work, our innovative approach, and our commitment to building world-class products. It validates our vision of creating technology that makes a real difference in education and beyond.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Navchetna Team</span>
+                                        <span class="text-sm text-gray-400 dark:text-neutral-600">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">4 min read</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">DPIIT</span>
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Recognition</span>
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Milestone</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 3: Tech Independence -->
+                            <article id="tech-independence" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgb(234 179 8 / 0.1); color: rgb(234 179 8);">Tech Independence</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 10, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    Building the Future on Our Own Terms: Navchetna Technologies is Now a Fully Independent Powerhouse
+                                </h2>
+                                <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                    From Five Friends to Total Self Reliance. Every revolution starts with a spark and ours ignited on September 6, 2024. Five friends named Ayushmaan, Varun, Suman, Swastik, and Dhraval were deep in conversation about the state of technology. We realized that too many startups were just wrappers built on top of other peoples tools. We did not want to rent our success so we decided to build everything ourselves. Navchetna was born from the pure adrenaline of knowing we could engineer a complete ecosystem from the ground up without relying on anyone else.
+                                </p>
+                                <div class="border-l-4 pl-6 py-3 my-6 rounded-r-lg" style="border-color: rgb(234 179 8); background-color: rgb(234 179 8 / 0.05);">
+                                    <p class="text-sm font-medium uppercase tracking-wider mb-1" style="color: rgb(234 179 8);">The Engine: 100% Made in India with Our Own Tech Stack</p>
+                                    <p class="text-gray-600 dark:text-neutral-400">Our transition from dreamers to industry leaders was powered by a bold decision to reject third party dependencies. We are proud to announce that Navchetna is now fully independent from top to bottom with our own suite of proprietary tools. We did not just build the NineLLMs solution. We built the entire infrastructure that supports it.</p>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">Security by Aegis Auth</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4 leading-relaxed transition-colors duration-300">
+                                    We built our own fortress with Aegis Auth which features over 10 layers of security to ensure absolute data sovereignty. This is not just a concept because it is live and ready for developers right now. We have released our own packages for the entire ecosystem:
+                                </p>
+                                <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-neutral-400 space-y-1">
+                                    <li>For JavaScript: <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm relative group">npm i aegis-auth-navchetna<button onclick="navigator.clipboard.writeText('npm i aegis-auth-navchetna')" class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></code></li>
+                                    <li>For web browsers: Direct CDN integration ready</li>
+                                    <li>For Python: <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm relative group">pip install aegis-auth-navchetna<button onclick="navigator.clipboard.writeText('pip install aegis-auth-navchetna')" class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></code></li>
+                                    <li>For Rust: <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm relative group">cargo add aegis-auth-navchetna<button onclick="navigator.clipboard.writeText('cargo add aegis-auth-navchetna')" class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></code></li>
+                                    <li>For Flutter: <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm relative group">aegis_auth<button onclick="navigator.clipboard.writeText('aegis_auth')" class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></code></li>
+                                    <li>For Native Mobile: Android and iOS SDKs coming soon</li>
+                                </ul>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">Financial Integrity with NSL</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-4 leading-relaxed transition-colors duration-300">
+                                    We moved beyond simple billing and engineered NSL or Navchetna Smart Ledger. This is our proprietary ledger system built from scratch to maintain immutable financial records and ensure absolute transparency in every transaction.
+                                </p>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">Data Clarity with LMlens</h3>
+                                <p class="text-gray-600 dark:text-neutral-400 mb-6 leading-relaxed transition-colors duration-300">
+                                    From raw data extraction to deep analysis we utilize LMlens our proprietary extraction engine that feeds perfect data directly into our AI models.
+                                </p>
+                                <div class="border-l-4 pl-6 py-3 my-6 rounded-r-lg" style="border-color: rgb(234 179 8); background-color: rgb(234 179 8 / 0.05);">
+                                    <p class="text-sm font-medium uppercase tracking-wider mb-1" style="color: rgb(234 179 8);">Our Philosophy</p>
+                                    <p class="text-gray-600 dark:text-neutral-400">Navchetna is not just a company. It is a declaration of independence. It is a story of friendship and the refusal to take shortcuts. It is about dreaming big and working fast while believing that true innovation means building the whole machine yourself. This means zero dependencies and zero black boxes. With Aegis Auth protecting the door, NSL managing the ledger, and LMlens processing the data, our technology is truly Made in India and built entirely in house. We own our tech and we own our future. And honestly we are just getting started.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Navchetna Team</span>
+                                        <span class="text-sm text-gray-400 dark:text-neutral-600">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">7 min read</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Self-Reliance</span>
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Zero Dependencies</span>
+                                        <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs">Built In-House</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                        
+                        <!-- On this page - Right sidebar -->
+                        <div class="hidden xl:block">
+                            <div class="p-5 border border-gray-200 dark:border-neutral-800 rounded-lg bg-gray-50 dark:bg-neutral-900/30 transition-colors duration-300 xl:w-64 xl:sticky xl:top-24 xl:self-start">
+                                    <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                        On this page</h2>
+                                    <div class="grid grid-cols-1 gap-2">
+                                        <a href="#founding-story" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-coffee h-4 w-4 mr-2 opacity-70"></i>
+                                            Founding Story
+                                        </a>
+                                        <a href="#government-recognition" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-seal-check h-4 w-4 mr-2 opacity-70"></i>
+                                            Government Recognition
+                                        </a>
+                                        <a href="#tech-independence" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300">
+                                            <i class="ph ph-shield-check h-4 w-4 mr-2 opacity-70"></i>
+                                            Tech Independence
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<footer class="border-t border-gray-200 dark:border-neutral-800 mt-16 py-8">
+                        <div class="container px-4 md:px-6">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Product</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://osmium.co.in">Osmium</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://natraj.navchetna.tech">Natraj</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://Aegis.navchetna.tech">Aegis auth</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/products/#kriya">Kriya</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Resources</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/Documentation">Documentation</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/learn/video-tutorials">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">APIs</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="https://osmium.co.in/channels/API/?version=Vidyanukriti" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Vidyānukriti</a>
+                                        </li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Manobal" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Manobal
+                                              </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=VakyaSetu" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">VākyaSetu
+                                                </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Chaturyug" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Chaturyug</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Connect</h3>
+                                    <ul class="space-y-2">
+                                      
+                                             <li><a href="https://x.com/Navchetna_labs" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">X</a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/navchetna" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">LinkedIn</a>
+                                        </li>
+                                        <li><a target="_blank" href="https://www.instagram.com/navchetna.tech/" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Instagram</a>
+                                        </li>
+                                          <li><a href="/contact/" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Contacts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-12 border-t border-gray-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center"><img src="/assets/logo.svg" alt="Logo" class="h-8 w-8 mr-2  brightness-0 dark:invert">
+                                    <p class="text-sm text-gray-600 dark:text-neutral-400">© 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <div class="flex space-x-4"><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/privacy">Privacy Policy</a><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/terms">Terms of Service</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+
+                    </main></div>
+                    
+                
+            </div>
+        </div>
+        <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+            <ol tabindex="-1" class="fixed top-8 left-1/2 -translate-x-1/2 z-[100] flex max-h-screen flex-col-reverse p-4 max-w-[420px]"></ol>
+        </div>
+    
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveStates() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/20', 'dark:text-blue-400');
+                    link.classList.add('hover:bg-gray-100', 'dark:hover:bg-neutral-800/50', 'text-gray-700', 'dark:text-neutral-300');
+
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.remove('hover:bg-gray-100', 'dark:hover:bg-neutral-800/50', 'text-gray-700', 'dark:text-neutral-300');
+                        link.classList.add('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/20', 'dark:text-blue-400');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveStates);
+            updateActiveStates();
+
+            // Theme toggle
+            const lightBtn = document.querySelector('button[aria-label="Light mode"]');
+            const systemBtn = document.querySelector('button[aria-label="System theme"]');
+            const darkBtn = document.querySelector('button[aria-label="Dark mode"]');
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.relative.flex.h-6');
+            themeToggle?.classList.add('theme-toggle');
+
+            function updateButtonStates(active) {
+                [lightBtn, systemBtn, darkBtn].forEach(btn => {
+                    btn?.classList.remove('text-neutral-900', 'dark:text-white');
+                    btn?.classList.add('text-neutral-500');
+                });
+                active?.classList.remove('text-neutral-500');
+                active?.classList.add('text-neutral-900', 'dark:text-white');
+            }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                themeToggle?.classList.remove('light', 'system', 'dark');
+                themeToggle?.classList.add(theme);
+
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    updateButtonStates(lightBtn);
+                } else if (theme === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    html.classList.toggle('dark', prefersDark);
+                    updateButtonStates(systemBtn);
+                } else {
+                    html.classList.add('dark');
+                    updateButtonStates(darkBtn);
+                }
+            }
+
+            lightBtn?.addEventListener('click', () => setTheme('light'));
+            systemBtn?.addEventListener('click', () => setTheme('system'));
+            darkBtn?.addEventListener('click', () => setTheme('dark'));
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            // Sidebar toggle
+            const sidebarCloseButton = document.querySelector('.lucide-panel-left').closest('button');
+            const sidebar = document.querySelector('aside.fixed');
+
+            sidebarCloseButton?.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

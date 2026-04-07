@@ -1,0 +1,602 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NAVCHETNA | Support</title>
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        
+        function submitTicket(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('ticketForm');
+            const formData = new FormData(form);
+            
+            // Validate required fields
+            const requiredFields = ['name', 'email', 'product', 'priority', 'category', 'subject', 'description'];
+            for (let field of requiredFields) {
+                if (!formData.get(field)) {
+                    alert(`Please fill in the ${field} field`);
+                    return;
+                }
+            }
+            
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<svg class="animate-spin h-4 w-4 mr-2" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Submitting...';
+            submitBtn.disabled = true;
+            
+            // Generate ticket ID
+            const ticketId = 'TKT-' + Date.now().toString().slice(-6);
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><path d="M20 6L9 17l-5-5"></path></svg>Ticket Submitted';
+                submitBtn.className = 'w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg px-4 py-3 text-sm font-medium transition inline-flex items-center justify-center';
+                
+                // Show success message with ticket ID
+                const successMsg = document.createElement('div');
+                successMsg.className = 'mt-4 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300';
+                successMsg.innerHTML = `<p class="text-sm font-medium">Ticket Created Successfully!</p><p class="text-xs mt-1">Your ticket ID is: <strong>${ticketId}</strong></p><p class="text-xs mt-1">We'll respond within 2-4 hours.</p>`;
+                form.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    form.reset();
+                    successMsg.remove();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.className = 'w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-3 text-sm font-medium transition inline-flex items-center justify-center';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        }
+        
+        function makeCall() {
+            window.open('tel:+918209199581', '_self');
+        }
+        
+        function openChat() {
+            const chatWidget = document.getElementById('chatWidget');
+            chatWidget.classList.remove('hidden');
+            chatWidget.classList.add('flex');
+        }
+        
+        function closeChat() {
+            const chatWidget = document.getElementById('chatWidget');
+            chatWidget.classList.add('hidden');
+            chatWidget.classList.remove('flex');
+        }
+        
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addChatMessage(message, 'You');
+            input.value = '';
+            input.style.height = 'auto';
+            
+            // Auto-reply after delay
+            setTimeout(() => {
+                addChatMessage('Thanks for your message! Our support team will assist you shortly. For urgent issues, please call +91 8209199581.', 'Support');
+            }, 1000);
+        }
+        
+        function sendQuickMessage(message) {
+            addChatMessage(message, 'You');
+            setTimeout(() => {
+                addChatMessage('Got it! Let me connect you with the right team member to help with this.', 'Support');
+            }, 800);
+        }
+        
+        function addChatMessage(text, sender, isFile = false) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start gap-3';
+            
+            const isUser = sender === 'You';
+            const avatar = isUser ? 
+                '<div class="h-8 w-8 ring-1 ring-white/10 bg-gradient-to-br from-violet-500/20 to-indigo-500/20 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>' :
+                '<div class="h-8 w-8 ring-1 ring-white/10 bg-white/10 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></div>';
+            
+            const content = isFile ? 
+                `<div class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 ring-1 ring-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300">
+                        <path d="M13.5 8.5 5.9 16a3 3 0 1 0 4.24 4.24L18 12.38a5 5 0 0 0-7.07-7.07L5 11.24"></path>
+                    </svg>
+                    <span class="text-sm text-slate-200">${text}</span>
+                </div>` :
+                `<div class="inline-flex px-3 py-2 rounded-2xl ${isUser ? 'bg-gradient-to-br from-violet-500/20 to-indigo-500/20' : 'bg-white/5'} ring-1 ring-white/10">
+                    <p class="text-sm ${isUser ? 'text-slate-100' : 'text-slate-200'}">${text}</p>
+                </div>`;
+            
+            messageDiv.innerHTML = `
+                ${avatar}
+                <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                        <p class="text-sm font-medium text-white">${sender}</p>
+                        <span class="text-xs text-slate-400">${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</span>
+                    </div>
+                    <div class="mt-1">${content}</div>
+                </div>
+            `;
+            
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            if (files.length === 0) return;
+            
+            for (let file of files) {
+                if (file.size > 10 * 1024 * 1024) {
+                    addChatMessage('File too large. Maximum size is 10MB.', 'Support');
+                    continue;
+                }
+                
+                addChatMessage(`📎 ${file.name} (${(file.size / 1024).toFixed(1)}KB)`, 'You', true);
+            }
+            
+            setTimeout(() => {
+                addChatMessage(`Thanks for sharing the file${files.length > 1 ? 's' : ''}! Our team will review and get back to you.`, 'Support');
+            }, 800);
+            
+            // Clear the input
+            event.target.value = '';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+            document.getElementById('ticketForm').addEventListener('submit', submitTicket);
+            
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('#mobileMenuBtn') && !event.target.closest('#mobileMenu')) {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+            
+            // Auto-expand textarea
+            const chatInput = document.getElementById('chatInput');
+            if (chatInput) {
+                chatInput.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+                });
+            }
+            
+            // File upload handler
+            const fileInput = document.getElementById('chatFileInput');
+            if (fileInput) {
+                fileInput.addEventListener('change', handleFileUpload);
+            }
+        });
+    </script>
+</head>
+
+<body class="antialiased bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/30"
+    style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+
+    <!-- Top Header -->
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-zinc-950/75 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="flex h-14 items-center gap-4">
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-2 group">
+                    <div class="h-7 w-7 rounded-md bg-gradient-to-b from-zinc-800 to-zinc-900 ring-1 ring-white/10 grid place-items-center">
+                        <span class="text-[11px] tracking-tight font-semibold text-zinc-50">
+                            <img src="/assets/logo.svg" alt="logo" class="h-5 w-5">
+                        </span>
+                    </div>
+                    <span class="hidden md:block text-sm font-medium text-zinc-300 group-hover:text-zinc-100 transition-colors">Support</span>
+                </a>
+
+                <!-- Search -->
+                <div class="flex-1">
+                    <div class="relative">
+                        <div class="pointer-events-none absolute inset-y-0 left-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" class="lucide lucide-search h-4 w-4 text-zinc-400">
+                                <path d="m21 21-4.34-4.34"></path>
+                                <circle cx="11" cy="11" r="8"></circle>
+                            </svg>
+                        </div>
+                        <input type="text" placeholder="Search help articles, FAQs..."
+                            class="w-full rounded-lg bg-zinc-900/80 text-sm pl-9 pr-24 h-10 outline-none ring-1 ring-white/10 focus:ring-indigo-500/40 focus:outline-none placeholder:text-zinc-500 transition">
+                        <div class="absolute inset-y-0 right-2 hidden sm:flex items-center gap-1">
+                            <span class="text-[11px] text-zinc-500">to search</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden h-9 w-9 rounded-md ring-1 ring-white/10 hover:bg-zinc-900/80 transition flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu h-5 w-5 text-zinc-300">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="/docs" class="h-9 rounded-md px-3 text-sm text-zinc-300 ring-1 ring-white/10 hover:bg-zinc-900/80 hover:text-zinc-100 transition inline-flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="book" class="lucide lucide-book h-4 w-4">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                        </svg>
+                        Docs
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-zinc-950/90 backdrop-blur">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 py-4">
+                <div class="space-y-3">
+                    <a href="/docs" class="w-full h-9 rounded-md px-3 text-sm text-zinc-300 ring-1 ring-white/10 hover:bg-zinc-900/80 hover:text-zinc-100 transition flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="book" class="lucide lucide-book h-4 w-4">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                        </svg>
+                        Documentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 py-8 md:py-10 grid grid-cols-12 gap-6">
+        <!-- Sidebar -->
+        <aside class="col-span-12 lg:col-span-3 mb-6 lg:mb-0">
+            <div class="sticky top-20 space-y-6">
+                <!-- Quick Help -->
+                <div class="ring-1 ring-white/10 bg-zinc-950/40 rounded-xl pt-3 pr-3 pb-3 pl-3 backdrop-blur-md">
+                    <div class="flex items-center gap-3">
+                        <div class="h-9 w-9 rounded-full bg-indigo-600/20 ring-1 ring-indigo-500/30 grid place-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="headphones" class="lucide lucide-headphones h-4 w-4 text-indigo-300">
+                                <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-zinc-200 tracking-tight">Need Help?</div>
+                            <div class="text-xs text-zinc-500">We're here to assist</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex gap-2">
+                        <button onclick="openChat()" class="flex-1 rounded-md bg-zinc-900/60 ring-1 ring-white/10 px-3 py-2 text-xs text-zinc-300 hover:text-white hover:ring-indigo-500/40 transition inline-flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="message-circle" class="lucide lucide-message-circle h-3.5 w-3.5">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>
+                            Live Chat
+                        </button>
+                        <button onclick="makeCall()" class="flex-1 rounded-md bg-zinc-900/60 ring-1 ring-white/10 px-3 py-2 text-xs text-zinc-300 hover:text-white hover:ring-indigo-500/40 transition inline-flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone h-3.5 w-3.5">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call Us
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Support Categories -->
+                <nav class="ring-1 ring-white/10 divide-y divide-white/5 bg-zinc-950/40 rounded-xl backdrop-blur-md">
+                    <div class="p-3">
+                        <div class="text-[11px] uppercase tracking-wider text-zinc-500 mb-2">Support Categories</div>
+                        <div class="space-y-1">
+                            <a class="group flex items-center gap-2 rounded-md px-2.5 py-2 text-sm text-zinc-300 hover:bg-zinc-900/70 hover:text-white transition" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="bug" class="lucide lucide-bug h-4 w-4 text-zinc-400 group-hover:text-white">
+                                    <path d="m8 2 1.88 1.88"></path>
+                                    <path d="M14.12 3.88 16 2"></path>
+                                    <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path>
+                                    <path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"></path>
+                                    <path d="M12 20v-9"></path>
+                                    <path d="M6.53 9C4.6 8.8 3 7.1 3 5"></path>
+                                    <path d="M6 13H2"></path>
+                                    <path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path>
+                                    <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path>
+                                    <path d="M22 13h-4"></path>
+                                    <path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"></path>
+                                </svg>
+                                Bug Reports
+                            </a>
+                            <a class="group flex items-center gap-2 rounded-md px-2.5 py-2 text-sm text-zinc-300 hover:bg-zinc-900/70 hover:text-white transition" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="lightbulb" class="lucide lucide-lightbulb h-4 w-4 text-zinc-400 group-hover:text-white">
+                                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                                    <path d="M9 18h6"></path>
+                                    <path d="M10 22h4"></path>
+                                </svg>
+                                Feature Requests
+                            </a>
+                            <a class="group flex items-center gap-2 rounded-md px-2.5 py-2 text-sm text-zinc-300 hover:bg-zinc-900/70 hover:text-white transition" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" class="lucide lucide-help-circle h-4 w-4 text-zinc-400 group-hover:text-white">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <path d="M12 17h.01"></path>
+                                </svg>
+                                General Support
+                            </a>
+                            <a class="group flex items-center gap-2 rounded-md px-2.5 py-2 text-sm text-zinc-300 hover:bg-zinc-900/70 hover:text-white transition" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="credit-card" class="lucide lucide-credit-card h-4 w-4 text-zinc-400 group-hover:text-white">
+                                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                    <line x1="2" x2="22" y1="10" y2="10"></line>
+                                </svg>
+                                Billing & Account
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <section class="col-span-12 lg:col-span-9 space-y-6">
+            <!-- Breadcrumbs -->
+            <div class="text-xs text-zinc-500 flex items-center gap-2">
+                <a href="/" class="hover:text-zinc-300 transition">Home</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right h-3.5 w-3.5 text-zinc-600">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+                <span class="text-zinc-400">Support</span>
+            </div>
+
+            <!-- Title -->
+            <div class="ring-1 ring-white/10 md:p-6 bg-zinc-950/40 rounded-xl pt-5 pr-5 pb-5 pl-5 backdrop-blur-md">
+                <div class="flex items-start justify-between gap-3">
+                    <div class="">
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl tracking-tight font-semibold text-zinc-50">
+                            Support Center
+                        </h1>
+                        <p class="mt-2 text-sm md:text-base text-zinc-400 max-w-2xl">
+                            Get help with our products, report issues, or request new features. Our support team is here to assist you.
+                        </p>
+                        <div class="mt-3 flex flex-wrap items-center gap-2">
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-zinc-900/70 px-2.5 py-1 text-xs text-zinc-300 ring-1 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock h-3.5 w-3.5 text-zinc-400">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg> 24/7 Support
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-zinc-900/70 px-2.5 py-1 text-xs text-zinc-300 ring-1 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap h-3.5 w-3.5 text-zinc-400">
+                                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                                </svg> Fast Response
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-zinc-900/70 px-2.5 py-1 text-xs text-zinc-300 ring-1 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users h-3.5 w-3.5 text-zinc-400">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg> Expert Team
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Ticket Form -->
+            <div class="ring-1 ring-white/10 md:p-6 bg-zinc-950/40 rounded-xl pt-5 pr-5 pb-5 pl-5 backdrop-blur-md">
+                <h2 class="text-xl md:text-2xl tracking-tight font-semibold text-zinc-100 mb-4">Create Support Ticket</h2>
+                
+                <form id="ticketForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-zinc-200 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-zinc-200 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="product" class="block text-sm font-medium text-zinc-200 mb-2">Product</label>
+                            <select id="product" name="product" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition">
+                                <option value="">Select a product</option>
+                                <option value="osmium">Osmium</option>
+                                <option value="natraj">Natraj</option>
+                                <option value="Aegis auth">Aegis auth</option>
+                                <option value="kriya">Kriya</option>
+                                <option value="general">General</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="priority" class="block text-sm font-medium text-zinc-200 mb-2">Priority</label>
+                            <select id="priority" name="priority" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition">
+                                <option value="">Select priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="category" class="block text-sm font-medium text-zinc-200 mb-2">Category</label>
+                        <select id="category" name="category" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition">
+                            <option value="">Select a category</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="support">General Support</option>
+                            <option value="billing">Billing & Account</option>
+                            <option value="integration">Integration Help</option>
+                            <option value="performance">Performance Issue</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-zinc-200 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition" placeholder="Brief description of your issue">
+                    </div>
+                    
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-zinc-200 mb-2">Description</label>
+                        <textarea id="description" name="description" rows="6" required class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition resize-none" placeholder="Please provide detailed information about your issue, including steps to reproduce if applicable..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="attachment" class="block text-sm font-medium text-zinc-200 mb-2">Attachments (Optional)</label>
+                        <div class="relative">
+                            <input type="file" id="attachment" name="attachment" multiple accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt" class="w-full rounded-lg bg-zinc-900/60 ring-1 ring-white/10 px-4 py-3 text-sm text-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:ring-2 focus:ring-indigo-500/40 focus:outline-none transition">
+                        </div>
+                        <p class="mt-1 text-xs text-zinc-500">Max file size: 10MB. Supported formats: JPG, PNG, PDF, DOC, TXT</p>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-3 text-sm font-medium transition inline-flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" class="lucide lucide-send h-4 w-4 mr-2">
+                            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+                            <path d="m21.854 2.147-10.94 10.939"></path>
+                        </svg>
+                        Submit Ticket
+                    </button>
+                    <p class="mt-2 text-xs text-zinc-500 text-center">Response time: 2-4 hours • We'll send updates to your email</p>
+                </form>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="ring-1 ring-white/10 md:p-6 bg-zinc-950/40 rounded-xl pt-5 pr-5 pb-5 pl-5 backdrop-blur-md">
+                <h3 class="text-xl tracking-tight font-semibold text-zinc-100 mb-4">Frequently Asked Questions</h3>
+                <div class="space-y-3">
+                    <details class="rounded-lg bg-zinc-900/60 ring-1 ring-white/10">
+                        <summary class="cursor-pointer p-4 text-sm font-medium text-zinc-200 hover:text-white transition">How long does it take to get a response?</summary>
+                        <div class="px-4 pb-4 text-sm text-zinc-400">We typically respond within 2-4 hours for urgent issues and within 24 hours for general inquiries.</div>
+                    </details>
+                    <details class="rounded-lg bg-zinc-900/60 ring-1 ring-white/10">
+                        <summary class="cursor-pointer p-4 text-sm font-medium text-zinc-200 hover:text-white transition">What information should I include in my ticket?</summary>
+                        <div class="px-4 pb-4 text-sm text-zinc-400">Please include detailed steps to reproduce the issue, error messages, screenshots, and your environment details.</div>
+                    </details>
+                    <details class="rounded-lg bg-zinc-900/60 ring-1 ring-white/10">
+                        <summary class="cursor-pointer p-4 text-sm font-medium text-zinc-200 hover:text-white transition">Can I track my ticket status?</summary>
+                        <div class="px-4 pb-4 text-sm text-zinc-400">Yes, you'll receive a ticket ID via email that you can use to track your ticket status and updates.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chat Widget -->
+    <div id="chatWidget" class="hidden fixed bottom-4 right-4 w-96 h-[500px] z-50 flex-col md:w-96 md:h-[500px] sm:w-full sm:h-full sm:bottom-0 sm:right-0 sm:rounded-none">
+        <section class="relative ring-1 ring-white/10 supports-[backdrop-filter]:bg-white/5 overflow-hidden text-white bg-white/5 border-slate-50/10 border rounded-2xl backdrop-blur-xl h-full flex flex-col">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex h-8 w-8 items-center justify-center ring-1 ring-white/20 bg-white/10 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-white">
+                            <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="text-white font-medium text-sm">Support Chat</p>
+                        <p class="text-xs text-slate-400">We're online</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="makeCall()" class="p-2 rounded-lg bg-white/5 ring-1 ring-white/10 hover:bg-white/10" type="button" title="Call Support">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-slate-200">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </button>
+                    <button onclick="closeChat()" class="p-2 rounded-lg bg-white/5 ring-1 ring-white/10 hover:bg-white/10" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-slate-200">
+                            <path d="M18 6L6 18"></path>
+                            <path d="M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 scroll-smooth">
+                <div class="flex items-start gap-3">
+                    <div class="h-8 w-8 ring-1 ring-white/10 bg-white/10 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                            <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2">
+                            <p class="text-sm font-medium text-white">Support</p>
+                            <span class="text-xs text-slate-400" id="supportTime"></span>
+                        </div>
+                        <div class="mt-1 inline-flex px-3 py-2 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                            <p class="text-sm text-slate-200">Hi! How can we help you today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="px-4 pb-2">
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="sendQuickMessage('I need help with billing')" class="flex gap-2 ring-1 ring-white/10 hover:bg-white/10 transition-colors bg-white/5 rounded-lg p-2 items-start text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300 mt-0.5">
+                            <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                            <line x1="2" x2="22" y1="10" y2="10"></line>
+                        </svg>
+                        <span class="text-xs text-slate-300">Billing Help</span>
+                    </button>
+                    <button onclick="sendQuickMessage('I found a bug')" class="flex gap-2 ring-1 ring-white/10 hover:bg-white/10 transition-colors bg-white/5 rounded-lg p-2 items-start text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300 mt-0.5">
+                            <path d="m8 2 1.88 1.88"></path>
+                            <path d="M14.12 3.88 16 2"></path>
+                            <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path>
+                            <path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"></path>
+                        </svg>
+                        <span class="text-xs text-slate-300">Report Bug</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="ring-1 ring-white/10 bg-white/5 rounded-xl p-2 m-4 mt-0">
+                <div class="flex gap-2 items-end">
+                    <input type="file" id="chatFileInput" multiple accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt" class="hidden">
+                    <button type="button" onclick="document.getElementById('chatFileInput').click()" class="p-2 rounded-lg hover:bg-white/10 text-slate-200" title="Attach file">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                            <path d="M12 5v14"></path>
+                            <path d="M5 12h14"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1">
+                        <textarea id="chatInput" rows="1" placeholder="Type your message..." class="w-full resize-none outline-none placeholder:text-slate-500 text-sm text-slate-100 bg-transparent p-2" onkeypress="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage();}"></textarea>
+                    </div>
+                    <button onclick="sendChatMessage()" class="inline-flex gap-1.5 hover:opacity-95 text-xs font-medium text-white bg-gradient-to-br from-violet-500 to-indigo-600 rounded-lg p-2 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
+                            <path d="m22 2-7 20-4-9-9-4Z"></path>
+                            <path d="M22 2 11 13"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="text-xs text-slate-500 mt-2 px-2">Or call us at <a href="tel:+918209199581" class="text-violet-300 hover:underline">+91 8209199581</a></p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Initialize lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+            }
+            
+            // Set initial time
+            const timeElement = document.getElementById('supportTime');
+            if (timeElement) {
+                timeElement.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+            }
+        });
+    </script>
+
+</body>
+</html>

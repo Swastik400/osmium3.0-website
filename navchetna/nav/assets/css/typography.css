@@ -1,0 +1,43 @@
+/* Custom Typography Classes for Navchetna Website */
+
+/* Font Weights */
+.font-light {
+    font-weight: 300;
+}
+
+/* Font Families */
+.font-space {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Text Reveal Animation */
+.reveal-word {
+    opacity: 0.1;
+    transition: opacity 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.reveal-word.active {
+    opacity: 1;
+}
+
+/* Enhanced Typography for Headings */
+h1.font-space, h2.font-space, h3.font-space, h4.font-space, h5.font-space, h6.font-space {
+    letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+}
+
+/* Selection Styling */
+::selection {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Enhanced readability for Space Grotesk */
+.font-space {
+    font-variant-ligatures: common-ligatures;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

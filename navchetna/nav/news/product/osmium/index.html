@@ -1,0 +1,410 @@
+﻿<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmium 2.0: Revolutionary AI Platform | Navchetna</title>
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <link rel="stylesheet" crossorigin="" href="/assets/css/styles.css">
+</head>
+<body>
+    <div id="root">
+        <header class="fixed top-0 left-0 right-0 z-50 py-4 px-0 transition-all duration-300 ease-in-out backdrop-blur-xl border-b border-border/30">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="relative"><a class="block" href="/"><img src="/assets/logo.svg" alt="Logo" class="h-9 w-auto transition-all p-1 hover:bg-neutral-900 hover:dark:bg-neutral-900 dark:invert-0 invert"></a></div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/about">About</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/services">Services</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/products">Products</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/career">Career</a>
+                        <a class="text-xs items-center gap-1 px-4 py-2 rounded-md hidden dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 lg:inline-flex" href="/news">News</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative flex h-6 w-auto bg-neutral-50 dark:bg-neutral-900 px-0.5 py-1 rounded-full border border-neutral-200/50 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 theme-toggle light">
+                        <button class="relative -top-[1px] -left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-900 dark:text-white" aria-label="Light mode" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-3 w-3">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg>
+                        </button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="System theme" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor h-3 w-3">
+                                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                                <line x1="8" x2="16" y1="21" y2="21"></line>
+                                <line x1="12" x2="12" y1="17" y2="21"></line>
+                            </svg>
+                        </button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="Dark mode" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-3 w-3">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="/contact"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-10 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">Contact</button></a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="pt-20 min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <main class="flex-1 transition-all duration-300 p-8">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Breadcrumb -->
+                    <nav class="mb-8">
+                        <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-neutral-500">
+                            <li><a href="/news" class="hover:text-gray-700 dark:hover:text-neutral-300">News</a></li>
+                            <li><span class="mx-2">/</span></li>
+                            <li><a href="/news/product" class="hover:text-gray-700 dark:hover:text-neutral-300">Product Launches</a></li>
+                            <li><span class="mx-2">/</span></li>
+                            <li class="text-gray-900 dark:text-white">Osmium 2.0</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Article Header -->
+                    <header class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full text-sm font-medium">Product Launch</span>
+                            <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 15, 2025</span>
+                        </div>
+                        <h1 class="text-2xl md:text-4xl font-light uppercase tracking-tight leading-[1.2] text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                            Osmium 2.0: The Future of AI-Powered Education
+                        </h1>
+                        <p class="text-base md:text-lg text-gray-600 max-w-[32rem]" style="font-family: 'Geist', sans-serif; font-weight: 400; line-height: 1.625; color: #666666;">
+                            Osmium 2.0 isn't just another EdTech upgrade it's a revolution. Where others stop at academics, Osmium goes deeper: it mentors, it predicts, and it protects student mental health.
+                        </p>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-200 dark:border-neutral-800">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">By Varun Yadav, Co-Founder &amp; Director, Navchetna</span>
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">12 min read</span>
+                            </div>
+                            <a href="https://osmium.co.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-300">
+                                Try Now
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+                                    <path d="M7 7h10v10"></path>
+                                    <path d="M7 17 17 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </header>
+
+                    <!-- Article Content -->
+                    <article class="prose dark:prose-invert max-w-none">
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Executive Summary</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Osmium 2.0 isn't just another EdTech upgrade it's a revolution. Where others stop at academics, Osmium goes deeper: it mentors, it predicts, and it protects student mental health. Built with cutting-edge intelligence, exam foresight, and built-in wellness monitoring, this is not education as usual it's education evolved.
+                            </p>
+                            <div class="border-l-4 border-purple-500 pl-6 py-4 my-6 bg-purple-50 dark:bg-purple-900/10 rounded-r-lg">
+                                <p class="text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Historic Achievement</p>
+                                <p class="text-gray-700 dark:text-neutral-300">Outperformed leading global LLMs in benchmarked educational content generation (August 15, 2025).</p>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Key Achievements</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Global LLM Benchmark Victory</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm mb-2">Outperformed leading global LLMs in benchmarked educational content generation</p>
+                                    <span class="text-xs text-purple-600 dark:text-purple-400 font-medium">August 15, 2025</span>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Real-World Deployment</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm mb-2">Deployed with 276 students at Rai University, Ahmedabad</p>
+                                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">Proven Results</span>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Predictive Accuracy</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm mb-2">Up to 50% predictive accuracy in generating mock exams</p>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-medium">JEE, NEET, GATE</span>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Mental Health Integration</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm mb-2">Proactive mental health support against exam anxiety</p>
+                                    <span class="text-xs text-pink-600 dark:text-pink-400 font-medium">Wellness First</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Technical Innovations</h2>
+                            
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Adaptive Mentorship AI</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Osmium doesn't just teach it guides, sharpens, and accelerates growth. Our adaptive mentorship system provides:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Personalized feedback after every interaction</li>
+                                <li>Real-time adaptation to strengths, weaknesses, and pacing</li>
+                                <li>Career-aligned recommendations tuned to each individual's path</li>
+                            </ul>
+
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Predictive Exam Intelligence</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Our next-gen prediction engine reshapes test prep. With up to 50% overlap with real exam questions, Osmium delivers:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Mock tests that actually matter</li>
+                                <li>Structured, step-by-step mastery guidance</li>
+                                <li>Reduced exam fear fueling confidence under pressure</li>
+                            </ul>
+
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Mental Health &amp; Wellness Integration</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Grades are worthless if the student breaks in the process. Osmium is the first platform to fuse academics with wellness:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Early detection of burnout and academic stress signals</li>
+                                <li>AI-driven mindfulness prompts and motivational nudges</li>
+                                <li>Direct counselor escalation when deeper intervention is needed</li>
+                                <li>Enforced balance in study patterns to prevent collapse before exams</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Performance Benchmarks</h2>
+                            <div class="bg-gray-50 dark:bg-neutral-900/30 rounded-lg p-6 mb-6">
+                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Educational Performance Results</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 dark:text-white mb-2">Content &amp; Accuracy</h5>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Content Quality: +17% vs GPT-4 and Claude 3</li>
+                                            <li>• Mock Exam Accuracy: Up to 50% overlap with real questions</li>
+                                            <li>• Learning Retention: 1.8x higher vs traditional classrooms</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 dark:text-white mb-2">Student Engagement &amp; Wellness</h5>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Student Engagement: +42% vs top EdTech tools</li>
+                                            <li>• Reported Stress Levels: Down by 35%</li>
+                                            <li>• Pilot Success: 276 students at Rai University</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-l-4 border-blue-500 pl-6 py-4 my-6 bg-blue-50 dark:bg-blue-900/10 rounded-r-lg">
+                                <p class="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2"> Full Benchmark Documentation</p>
+                                <p class="text-gray-700 dark:text-neutral-300">Complete methodology, evaluation criteria, and detailed results available in our comprehensive benchmark documentation.</p>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Enterprise Features</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Osmium 2.0 is built for educational institutions with robust security, scalability, and compliance features:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Security &amp; Compliance</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-2">
+                                        <li>• End-to-end encryption with zero trust protocols</li>
+                                        <li>• GDPR + NEP compliant</li>
+                                        <li>• Rock-solid academic integrity by design</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Scalability</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-2">
+                                        <li>• Multi-institution deployments, fail-safe load balancing</li>
+                                        <li>• AWS infrastructure (S3, CloudFront, Cognito, Bedrock)</li>
+                                        <li>• 99.99% uptime SLA guaranteed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Integration APIs</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Osmium 2.0 provides comprehensive APIs for educational platform integration:
+                            </p>
+                            <div class="bg-gray-900 dark:bg-neutral-800 rounded-lg p-6 mb-6">
+                                <pre class="text-green-400 text-sm overflow-x-auto"><code>// Predictive Exam Generation Example
+const osmium = new OsmiumClient({
+  apiKey: 'your-api-key',
+  version: '2.0'
+});
+
+const result = await osmium.examGenerator({
+  subject: "Physics",
+  examType: "JEE",
+  difficulty: "moderate",
+  count: 10
+});
+
+console.log(result.questions);
+</code></pre>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Migration Guide</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Upgrading to Osmium 2.0 is seamless with our zero-downtime migration process:
+                            </p>
+                            <ol class="list-decimal pl-6 mb-6 text-gray-700 dark:text-neutral-300 space-y-2">
+                                <li>Update to SDK 2.0</li>
+                                <li>Run compatibility checker</li>
+                                <li>Update API endpoints (with auto-redirects)</li>
+                                <li>Sandbox test &gt; production deploy</li>
+                                <li>Zero downtime upgrade path</li>
+                            </ol>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Take a look</h2>
+                            <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-2xl overflow-hidden">
+                                <iframe src="https://osmium.co.in" class="w-full h-96 rounded-2xl" title="Osmium Platform" allowfullscreen=""></iframe>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Conclusion</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Osmium 2.0 isn't a tool. It's an ally, a mentor, and a guardian. With predictive intelligence, adaptive mentorship, and baked-in mental health resilience, Osmium sets the new uncompromising standard for global education. The future is here and students are no longer alone in facing it.
+                            </p>
+                            <div class="bg-purple-50 dark:bg-purple-900/10 border border-purple-200 dark:border-purple-800/20 rounded-lg p-6">
+                                <h4 class="text-lg font-medium text-purple-900 dark:text-purple-300 mb-3">Ready to Transform Education?</h4>
+                                <p class="text-purple-800 dark:text-purple-400 mb-4">Experience the revolutionary power of Osmium 2.0. Join the educational evolution.</p>
+                                <a href="https://osmium.co.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-300">
+                                    Try Now
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+                                        <path d="M7 7h10v10"></path>
+                                        <path d="M7 17 17 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </section>
+                    </article>
+
+                    <!-- Related Articles -->
+                    <section class="mt-12 pt-8 border-t border-gray-200 dark:border-neutral-800">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Related Articles</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <a href="../natraj" class="block p-6 bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors">
+                                <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded text-xs font-medium">Feature Update</span>
+                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mt-3 mb-2">Natraj Creative Suite Enhancement</h4>
+                                <p class="text-gray-600 dark:text-neutral-400 text-sm">Advanced design tools with AI-powered assistance</p>
+                            </a>
+                           
+                        </div>
+                    </section>
+                </div>
+            <footer class="border-t border-gray-200 dark:border-neutral-800 mt-16 py-8">
+                        <div class="container px-4 md:px-6">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Product</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://osmium.co.in">Osmium</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://natraj.navchetna.tech">Natraj</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://Aegis auth.com">Aegis auth</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/products/#kriya">Kriya</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Resources</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/Documentation">Documentation</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/learn/video-tutorials">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">APIs</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="https://osmium.co.in/channels/API/?version=Vidyanukriti" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Vidyānukriti</a>
+                                        </li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Manobal" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Manobal
+                                              </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=VakyaSetu" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">VākyaSetu
+                                                </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Chaturyug" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Chaturyug</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Connect</h3>
+                                    <ul class="space-y-2">
+                                      
+                                             <li><a href="https://x.com/Navchetna_labs" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">X</a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/navchetna" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">LinkedIn</a>
+                                        </li>
+                                        <li><a target="_blank" href="https://www.instagram.com/navchetna.tech/" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Instagram</a>
+                                        </li>
+                                          <li><a href="/contact/" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Contacts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-12 border-t border-gray-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center"><img src="/assets/logo.svg" alt="Logo" class="h-8 w-8 mr-2  brightness-0 dark:invert">
+                                    <p class="text-sm text-gray-600 dark:text-neutral-400">© 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <div class="flex space-x-4"><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/privacy">Privacy Policy</a><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/terms">Terms of Service</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer></main>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightBtn = document.querySelector('button[aria-label="Light mode"]');
+            const systemBtn = document.querySelector('button[aria-label="System theme"]');
+            const darkBtn = document.querySelector('button[aria-label="Dark mode"]');
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            function updateButtonStates(active) {
+                [lightBtn, systemBtn, darkBtn].forEach(btn => {
+                    btn?.classList.remove('text-neutral-900', 'dark:text-white');
+                    btn?.classList.add('text-neutral-500');
+                });
+                active?.classList.remove('text-neutral-500');
+                active?.classList.add('text-neutral-900', 'dark:text-white');
+            }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                themeToggle?.classList.remove('light', 'system', 'dark');
+                themeToggle?.classList.add(theme);
+
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    updateButtonStates(lightBtn);
+                } else if (theme === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    html.classList.toggle('dark', prefersDark);
+                    updateButtonStates(systemBtn);
+                } else {
+                    html.classList.add('dark');
+                    updateButtonStates(darkBtn);
+                }
+            }
+
+            lightBtn?.addEventListener('click', () => setTheme('light'));
+            systemBtn?.addEventListener('click', () => setTheme('system'));
+            darkBtn?.addEventListener('click', () => setTheme('dark'));
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+        });
+    </script>
+
+</body></html>

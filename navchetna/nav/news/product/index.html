@@ -1,0 +1,508 @@
+﻿<html lang="en" class="" style="--syntax-bg: rgb(23, 23, 23); --syntax-color: rgb(245, 245, 245); scroll-behavior: smooth;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Navchetna</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" crossorigin="" href="/assets/css/styles.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .ph {
+            display: inline-block;
+            font-size: 1em;
+            line-height: 1;
+        }
+        .h-4.w-4.ph {
+            width: 1rem;
+            height: 1rem;
+            font-size: 1rem;
+        }
+        * {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+    </style>
+    <style>
+        .theme-toggle.light .absolute {
+            transform: translateX(-1px) !important;
+        }
+
+        .theme-toggle.system .absolute {
+            transform: translateX(12px) !important;
+        }
+
+        .theme-toggle.dark .absolute {
+            transform: translateX(25px) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <header class="fixed top-0 left-0 right-0 z-50 py-4 px-0  transition-all duration-300 ease-in-out backdrop-blur-xl border-b border-border/30">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="relative"><a class="block" href="/"><img src="/assets/logo.svg" alt="Logo" class="h-9 w-auto transition-all p-1 hover:bg-neutral-900 hover:dark:bg-neutral-900 dark:invert-0 invert"></a>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/about">About</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/services">Services</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/products">Products</a>
+                      <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/career">Career</a>
+                      <a class="text-xs items-center gap-1 px-4 py-2 rounded-md hidden dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 lg:inline-flex" href="/news">News</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative flex h-6 w-auto bg-neutral-50 dark:bg-neutral-900 px-0.5 py-1 rounded-full border border-neutral-200/50 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 theme-toggle light">
+                        <button class="relative -top-[1px] -left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-900 dark:text-white" aria-label="Light mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-3 w-3">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg></button><button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors hover:text-neutral-900 dark:hover:text-white text-neutral-500" aria-label="System theme" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor h-3 w-3">
+                                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                                <line x1="8" x2="16" y1="21" y2="21"></line>
+                                <line x1="12" x2="12" y1="17" y2="21"></line>
+                            </svg></button><button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="Dark mode" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-3 w-3">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg></button>
+                    </div><a href="/contact"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-10 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">Contact</button></a>
+                </div>
+            </div>
+        </header>
+        <div class="pt-20 min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <div class="flex">
+<aside class="fixed md:sticky top-20 h-[calc(100vh-4rem)] z-40 transition-all duration-300 -translate-x-full md:translate-x-0 md:block">
+                    <div class="transform -translate-y-2 h-full">
+                        <div class="bg-gray-50/70 dark:bg-neutral-900/30 border-r border-gray-200 dark:border-white/5 h-full transition-all duration-300 backdrop-blur-xl md:backdrop-blur-none w-64">
+                            <div class="p-4 sticky top-0">
+                                <!-- Mobile Navigation -->
+                                <div class="md:hidden mb-6 -mx-4 px-4">
+                                    <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                        <a href="/about" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">About</a>
+                                        <a href="/services" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Services</a>
+                                        <a href="/products" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Products</a>
+                                        <a href="/career" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Career</a>
+                                        <a href="/news" class="flex-shrink-0 px-3 py-2 text-xs bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 rounded-md">News</a>
+                                        <a href="/contact" class="flex-shrink-0 px-3 py-2 text-xs bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Contact</a>
+                                    </div>
+                                </div>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3">
+                                            Categories</h3>
+                                        <ul class="space-y-1">
+                                            <li><a href="/news" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-newspaper h-4 w-4 flex-shrink-0"></i>All News</a></li>
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400"><i class="ph ph-rocket h-4 w-4 flex-shrink-0"></i>Product Launches</button></li>
+                                            <li><a href="/news/company" class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-buildings h-4 w-4 flex-shrink-0"></i>Company Updates</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3">
+                                            Recent Posts</h3>
+                                        <ul class="space-y-1">
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">January 2025</span></button></li>
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">December 2024</span></button></li>
+                                            <li><button class="w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors text-gray-600 dark:text-neutral-400 hover:text-gray-800 dark:hover:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-800/50"><i class="ph ph-calendar h-4 w-4 flex-shrink-0"></i><span class="whitespace-nowrap">November 2024</span></button></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase tracking-wider mb-3">
+                                            Tags</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">AI</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Innovation</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Product</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Updates</span>
+                                            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 text-gray-600 dark:text-neutral-400 rounded text-xs hover:bg-gray-200 dark:hover:bg-neutral-700 cursor-pointer transition-colors">Team</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><button class="absolute top-0 -right-[38px] z-50 p-2 bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-md shadow-md md:hidden transition-all duration-300 opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left h-3 w-3 text-gray-700 dark:text-neutral-300">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <path d="M9 3v18"></path>
+                        </svg></button>
+                </aside>
+                <main class="flex-1 transition-all duration-300 p-8 md:ml-0 w-full">
+                    <div class="relative flex flex-col xl:flex-row xl:gap-8 max-w-7xl mx-auto">
+                        <div class="prose dark:prose-invert max-w-4xl w-full transition-colors duration-300">
+                            <div class="xl:hidden">
+                                <div class="mb-10 xl:hidden p-5 border border-gray-200 dark:border-neutral-800 rounded-lg bg-gray-50 dark:bg-neutral-900/30 transition-colors duration-300">
+                                    <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">
+                                        On this page</h2>
+                                       <div class="grid grid-cols-1 gap-2"><a href="#osmium" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/osmiumm.png" alt="Osmium" class="h-auto w-4 mr-2 opacity-70">Osmium 2.0</a><a href="#natraj" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/group 116.svg" alt="Natraj" class="h-4 w-4 mr-2 opacity-70">Natraj Update</a><a href="#LMlens" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/lm lens.svg" alt="LMlens" class="h-4 w-4 mr-2 opacity-70">LMlens</a><a href="#kriya" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="/assets/kriya.svg" alt="Kriya" class="h-auto w-4 mr-2 opacity-70">Kriya Engine</a><a href="#nsl" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/nsl.png" alt="NSL" class="h-4 w-4 mr-2 opacity-70">NSL</a><a href="#aegis" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/aegis.png" alt="Aegis" class="h-4 w-4 mr-2 opacity-70">Aegis Auth</a></div>
+                            </div>
+                            </div>
+                            <div class="mb-8">
+                                <h1 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-3 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    Product Launch Updates</h1>
+                                <p class="text-base md:text-lg text-gray-600 dark:text-neutral-400 max-w-[32rem] mx-auto leading-relaxed mb-12 transition-colors duration-300" style="font-family: 'Geist', sans-serif; line-height: 1.625;">
+                                    Stay updated with the latest product releases, feature announcements, and technical insights from our development team.</p>
+                            </div>
+
+                            <!-- News Articles -->
+                            <article id="osmium" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-full text-sm font-medium">Product Launch</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 15, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    Osmium 2.0: The Future of AI-Powered Education</h2>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    Osmium 2.0 isn't just another EdTech upgrade it's a revolution. Where others stop at academics, Osmium goes deeper: it mentors, it predicts, and it protects student mental health. Built with cutting-edge intelligence, exam foresight, and built-in wellness monitoring.
+                                </p>
+                                <div class="border-l-4 border-purple-500 pl-6 py-3 my-6 bg-purple-50 dark:bg-purple-900/10 rounded-r-lg">
+                                    <p class="text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-1">Historic Achievement</p>
+                                    <p class="text-base md:text-lg" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">Outperformed leading global LLMs in benchmarked educational content generation (August 15, 2025).</p>
+                                </div>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-4" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    Deployed with 276 students at Rai University, Ahmedabad, Osmium features Adaptive Mentorship AI, Predictive Exam Intelligence, and Mental Health &amp; Wellness Integration making it not just an educational tool, but an ally, mentor, and guardian for students.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Varun Yadav, Co-Founder &amp; Director</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">12 min read</span>
+                                    </div>
+                                    <a href="./osmium" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+
+                            <!-- Aegis Auth Article -->
+                            <article id="aegis" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div>
+                                        <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Aegis Auth v3.0: The New Standard for Digital Identity</h2>
+                                        <p class="text-sm text-gray-500 dark:text-neutral-500 transition-colors duration-300">Published on January 15, 2026 • Product Launch</p>
+                                    </div>
+                                    <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/20 text-pink-700 dark:text-pink-400 rounded-full text-sm font-medium transition-colors duration-300">Security</span>
+                                </div>
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif;">Executive Summary</h3>
+                                    <p class="text-base md:text-lg text-secondary max-w-2xl mx-auto leading-relaxed mb-12" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                        In an era of fragmented user bases and escalating security threats, Aegis Auth v3.0 emerges as the definitive solution for enterprise identity. We have moved beyond legacy authentication to create a Unified Identity Plane. Built on a memory-safe Rust architecture and engineered for FIPS 140-2 compliance, Aegis delivers sub-millisecond validation without compromising security.
+                                    </p>
+                                    <p class="text-base md:text-lg text-secondary max-w-2xl mx-auto leading-relaxed mb-12" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                        It does not just manage users; it orchestrates truth across your entire digital ecosystem.
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-pink-500 pl-6 py-3 my-6 bg-pink-50 dark:bg-pink-900/10 rounded-r-lg">
+                                    <p class="text-sm font-medium text-pink-600 dark:text-pink-400 uppercase tracking-wider mb-1">Benchmark Breakthrough</p>
+                                    <p class="text-base md:text-lg" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">Achieved &lt; 5ms Token Validation Latency in production environments, setting a new global standard for high-velocity authentication (August 15, 2025).</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">Key Achievements</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Memory-Safe Core: Rust-based architecture</li>
+                                            <li>• Universal Protocol: Single aegis_token for all providers</li>
+                                            <li>• Zero-Trust Delivery: Secure tunnel token delivery</li>
+                                            <li>• FIPS 140-2 Compliance Ready</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">Performance Metrics</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Token Latency: &lt; 5ms (vs 20-50ms industry)</li>
+                                            <li>• Architecture: Rust (Memory Safe)</li>
+                                            <li>• Uptime SLA: 99.99%</li>
+                                            <li>• Global Edge Delivery</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Varun Yadav, Co-Founder &amp; Director</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">12 min read</span>
+                                    </div>
+                                    <a href="./aegis" class="text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+
+                            <article id="natraj" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 mb-8 transition-colors duration-300">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium">Feature Update</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 10, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    Natraj: AR + AI Powered Anatomy Learning Platform</h2>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    Revolutionizing anatomy education with real-time AR body scans, interactive 3D models, and an AI tutor that transforms traditional medical learning into an engaging, accessible, and clinically accurate experience.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Key Features</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• AR Body Scan with skeletal overlays</li>
+                                            <li>• 3D Bone Visualization</li>
+                                            <li>• Interactive anatomical labels</li>
+                                            <li>• AI-powered Q&amp;A tutor</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Learning Outcomes</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• 40% higher knowledge retention</li>
+                                            <li>• 55% improved practical understanding</li>
+                                            <li>• 60% increase in engagement</li>
+                                            <li>• Optimized AR rendering for mobile</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Navchetna EdTech Team</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">10 min read</span>
+                                    </div>
+                                    <a href="./natraj" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+
+                            <!-- LMlens Article -->
+                            <article id="LMlens" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">Product Launch</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 15, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    LMlens: Transforming Chaos into Clean Data</h2>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    The Intelligent Extraction Engine by Navchetna. Stop typing data manually. LMlens automatically converts unstructured documents into clean, actionable data using advanced OCR, Computer Vision, and LLM intelligence.
+                                </p>
+                                <div class="border-l-4 border-blue-500 pl-6 py-3 my-6 bg-blue-50 dark:bg-blue-900/10 rounded-r-lg">
+                                    <p class="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">Template-Free Intelligence</p>
+                                    <p class="text-base md:text-lg" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">Unlike traditional OCR tools, LMlens adapts dynamically to any document format without requiring rigid templates or retraining.</p>
+                                </div>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-4" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    Transform any document into structured truth: 90% reduction in manual data entry, 10x faster processing, and 99% accuracy across millions of files.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Navchetna LMlens Team</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">10 min read</span>
+                                    </div>
+                                    <a href="./LMlens" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+
+                            <!-- Kriya Article -->
+                            <article id="kriya" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div>
+                                        <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Kriya: The Future of AI-Integrated ERP &amp; Project Management</h2>
+                                        <p class="text-sm text-gray-500 dark:text-neutral-500 transition-colors duration-300">Published on January 10, 2025 • Product Launch</p>
+                                    </div>
+                                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded-full text-sm font-medium transition-colors duration-300">Management</span>
+                                </div>
+                                <div class="mb-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300">Abstract</h3>
+                                    <p class="text-base md:text-lg text-secondary max-w-2xl mx-auto leading-relaxed mb-12" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                        Kriya isn't just another ERP or project management tool it's an evolution. Where traditional platforms stop at automation, Kriya goes further: it predicts workflow bottlenecks, optimizes team performance, and integrates AI-driven insights across your organization.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Suman Yadav, Co-Founder &amp; HOD</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">12 min read</span>
+                                    </div>
+                                    <a href="./kriya" class="text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+
+                            <!-- NSL Article -->
+                            <article id="nsl" class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-8 transition-colors duration-300 mb-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 rounded-full text-sm font-medium">Product Launch</span>
+                                    <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 20, 2025</span>
+                                </div>
+                                <h2 class="text-2xl md:text-4xl tracking-tight uppercase leading-[1.2] font-light text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                                    NSL: The Silent Engine of Financial Truth</h2>
+                                <p class="text-base md:text-lg max-w-[32rem] mx-auto leading-relaxed mb-6" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">
+                                    Smart Billing, Automated Invoicing, Zero Manual Effort. NSL is an intelligent billing and ledger management system designed to simplify and automate the entire billing lifecycle.
+                                </p>
+                                <div class="border-l-4 border-teal-500 pl-6 py-3 my-6 bg-teal-50 dark:bg-teal-900/10 rounded-r-lg">
+                                    <p class="text-sm font-medium text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-1">Ledger as Truth</p>
+                                    <p class="text-base md:text-lg" style="font-family: 'Geist', sans-serif; font-weight: 400; color: #666666; line-height: 1.625;">The ledger never lies. NSL tracks usage and billing data silently throughout the month, acting as a centralized brain for all user transactions.</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Key Features</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Maintains Digital Ledger in real-time</li>
+                                            <li>• Auto-generates professional invoices</li>
+                                            <li>• Direct email delivery to users</li>
+                                            <li>• Zero manual intervention required</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 dark:bg-neutral-800/30 rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Business Impact</h4>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Automation-first billing workflow</li>
+                                            <li>• Accuracy and consistency guaranteed</li>
+                                            <li>• Drastic time and cost savings</li>
+                                            <li>• Scales from 10 to 10,000 clients</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-neutral-800">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">By Ayushmaan Soni, Founder & CEO</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">8 min read</span>
+                                    </div>
+                                    <a href="./nsl" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium text-sm">Read Full Article →</a>
+                                </div>
+                            </article>
+                            
+                        </div>
+    
+                        <div class="hidden xl:block">
+                            <div class="p-5 border border-gray-200 dark:border-neutral-800 rounded-lg bg-gray-50 dark:bg-neutral-900/30 transition-colors duration-300 xl:w-64 xl:sticky xl:top-24 xl:self-start">
+                                <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-300" style="font-family: 'Space Grotesk', sans-serif;">
+                                    On this page</h2>
+                                <div class="grid grid-cols-1 gap-2"><a href="#osmium" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/osmiumm.png" alt="Osmium" class="h-auto w-4 mr-2 opacity-70">Osmium 2.0</a><a href="#natraj" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/group 116.svg" alt="Natraj" class="h-4 w-4 mr-2 opacity-70">Natraj Update</a><a href="#LMlens" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/lm lens.svg" alt="LMlens" class="h-4 w-4 mr-2 opacity-70">LMlens</a><a href="#kriya" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/kriya.svg" alt="Kriya" class="h-4 w-4 mr-2 opacity-70">Kriya Engine</a><a href="#nsl" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="../../assets/nsl.png" alt="NSL" class="h-auto w-4 mr-2 opacity-70">NSL</a><a href="#aegis" class="flex items-center px-3 py-2 text-xs rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800/50 text-gray-700 dark:text-neutral-300"><img src="/assets/aegis.png" alt="Aegis" class="h-auto w-4 mr-2 opacity-70">Aegis Auth</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="border-t border-gray-200 dark:border-neutral-800 mt-16 py-8">
+                        <div class="container px-4 md:px-6">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Product</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://osmium.co.in">Osmium</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://natraj.navchetna.tech">Natraj</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://Aegis.navchetna.tech">Aegis Auth</a></li>
+                                                                     <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/products/#kriya">Kriya</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Resources</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/Documentation">Documentation</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/learn/video-tutorials">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">APIs</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="https://osmium.co.in/channels/API/?version=Vidyanukriti" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Vidyānukriti</a>
+                                        </li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Manobal" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Manobal
+                                              </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=VakyaSetu" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">VākyaSetu
+                                                </a></li>
+                                        <li><a href="https://osmium.co.in/channels/API?version=Chaturyug" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Chaturyug</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Connect</h3>
+                                    <ul class="space-y-2">
+                                      
+                                             <li><a href="https://x.com/Navchetna_labs" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">X</a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/navchetna" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">LinkedIn</a>
+                                        </li>
+                                        <li><a target="_blank" href="https://www.instagram.com/navchetna.tech/" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Instagram</a>
+                                        </li>
+                                          <li><a href="/contact/" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Contacts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-12 border-t border-gray-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center"><img src="/assets/logo.svg" alt="Logo" class="h-8 w-8 mr-2  brightness-0 dark:invert">
+                                    <p class="text-sm text-gray-600 dark:text-neutral-400">© 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <div class="flex space-x-4"><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/privacy">Privacy Policy</a><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/terms">Terms of Service</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle
+            const lightBtn = document.querySelector('button[aria-label="Light mode"]');
+            const systemBtn = document.querySelector('button[aria-label="System theme"]');
+            const darkBtn = document.querySelector('button[aria-label="Dark mode"]');
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.relative.flex.h-6');
+            themeToggle?.classList.add('theme-toggle');
+
+            function updateButtonStates(active) {
+                [lightBtn, systemBtn, darkBtn].forEach(btn => {
+                    btn?.classList.remove('text-neutral-900', 'dark:text-white');
+                    btn?.classList.add('text-neutral-500');
+                });
+                active?.classList.remove('text-neutral-500');
+                active?.classList.add('text-neutral-900', 'dark:text-white');
+            }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                themeToggle?.classList.remove('light', 'system', 'dark');
+                themeToggle?.classList.add(theme);
+
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    updateButtonStates(lightBtn);
+                } else if (theme === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    html.classList.toggle('dark', prefersDark);
+                    updateButtonStates(systemBtn);
+                } else {
+                    html.classList.add('dark');
+                    updateButtonStates(darkBtn);
+                }
+            }
+
+            lightBtn?.addEventListener('click', () => setTheme('light'));
+            systemBtn?.addEventListener('click', () => setTheme('system'));
+            darkBtn?.addEventListener('click', () => setTheme('dark'));
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            // Sidebar toggle
+            const sidebarCloseButton = document.querySelector('.lucide-panel-left').closest('button');
+            const sidebar = document.querySelector('aside.fixed');
+
+            sidebarCloseButton?.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        });
+    </script>
+
+
+
+</body></html>

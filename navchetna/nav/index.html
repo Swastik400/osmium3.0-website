@@ -1,0 +1,2653 @@
+<html lang="en" class="h-full antialiased">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NAVCHETNA</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <!-- Inter for UI, Playfair Display for italic accent -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@1,500;1,600&amp;display=swap"
+        rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Image Preloader -->
+    <script src="/assets/js/imagePreloader.js"></script>
+    <style>
+        @keyframes slideInBlur {
+            0% {
+                opacity: 0;
+                transform: translateY(32px);
+                filter: blur(4px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes scaleInBlur {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+                filter: blur(8px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float-gentle-back {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-3px) rotate(0.5deg);
+            }
+
+            50% {
+                transform: translateY(-5px) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(-2px) rotate(-0.5deg);
+            }
+        }
+
+        @keyframes float-gentle-middle {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-2px) rotate(-0.3deg);
+            }
+
+            50% {
+                transform: translateY(-4px) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(-1px) rotate(0.3deg);
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(3px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .scroll-fade-delay {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-fade-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .scroll-fade-delay-3 {
+            transition-delay: 0.6s;
+        }
+    </style>
+    <link id="all-fonts-link-font-geist" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-roboto" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-montserrat" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-poppins" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-playfair" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap">
+    <link id="all-fonts-link-font-instrument-serif" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-merriweather" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap">
+    <link id="all-fonts-link-font-bricolage" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-jakarta" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+    <link id="all-fonts-link-font-manrope" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap">
+    <link id="all-fonts-link-font-space-grotesk" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-work-sans" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+    <link id="all-fonts-link-font-pt-serif" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
+    <link id="all-fonts-link-font-geist-mono" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-space-mono" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap">
+    <link id="all-fonts-link-font-quicksand" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap">
+    <link id="all-fonts-link-font-nunito" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap">
+    <style id="all-fonts-style-font-geist">
+        .font-geist {
+            font-family: 'Geist', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-roboto">
+        .font-roboto {
+            font-family: 'Roboto', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-montserrat">
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-poppins">
+        .font-poppins {
+            font-family: 'Poppins', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-playfair">
+        .font-playfair {
+            font-family: 'Playfair Display', serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-instrument-serif">
+        .font-instrument-serif {
+            font-family: 'Instrument Serif', serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-merriweather">
+        .font-merriweather {
+            font-family: 'Merriweather', serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-bricolage">
+        .font-bricolage {
+            font-family: 'Bricolage Grotesque', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-jakarta">
+        .font-jakarta {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-manrope">
+        .font-manrope {
+            font-family: 'Manrope', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-space-grotesk">
+        .font-space-grotesk {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-work-sans">
+        .font-work-sans {
+            font-family: 'Work Sans', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-pt-serif">
+        .font-pt-serif {
+            font-family: 'PT Serif', serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-geist-mono">
+        .font-geist-mono {
+            font-family: 'Geist Mono', monospace !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-space-mono">
+        .font-space-mono {
+            font-family: 'Space Mono', monospace !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-quicksand">
+        .font-quicksand {
+            font-family: 'Quicksand', sans-serif !important;
+        }
+    </style>
+    <style id="all-fonts-style-font-nunito">
+        .font-nunito {
+            font-family: 'Nunito', sans-serif !important;
+        }
+    </style>
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-weight: 400;
+        }
+        /* Black & White Theme Override */
+        .text-cyan-300, .text-cyan-400, .text-emerald-300, .text-emerald-400,
+        .text-indigo-300, .text-indigo-400, .text-violet-300, .text-violet-400,
+        .text-blue-300, .text-blue-400, .text-green-300, .text-green-400,
+        .text-orange-300, .text-orange-400, .text-purple-300, .text-purple-400,
+        .text-pink-300, .text-pink-400, .text-teal-300, .text-teal-400 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .bg-cyan-400\/10, .bg-emerald-400\/10, .bg-indigo-400\/10, .bg-violet-500\/20,
+        .bg-blue-400\/10, .bg-green-400\/10, .bg-orange-400\/10, .bg-purple-400\/10,
+        .bg-pink-400\/10, .bg-teal-400\/10 {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+        .ring-cyan-400\/20, .ring-emerald-400\/20, .ring-indigo-400\/20, .ring-violet-500\/30,
+        .ring-blue-400\/20, .ring-green-400\/20, .ring-orange-400\/20, .ring-purple-400\/20,
+        .ring-pink-400\/20, .ring-teal-400\/20 {
+            --tw-ring-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .from-slate-200, .via-cyan-300, .to-indigo-300,
+        .from-cyan-300, .to-emerald-300 {
+            --tw-gradient-from: rgba(255, 255, 255, 0.9) !important;
+            --tw-gradient-to: rgba(255, 255, 255, 0.9) !important;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+        }
+        .shadow-\[0_0_0_3px_rgba\(16\,185\,129\,0\.15\)\] {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15) !important;
+        }
+        .bg-emerald-400\/80 {
+            background-color: rgba(255, 255, 255, 0.8) !important;
+        }
+    </style>
+    <script>
+        // Configure Tailwind to include our custom 3D transform utilities
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Add any custom theme extensions here if needed
+                }
+            },
+            plugins: [
+                function ({ addUtilities }) {
+                    const rotateXUtilities = {};
+                    const rotateYUtilities = {};
+                    const rotateZUtilities = {};
+                    const rotateValues = [0, 5, 10, 15, 20, 30, 45, 75];
+                    // Generate rotate-x utilities
+                    rotateValues.forEach((value) => {
+                        rotateXUtilities[`.rotate-x-${value}`] = {
+                            '--tw-rotate-x': `${value}deg`,
+                            transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                        };
+                        if (value !== 0) {
+                            rotateXUtilities[`.-rotate-x-${value}`] = {
+                                '--tw-rotate-x': `-${value}deg`,
+                                transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                            };
+                        }
+                    });
+                    // Generate rotate-y utilities
+                    rotateValues.forEach((value) => {
+                        rotateYUtilities[`.rotate-y-${value}`] = {
+                            '--tw-rotate-y': `${value}deg`,
+                            transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                        };
+                        if (value !== 0) {
+                            rotateYUtilities[`.-rotate-y-${value}`] = {
+                                '--tw-rotate-y': `-${value}deg`,
+                                transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                            };
+                        }
+                    });
+                    // Generate rotate-z utilities
+                    rotateValues.forEach((value) => {
+                        rotateZUtilities[`.rotate-z-${value}`] = {
+                            '--tw-rotate-z': `${value}deg`,
+                            transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                        };
+                        if (value !== 0) {
+                            rotateZUtilities[`.-rotate-z-${value}`] = {
+                                '--tw-rotate-z': `-${value}deg`,
+                                transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\s+/g, ' ').trim(),
+                            };
+                        }
+                    });
+                    // Perspective utilities
+                    const perspectiveUtilities = {
+                        ".perspective-none": { perspective: "none" },
+                        ".perspective-dramatic": { perspective: "100px" },
+                        ".perspective-near": { perspective: "300px" },
+                        ".perspective-normal": { perspective: "500px" },
+                        ".perspective-midrange": { perspective: "800px" },
+                        ".perspective-distant": { perspective: "1200px" },
+                    };
+                    // Transform style utilities
+                    const transformStyleUtilities = {
+                        ".transform-style-preserve-3d": { "transform-style": "preserve-3d" },
+                        ".transform-style-flat": { "transform-style": "flat" },
+                    };
+                    addUtilities({
+                        ...rotateXUtilities,
+                        ...rotateYUtilities,
+                        ...rotateZUtilities,
+                        ...perspectiveUtilities,
+                        ...transformStyleUtilities,
+                    });
+                }
+            ]
+        };
+    </script>
+    <style>
+        /* 3D Transform utilities */
+        .rotate-x-5 {
+            --tw-rotate-x: 5deg;
+            transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important;
+        }
+
+        .rotate-y-10 {
+            --tw-rotate-y: 10deg;
+            transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important;
+        }
+
+        .perspective-none {
+            perspective: none !important;
+        }
+
+        .perspective-dramatic {
+            perspective: 100px !important;
+        }
+
+        .perspective-near {
+            perspective: 300px !important;
+        }
+
+        .perspective-normal {
+            perspective: 500px !important;
+        }
+
+        .perspective-midrange {
+            perspective: 800px !important;
+        }
+
+        .perspective-distant {
+            perspective: 1200px !important;
+        }
+
+        .transform-style-preserve-3d {
+            transform-style: preserve-3d !important;
+        }
+
+        .transform-style-flat {
+            transform-style: flat !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-indigo-500/30 selection:text-indigo-200 text-white bg-black" style="font-family: 'Space Grotesk', sans-serif;">
+ 
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10">
+        <!-- Base gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900/50 to-neutral-950"></div>
+        <!-- Vignette -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/20 to-neutral-950"></div>
+        <!-- Subtle noise -->
+        <div class="pointer-events-none absolute inset-0"
+            style="background-image:url('https://uploads-ssl.webflow.com/5f6d66c5f1e4a5f0c1b3b1a1/63a4d9b4b4c7d418f9ed2c73_noise.png'); opacity: 0.3;">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header
+        class="fixed top-0 inset-x-0 z-40 transition animate-[slideInBlur_0.8s_ease-out_0.2s_forwards] bg-neutral-950/40 border-white/10 border-b blur-sm backdrop-blur translate-y-[-20px]">
+        <div class="w-full ">
+            <div class="supports-[backdrop-filter]:bg-neutral-900/30 border-0 rounded-none pt-4 backdrop-blur-none">
+                <div class="flex sm:px-6 pt-0 pr-4 pb-3 pl-4 items-center justify-between">
+                    <div class="flex items-center gap-8">
+                        <!-- Brand -->
+                        <a href="#" class="flex items-center gap-2">
+                            <img src="./assets/logo.svg" alt="Logo" class="h-6 w-auto filter brightness-0 invert">
+                        </a>
+
+                        <!-- Nav links -->
+                        <nav
+                            class="hidden md:flex gap-8 flex sm:px-6 rounded-full pt-3 pr-4 pb-3 pl-4 items-center justify-center">
+                            <a class="transition hover:text-neutral-100 text-sm font-normal text-neutral-300/80"
+                                href="/about" style="">About</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100"
+                                href="/services" style="">Services</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100"
+                                href="/products" style="">Products</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100"
+                                href="/career" style="">Career</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100"
+                                href="/news" style="">News</a>
+                        </nav>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="flex items-center gap-2">
+                        <a href="/contact"
+                            class="hidden sm:inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60"
+                            style="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="rocket" class="lucide lucide-rocket h-4 w-4">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                                </path>
+                                <path
+                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                                </path>
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                            </svg>
+                            Contact Us
+                        </a>
+                        <button id="mobile-menu-btn"
+                            class="inline-flex md:hidden items-center justify-center h-9 w-9 rounded-full border border-white/10 bg-neutral-900/60 hover:bg-neutral-800/60">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="menu"
+                                class="lucide lucide-menu h-5 w-5 text-neutral-200">
+                                <path d="M4 5h16"></path>
+                                <path d="M4 12h16"></path>
+                                <path d="M4 19h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden fixed inset-x-0 top-[72px] z-30 bg-neutral-950/95 backdrop-blur-lg border-b border-white/10">
+            <nav class="px-4 py-6 space-y-4">
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2"
+                    href="/about">About</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2"
+                    href="/services">Services</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2"
+                    href="/products">Products</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2"
+                    href="/career">Career</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2"
+                    href="/news">News</a>
+                <a href="/contact"
+                    class="inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60 mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="h-4 w-4">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                        </path>
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                        </path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Contact Us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Osmium Announcement Banner -->
+    <div id="osmium-banner" class="flex justify-center px-4 py-3 relative z-30" style="display: none; margin-top: 72px;">
+        <div class="border border-neutral-800 rounded-lg px-4 py-3 max-w-4xl w-full text-center relative mx-auto overflow-hidden" style="background: transparent;">
+            <p class="text-neutral-100 text-sm font-medium font-geist pr-8 flex items-center justify-center" style="font-weight: 500; font-size: 14px; line-height: 1.4;">
+                <span class="text-white font-semibold" style="font-weight: 600;">Osmium</span>&nbsp;is live. Take a look
+                <a href="https://osmium.co.in" class="inline-flex items-center ml-2 text-white hover:text-neutral-300 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4">
+                        <rect width="256" height="256" fill="none"/>
+                        <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    </svg>
+                </a>
+            </p>
+            <button id="close-banner" class="text-neutral-400 hover:text-neutral-200 transition-colors absolute right-3 top-1/2 transform -translate-y-1/2" aria-label="Close announcement">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Hero -->
+    <main class="relative">
+        <section class="max-w-7xl sm:pt-44 md:pt-48 md:pb-32 mr-auto ml-auto pt-40 pr-6 pb-24 pl-6">
+            <div class="flex flex-col text-center space-y-6 items-center">
+                <!-- Center icon with glow -->
+
+
+                <!-- Eyebrow -->
+                <div class="mb-6 opacity-0 translate-y-4 blur-sm animate-[slideInBlur_0.8s_ease-out_0.8s_forwards]">
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] border-white/10 bg-neutral-900/50 text-neutral-300"
+                        style="">
+                        <span
+                            class="h-1.5 w-1.5 rounded-full shadow-[0_0_0_3px_rgba(16,185,129,0.15)] bg-emerald-400/80"></span>
+                        Innovation served hotter than coffee
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1
+                    class="max-w-4xl text-5xl sm:text-6xl md:text-7xl tracking-tight leading-[0.95] text-transparent bg-clip-text bg-gradient-to-b font-semibold opacity-0 translate-y-8 blur-sm animate-[slideInBlur_1s_ease-out_1s_forwards] from-neutral-100 via-neutral-200 to-neutral-400/90">
+                    <span class="block" style="">Technology with Awareness,</span>
+                    <span class="block">
+                        <span
+                            class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80"
+                            style="">Built for</span>
+                        <span class="bg-clip-text italic font-['Playfair_Display']" style="">Everyone</span>
+                    </span>
+                </h1>
+
+                <!-- Subcopy -->
+                <p class="max-w-2xl sm:text-lg animate-[slideInBlur_0.8s_ease-out_1.2s_forwards] text-base text-neutral-300/80 opacity-0 mt-6 blur-sm translate-y-6"
+                    style="">
+                    From education to enterprise, we empower growth through technology, creativity, and conscious
+                    innovation.
+                </p>
+
+                <!-- CTA Button -->
+                <div class="overflow-hidden pt-8 pr-8 pb-8 pl-8">
+                    <div class="relative inline-block group">
+                        <a href="/interactive-tour"
+                            class="animate-[slideInBlur_0.8s_ease-out_1.2s_forwards] relative z-10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-[transform] duration-150 ease-out active:scale-[0.98] text-white bg-neutral-900/60 border-white/20 border rounded-xl pt-3 pr-6 pb-3 pl-6"
+                            style="--x: 199.8125px; --y: 7.5px; --o: 0;" onmousemove="btnMove(event)"
+                            onmouseenter="this.style.setProperty('--o','1')"
+                            onmouseleave="this.style.setProperty('--o','0')">
+                            <span class="relative z-10 inline-flex items-center gap-2 font-semibold" style="">Take a
+                                tour<svg
+                                    class="h-5 w-5 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+                                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"
+                                        class=""></path>
+                                </svg></span>
+                            <span
+                                class="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-[left,right] duration-500 ease-out group-hover:left-0 group-hover:right-0"></span>
+                            <span class="glow pointer-events-none absolute inset-0 -z-10" aria-hidden="true"
+                                style="transform: scale(0.95) translate(0px, -24px);"></span>
+                        </a>
+                        <span
+                            class="pointer-events-none absolute -bottom-3 left-1/2 z-0 h-6 w-44 -translate-x-1/2 rounded-full opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+                            style="background: radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.55), rgba(255,255,255,.28) 35%, transparent 70%); filter: blur(10px) saturate(120%);"
+                            aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <section class="relative z-10 py-8 sm:py-16 lg:py-24 fade-in fade-in-delay-4"
+                    style="opacity: 1; transform: translateY(0px);">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-8 sm:mb-12">
+                            <b class="uppercase text-xs font-medium text-zinc-500 tracking-wide">Trusted by</b>
+                        </div>
+
+                        <!-- Ticker Container -->
+                        <div class="relative overflow-hidden">
+                            <!-- Gradient Overlays -->
+                            <div
+                                class="absolute left-0 top-0 bottom-0 w-8 sm:w-16 lg:w-20 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none">
+                            </div>
+                            <div
+                                class="absolute right-0 top-0 bottom-0 w-8 sm:w-16 lg:w-20 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none">
+                            </div>
+
+                            <!-- Animated Ticker -->
+                            <div style="width:100vw;"
+                                class="ticker-track flex gap-8 sm:gap-12 lg:gap-16 py-2 items-center">
+                                <!-- First set of logos -->
+                                <div class="flex gap-8 sm:gap-12 lg:gap-16 shrink-0 items-center">
+                                    <img src="/assets/companies/aws.svg" alt="AWS"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/nineone152.svg" alt="NineOne152"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/aegis.svg" alt="Aegis auth"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/plenora.svg" alt="Plenora"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/sarvam.svg" alt="Sarvam"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/ssip.svg" alt="SSIP"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/TantriX.svg" alt="TantriX"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/NexTech.svg" alt="Nextech"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                </div>
+
+                                <div class="flex gap-8 sm:gap-12 lg:gap-16 shrink-0 items-center">
+                                    <img src="/assets/companies/aws.svg" alt="AWS"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/nineone152.svg" alt="NineOne152"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/aegis.svg" alt="Aegis auth"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/plenora.svg" alt="Plenora"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/sarvam.svg" alt="Sarvam"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/ssip.svg" alt="SSIP"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/NexTech.svg" alt="Nextech"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/TantriX.svg" alt="TantriX"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <!-- Duplicate set for seamless loop -->
+                                <div class="flex items-center gap-8 sm:gap-12 lg:gap-16 shrink-0">
+                                    <img src="/assets/companies/aws.svg" alt="AWS"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/nineone152.svg" alt="NineOne152"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/aegis.svg" alt="Aegis auth"
+                                        class="h-6 sm:h-7 lg:h-8 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/plenora.svg" alt="Plenora"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/sarvam.svg" alt="Sarvam"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/ssip.svg" alt="SSIP"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/TantriX.svg" alt="TantriX"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <img src="/assets/companies/NexTech.svg" alt="Nextech"
+                                        class="h-6 sm:h-7 lg:h-8 filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        @keyframes ticker {
+                            0% {
+                                transform: translateX(0);
+                            }
+
+                            100% {
+                                transform: translateX(-100%);
+                            }
+                        }
+
+                        .ticker-track {
+                            animation: ticker 40s linear infinite;
+                            width: calc(300% + 32px);
+                        }
+
+                        .ticker-track:hover {
+                            animation-play-state: paused;
+                        }
+
+                        @media (max-width: 640px) {
+                            .ticker-track {
+                                animation-duration: 30s;
+                            }
+                        }
+                    </style>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Process Section -->
+    <section id="process" class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <!-- Section label -->
+        <div class="flex mt-6 mb-6 items-center justify-center scroll-fade visible">
+            <span
+                class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+                style="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="waypoints" class="lucide lucide-waypoints h-3.5 w-3.5 text-cyan-300">
+                    <circle cx="12" cy="4.5" r="2.5"></circle>
+                    <path d="m10.2 6.3-3.9 3.9"></path>
+                    <circle cx="4.5" cy="12" r="2.5"></circle>
+                    <path d="M7 12h10"></path>
+                    <circle cx="19.5" cy="12" r="2.5"></circle>
+                    <path d="m13.8 17.7 3.9-3.9"></path>
+                    <circle cx="12" cy="19.5" r="2.5"></circle>
+                </svg>
+                How We Transform Your Business
+            </span>
+        </div>
+
+        <!-- Heading -->
+        <div class="max-w-3xl scroll-fade scroll-fade-delay text-center mr-auto ml-auto visible">
+            <h1 class="md:text-6xl text-4xl font-semibold tracking-tight text-slate-50" style="">
+                Our Proven &amp; <span
+                    class="bg-clip-text italic font-['Playfair_Display'] bg-gradient-to-r from-slate-200 via-cyan-300 to-indigo-300"
+                    style="">Intelligent</span> Approach
+            </h1>
+            <p class="md:text-lg text-base text-slate-400 mt-4" style="">From analysis to implementation everything you
+                need to automate, optimize, and scale your operations.</p>
+        </div>
+        <section class="relative z-10">
+            <div class=" pt-20 pb-20 ">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                    <!-- Feature 1 -->
+                    <div class="ring-1 h-full flex flex-col rounded-3xl backdrop-blur ring-white/10 bg-neutral-900/30">
+                        <div class="sm:p-8 pt-6 pr-6 pb-6 pl-6 space-y-3">
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-4.5 w-4.5 text-white">
+                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                    <path d="M12 18h.01"></path>
+                                </svg>
+                                <span class="text-sm font-sans text-neutral-300" style="">Product Development</span>
+                            </div>
+                            <h2 class="text-2xl tracking-tight font-bricolage font-light text-white" style="">
+                                Cross-platform design &amp; development from start to finish</h2>
+                            <p class="text-sm leading-relaxed font-sans text-neutral-300" style="">
+                                Android, iOS &amp; Web apps<br>
+                                Cross-platform &amp; Desktop solutions<br>
+                                Game &amp; OS development
+                            </p>
+                            <div class="mt-3 flex items-center gap-3">
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path d="M3 3v18h18" class=""></path>
+                                        <path d="m19 9-5 5-4-4-3 3" class=""></path>
+                                    </svg>
+                                    Scalable
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path
+                                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h4a2 2 0 0 1 2 2v1.28c.6.35 1 .98 1 1.72 0 .74-.4 1.38-1 1.72V15a2 2 0 0 1-2 2h-4v1.27c.6.35 1 .98 1 1.73a2 2 0 1 1-4 0c0-.75.4-1.38 1-1.73V17H7a2 2 0 0 1-2-2v-1.28c-.6-.35-1-.98-1-1.72 0-.74.4-1.37 1-1.72V9a2 2 0 0 1 2-2h4V5.73c-.6-.35-1-.99-1-1.73a2 2 0 0 1 2-2Z">
+                                        </path>
+                                    </svg>
+                                    Adaptive
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 (center highlight) -->
+                    <div
+                        class="relative ring-1 border rounded-3xl shadow-2xl backdrop-blur max-w-xl h-full flex flex-col ring-white/10 bg-neutral-900/40 border-neutral-800/70">
+                        <div class="relative sm:p-6 lg:p-8 flex-1 flex flex-col pt-5 pr-5 pb-5 pl-5">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-white/20 ring-1 ring-white/30">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-white">
+                                        <path d="M12 18V5"></path>
+                                        <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path>
+                                        <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path>
+                                    </svg>
+                                </span>
+                                <h3 class="text-xl tracking-tight font-semibold font-sans text-white" style="">AI &
+                                    Automation</h3>
+                            </div>
+
+                            <h2 class="text-2xl tracking-tight font-bricolage font-light text-white mt-4" style="">
+                                Smarter workflows with AI</h2>
+                            <p class="text-sm leading-relaxed font-sans text-neutral-300 mt-3" style="">
+                                AI-driven automation, recommendation engines, and custom LLMs - combined with engaging
+                                UI/UX and creative branding.
+                            </p>
+
+                            <div class="mt-6 flex items-center gap-3">
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path
+                                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h4a2 2 0 0 1 2 2v1.28c.6.35 1 .98 1 1.72 0 .74-.4 1.38-1 1.72V15a2 2 0 0 1-2 2h-4v1.27c.6.35 1 .98 1 1.73a2 2 0 1 1-4 0c0-.75.4-1.38 1-1.73V17H7a2 2 0 0 1-2-2v-1.28c-.6-.35-1-.98-1-1.72 0-.74.4-1.37 1-1.72V9a2 2 0 0 1 2-2h4V5.73c-.6-.35-1-.99-1-1.73a2 2 0 0 1 2-2Z">
+                                        </path>
+                                    </svg>
+                                    Optimized
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path
+                                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h4a2 2 0 0 1 2 2v1.28c.6.35 1 .98 1 1.72 0 .74-.4 1.38-1 1.72V15a2 2 0 0 1-2 2h-4v1.27c.6.35 1 .98 1 1.73a2 2 0 1 1-4 0c0-.75.4-1.38 1-1.73V17H7a2 2 0 0 1-2-2v-1.28c-.6-.35-1-.98-1-1.72 0-.74.4-1.37 1-1.72V9a2 2 0 0 1 2-2h4V5.73c-.6-.35-1-.99-1-1.73a2 2 0 0 1 2-2Z">
+                                        </path>
+                                    </svg>
+                                    Adaptive
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="ring-1 h-full flex flex-col rounded-3xl backdrop-blur ring-white/10 bg-neutral-900/30">
+                        <div class="sm:p-8 pt-6 pr-6 pb-6 pl-6 space-y-3">
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-4.5 w-4.5 text-white">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                    </path>
+                                </svg>
+                                <span class="text-sm font-sans text-neutral-300" style="">Operations</span>
+                            </div>
+                            <h2 class="text-2xl tracking-tight font-bricolage font-light text-white" style="">Strategy &
+                                Management</h2>
+                            <p class="text-sm leading-relaxed font-sans text-neutral-300" style="">
+                                From project management and marketing outreach to research, cloud, and IoT - we help you
+                                scale with confidence.
+                            </p>
+                            <div class="mt-3 flex items-center gap-3">
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path d="M9 12l2 2 4-4" class=""></path>
+                                        <path
+                                            d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"
+                                            class=""></path>
+                                    </svg>
+                                    Reliable
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs ring-1 font-sans bg-white/10 text-white ring-white/20"
+                                    style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-3.5 w-3.5">
+                                        <path d="M3 3v18h18" class=""></path>
+                                        <path d="m19 9-5 5-4-4-3 3" class=""></path>
+                                    </svg>
+                                    Growth-focused
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Use cases -->
+                <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="ring-1 rounded-2xl p-4 ring-white/10 bg-white/5">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-white/5 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" class=""></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" class=""></path>
+                                </svg>
+                            </span>
+                            <h4 class="text-sm font-medium tracking-tight font-sans text-white">Marketing & Outreach
+                            </h4>
+                        </div>
+                        <p class="text-sm mt-2 font-sans text-slate-300">Digital, print, & social reach strategies.</p>
+                    </div>
+                    <div class="ring-1 rounded-2xl p-4 ring-white/10 bg-white/5">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-white/5 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="">
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                                        class=""></path>
+                                    <path d="M7.5 4.21l4.5 2.6 4.5-2.6" class=""></path>
+                                    <path d="M7.5 19.79V14.6L3 12" class=""></path>
+                                    <path d="M21 12l-4.5 2.6v5.19" class=""></path>
+                                    <path d="M3.27 6.96L12 12.01l8.73-5.05" class=""></path>
+                                    <path d="M12 22.08V12" class=""></path>
+                                </svg>
+                            </span>
+                            <h4 class="text-sm font-medium tracking-tight font-sans text-white">Design & Branding</h4>
+                        </div>
+                        <p class="text-sm mt-2 font-sans text-slate-300">Impactful logos and visuals that build identity
+                            and connect with your audience.</p>
+                    </div>
+                    <div class="ring-1 rounded-2xl p-4 ring-white/10 bg-white/5">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-white/5 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" class="">
+                                    </path>
+                                    <path d="M14 2v6h6" class=""></path>
+                                    <path d="M16 13H8" class=""></path>
+                                    <path d="M16 17H8" class=""></path>
+                                    <path d="M10 9H8" class=""></path>
+                                </svg>
+                            </span>
+                            <h4 class="text-sm font-medium tracking-tight font-sans text-white">Research & Documentation
+                            </h4>
+                        </div>
+                        <p class="text-sm mt-2 font-sans text-slate-300">Structured insights & technical writing.</p>
+                    </div>
+                    <div class="ring-1 rounded-2xl p-4 ring-white/10 bg-white/5">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-white/5 ring-white/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="">
+                                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" class="">
+                                    </path>
+                                    <path d="M14 2v4a2 2 0 0 0 2 2h4" class=""></path>
+                                    <path d="M10 9H8" class=""></path>
+                                    <path d="M16 13H8" class=""></path>
+                                    <path d="M16 17H8" class=""></path>
+                                </svg>
+                            </span>
+                            <h4 class="text-sm font-medium tracking-tight font-sans text-white">Content Creation</h4>
+                        </div>
+                        <p class="text-sm mt-2 font-sans text-slate-300">Video, writing, and editing for growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="component-wrapper">
+            <section class="sm:p-8 bg-regular-900/30 border-zinc-800 border rounded-3xl mt-8 pt-6 pr-6 pb-6 pl-6"
+                style="position: relative; overflow: hidden;">
+                <!-- Background dividers -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <div
+                        class="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-600 to-transparent">
+                    </div>
+                    <div
+                        class="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-600 to-transparent">
+                    </div>
+                    <div
+                        class="absolute top-0 bottom-0 left-1/3 w-px bg-gradient-to-b from-transparent via-zinc-600 to-transparent">
+                    </div>
+                    <div
+                        class="absolute top-0 bottom-0 right-1/3 w-px bg-gradient-to-b from-transparent via-zinc-600 to-transparent">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-start relative z-10">
+                    <!-- Left: Heading + copy -->
+                    <div class="flex flex-col justify-between min-h-full">
+                        <div class="">
+                            <span class="text-sm font-normal text-zinc-500 font-geist" style="">From learning to living,
+                                innovation that awakens possibilities.</span>
+                            <h2 class="text-[44px] sm:text-6xl lg:text-7xl leading-[0.9] text-zinc-100 mt-2 font-geist font-medium tracking-tighter"
+                                style="font-family: 'Space Grotesk', sans-serif; font-weight:60;">Powered by Conscious Intelligence.</h2>
+
+                            <!-- subtle plus markers with divider -->
+                            <div class="mt-8 relative">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full h-px bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800">
+                                    </div>
+                                </div>
+                                <div
+                                    class="hidden sm:grid grid-cols-3 gap-6 text-zinc-600 bg-regular-900/30 px-4 relative">
+                                    <div class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="plus"
+                                            class="lucide lucide-plus h-4 w-4">
+                                            <path d="M5 12h14" class=""></path>
+                                            <path d="M12 5v14" class=""></path>
+                                        </svg>
+                                        <span class="text-sm font-normal font-geist" style="">Intelligence
+                                            Redefined</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="plus"
+                                            class="lucide lucide-plus h-4 w-4">
+                                            <path d="M5 12h14" class=""></path>
+                                            <path d="M12 5v14" class=""></path>
+                                        </svg>
+                                        <span class="text-sm font-normal font-geist" style="">Fluid Collaboration</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="plus"
+                                            class="lucide lucide-plus h-4 w-4">
+                                            <path d="M5 12h14" class=""></path>
+                                            <path d="M12 5v14" class=""></path>
+                                        </svg>
+                                        <span class="text-sm font-normal font-geist" style="">Endless
+                                            Possibilities</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="">
+                                <p class="text-sm text-zinc-100 font-medium tracking-tight font-geist" style="">
+                                    Experience the future today
+                                </p>
+                                <p class="mt-1 text-sm text-zinc-400 font-geist" style="">Discover how conscious
+                                    intelligence and advanced technology unlock growth, creativity, and transformation
+                                    across every dimension of life.</p>
+                                <a href="/products/"
+                                    class="mt-4 inline-flex items-center gap-2 h-10 px-4 rounded-full bg-zinc-100 text-zinc-900 text-sm font-normal hover:bg-zinc-200 transition font-geist"
+                                    style="">
+                                    Explore all products
+                                </a>
+                            </div>
+
+                            <!-- Vertical divider -->
+                            <div class="relative">
+                                <div
+                                    class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-zinc-700 to-transparent sm:block hidden">
+                                </div>
+                                <p class="text-base text-zinc-300 leading-relaxed sm:text-right sm:pl-8 font-geist"
+                                    style="">
+                                    Our breakthrough AI powers adaptive solutions that grow with learners, creators,
+                                    communities, and enterprises.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Team grid -->
+                    <div class="grid grid-cols-2 gap-4 relative">
+                        <!-- AI Agent 1 -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 bg-[url(/assets/osmiumCard.png)] bg-cover bg-center hover:scale-105 transition-transform duration-500"
+                                style="">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="brain"
+                                        class="lucide lucide-brain h-3.5 w-3.5">
+                                        <path d="M12 18V5" class=""></path>
+                                        <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" class=""></path>
+                                        <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" class=""></path>
+                                        <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" class=""></path>
+                                        <path d="M18 18a4 4 0 0 0 2-7.464" class=""></path>
+                                        <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" class=""></path>
+                                        <path d="M6 18a4 4 0 0 1-2-7.464" class=""></path>
+                                        <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" class=""></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">Deep Learning</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">Osmium</p>
+                            </div>
+                        </article>
+
+                        <!-- AI Agent 2 -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 bg-[url(/assets/natrajCard.png)] bg-cover bg-center hover:scale-105 transition-transform duration-500"
+                                style="">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap h-3.5 w-3.5">
+                                        <path
+                                            d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                                            class=""></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">AI + AR</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">Natraj</p>
+                            </div>
+                        </article>
+
+                        <!-- AI Agent 3 -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 bg-[url('/assets/Aegis%20card.png')] bg-cover bg-center hover:scale-105 transition-transform duration-500"
+                                style="">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="trending-up"
+                                        class="lucide lucide-trending-up h-3.5 w-3.5">
+                                        <path d="M16 7h6v6" class=""></path>
+                                        <path d="m22 7-8.5 8.5-5-5L2 17" class=""></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">Agentic AI</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">Aegis auth</p>
+                            </div>
+                        </article>
+
+                        <!-- AI Agent 4 -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 bg-[url(/assets/kriyaCard.png)] bg-cover bg-center hover:scale-105 transition-transform duration-500"
+                                style="">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="shield-check"
+                                        class="lucide lucide-shield-check h-3.5 w-3.5">
+                                        <path
+                                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                                            class=""></path>
+                                        <path d="m9 12 2 2 4-4" class=""></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">Organizational AI</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">Kriya</p>
+                            </div>
+                        </article>
+
+                        <!-- AI Agent 5 - LM Lens -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 hover:scale-105 transition-transform duration-500">
+                                <img src="/assets/LM Lens.svg" alt="LM Lens" class="h-full w-full object-contain p-8">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="eye"
+                                        class="lucide lucide-eye h-3.5 w-3.5">
+                                        <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" class=""></path>
+                                        <circle cx="12" cy="12" r="3" class=""></circle>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">Vision AI</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">LM Lens</p>
+                            </div>
+                        </article>
+
+                        <!-- AI Agent 6 - NSL -->
+                        <article
+                            class="relative overflow-hidden h-[200px] bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-800 rounded-2xl">
+                            <div class="absolute inset-0 hover:scale-105 transition-transform duration-500">
+                                <img src="/assets/nsl.png" alt="NSL" class="h-full w-full object-contain p-8">
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-900 border border-zinc-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" data-lucide="network"
+                                        class="lucide lucide-network h-3.5 w-3.5">
+                                        <rect x="16" y="16" width="6" height="6" rx="1" class=""></rect>
+                                        <rect x="2" y="16" width="6" height="6" rx="1" class=""></rect>
+                                        <rect x="9" y="2" width="6" height="6" rx="1" class=""></rect>
+                                        <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" class=""></path>
+                                        <path d="M12 12V8" class=""></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span
+                                    class="px-2 py-1 rounded-md bg-zinc-900/60 backdrop-blur text-[11px] text-zinc-300 font-normal border border-zinc-800 font-geist"
+                                    style="">Neural Systems</span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-white text-lg font-medium tracking-tight leading-tight font-geist"
+                                    style="">NSL</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+     <!-- Osmium Ad Section -->
+   
+
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 opacity-100 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <!-- Eyebrow -->
+        <div class="flex items-center justify-center scroll-fade visible">
+            <span
+                class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full px-3 py-1 text-slate-300/80 bg-white/5 border-white/10"
+                style="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="badge" class="lucide lucide-badge h-3.5 w-3.5 text-cyan-300">
+                    <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z">
+                    </path>
+                </svg>
+                How We Power Your Vision
+
+            </span>
+        </div>
+
+        <!-- Heading -->
+        <div class="max-w-3xl text-center mx-auto mt-6 scroll-fade scroll-fade-delay visible">
+            <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-slate-50" style="">
+                Our Work Process: Simple,
+                <span
+                    class="bg-clip-text italic font-['Playfair_Display'] bg-gradient-to-r from-slate-200 via-cyan-300 to-indigo-300"
+                    style="">Secure</span> ,Effective
+            </h1>
+            <p class="mt-4 text-base md:text-lg text-slate-400" style="">
+                At Navchetna, we believe every project deserves a thoughtful start, a strong build, and a confident
+                launch. Our process is designed to keep things clear, secure, and dependable.
+            </p>
+        </div>
+
+        <!-- Billing toggle -->
+        <div class="flex mt-6 items-center justify-center scroll-fade scroll-fade-delay-2 visible">
+            <div class="inline-flex items-center gap-2 rounded-full border p-1 border-white/10 bg-white/5 relative">
+                <div id="slider-indicator"
+                    class="absolute top-1 left-1 h-[calc(100%-8px)] bg-black/40 ring-1 ring-white/10 rounded-full transition-all duration-300 ease-out"
+                    style="width: 61px; transform: translateX(0px);"></div>
+                <button type="button" id="monthly-btn"
+                    class="px-4 py-2 text-xs sm:text-sm rounded-full tracking-wide relative z-10 transition-colors duration-200 text-slate-200"
+                    style="">Plan</button>
+                <button type="button" id="yearly-btn"
+                    class="sm:text-sm hover:text-slate-200 relative z-10 transition-colors duration-200 text-xs text-slate-300 tracking-wide rounded-full pt-2 pr-4 pb-2 pl-4"
+                    style="">Development</button>
+                <button type="button" id="save-btn"
+                    class="px-3 py-2 text-[11px] rounded-full inline-flex items-center gap-1 text-slate-300 relative z-10 hover:text-slate-200 transition-colors duration-200"
+                    style="">
+
+                    Release
+                </button>
+            </div>
+        </div>
+
+        <!-- Content Layout -->
+        <div class="mt-12 mr-auto ml-auto max-w-7xl scroll-fade scroll-fade-delay-3 visible bg-[#111] border border-[#2b2b2b] rounded-[2rem] p-8 md:p-12"
+            style="border-width: 0.5px;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div class="space-y-6">
+                    <div id="content-plan" class="content-section">
+                        <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">Plan</h3>
+                        <p class="mt-4 text-lg text-slate-400">Every project begins with understanding. We listen,
+                            research, and map out a practical strategy. Together, we align on timelines, budgets, and
+                            goals to ensure clarity from the very start.</p>
+                        <ul class="mt-6 space-y-4 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/4727266.png" alt="Research" class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Research</div>
+                                    <div class="text-sm text-slate-400 mt-1">Deep research and brainstorming help us
+                                        understand your needs better.</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/584796.png" alt="Best Services"
+                                        class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Best Services</div>
+                                    <div class="text-sm text-slate-400 mt-1">We promise reliable service and transparent
+                                        communication from day one.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="content-development" class="content-section hidden opacity-0">
+                        <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">Development</h3>
+                        <p class="mt-4 text-lg text-slate-400">With a clear plan in place, our team brings ideas to
+                            life. From design to coding, we follow a structured approach that balances creativity with
+                            precision - delivering solutions that are scalable and future-ready.</p>
+                        <ul class="mt-6 space-y-4 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/6106288.png" alt="Agile Process"
+                                        class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Agile Process</div>
+                                    <div class="text-sm text-slate-400 mt-1">Flexible and adaptive to your needs.</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/2313906.png" alt="Quality Focus"
+                                        class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Quality Focus</div>
+                                    <div class="text-sm text-slate-400 mt-1">Every feature is tested for reliability.
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="content-release" class="content-section hidden opacity-0">
+                        <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">Release</h3>
+                        <p class="mt-4 text-lg text-slate-400">The final stage is all about delivery and impact. We
+                            launch with care, monitor performance, and provide ongoing support to ensure your project
+                            continues to grow even after release.</p>
+                        <ul class="mt-6 space-y-4 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/3340200.png" alt="Smooth Launch"
+                                        class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Smooth Launch</div>
+                                    <div class="text-sm text-slate-400 mt-1">A hassle-free transition from build to
+                                        live.</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-10 h-10 rounded-lg bg-transparent border border-[#2b2b2b] flex items-center justify-center">
+                                    <img src="https://nineone152.com/assets/5405929.png" alt="Ongoing Support"
+                                        class="w-4 h-4">
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-200">Ongoing Support</div>
+                                    <div class="text-sm text-slate-400 mt-1">We stand by your side post-release.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="flex items-center justify-center">
+                    <div
+                        class="w-full max-w-lg rounded-[1.5rem] overflow-hidden bg-white/10 transition-all backdrop-blur-sm">
+                        <img id="content-image" src="assets/plan.png" alt="Strategic planning workspace"
+                            class="w-full h-full object-cover transition-all duration-700 ease-in-out"
+                            style="opacity: 1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden">
+        <div class="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pt-16 pr-4 pb-16 pl-4">
+            <!-- Header -->
+            <div class="max-w-4xl mx-auto text-center">
+                <span
+                    class="inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-medium backdrop-blur font-geist border-white/10 bg-white/5 text-white/70">Client
+                    Success</span>
+                <h2 class="sm:text-4xl md:text-5xl text-3xl tracking-tighter font-geist mt-4">What our partners say
+                    about driving growth.</h2>
+                <p class="mt-4 text-base font-geist text-white/70">Real results from real brands. See how we've helped
+                    companies scale their acquisition and maximize ROI.</p>
+            </div>
+
+            <!-- Testimonials Carousel -->
+            <div class="mt-10 relative">
+                <!-- Carousel Container -->
+                <div class="overflow-hidden">
+                    <div id="testimonialCarousel" class="flex transition-transform duration-500 ease-out"
+                        style="transform: translateX(-100%);">
+
+                        <!-- Slide 1 - Current testimonials -->
+                        <div class="w-full flex-shrink-0">
+                            <div class="grid gap-6 md:grid-cols-3">
+                                <!-- Card 1 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"I used Osmium for my
+                                        JEE prep. Honestly, it felt less like an app and more like a study partner. The
+                                        mock tests were scarily close to the actual exam pattern. For someone from a
+                                        small town like me, this feels like a big leap forward."</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Priya Kumari â€¢
+                                            Student</p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">Patna, Bihar</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"We tried Natraj in
+                                        our college for managing course content. Usually, software means headaches, but
+                                        this one was surprisingly smooth. Even my less-tech-savvy colleagues figured it
+                                        out. That's rare!"</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Dr. Mehul Shah â€¢
+                                            Professor</p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">Ahmedabad, Gujarat</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"Our startup needed a
+                                        website that didn't look like it was built in the 90s. Navchetna delivered
+                                        exactly that. Clean, modern, and easy to use. Now investors take us more
+                                        seriously."</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Raghav Malhotra â€¢
+                                            Founder</p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">New Delhi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 - New set of testimonials -->
+                        <div class="w-full flex-shrink-0">
+                            <div class="grid gap-6 md:grid-cols-3">
+                                <!-- Card 4 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"I asked Navchetna for
+                                        branding help and they made a logo so good that even my mom finally understood
+                                        what my company does. That's the real UX win here."</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Arjun Nair â€¢
+                                            Professional</p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">Bangalore</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 5 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"My son spends hours
+                                        on Osmium and for the first time, I don't have to worry it's a waste of time. He
+                                        actually studies, and sometimes even explains concepts to me. Not bad!"</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Rajesh Yadav â€¢ Parent
+                                        </p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">Lucknow, Uttar Pradesh</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 6 -->
+                                <div
+                                    class="relative overflow-hidden rounded-2xl border p-5 sm:p-6 border-white/10 bg-white/5">
+                                    <div class="mt-3 flex items-center gap-1 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-star h-4 w-4 fill-white">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-3 text-sm sm:text-base font-geist text-white/80">"Working with
+                                        Navchetna felt refreshing. No overpromises, just consistent delivery. The AI
+                                        recommendation system they built for us works smoothly and has already improved
+                                        engagement. Would love to collaborate again."</p>
+                                    <div class="mt-5 pt-3 border-t border-white/10">
+                                        <p class="text-sm font-semibold tracking-tight font-geist">Lisa Wong â€¢
+                                            International Client</p>
+                                        <p class="text-xs font-geist mt-1 text-white/60">California, USA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons - Moved below cards -->
+                <div class="flex items-center justify-between mt-6">
+                    <button id="prevBtn"
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full border backdrop-blur transition-colors border-white/10 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-left">
+                            <path d="m15 18-6-6 6-6" class=""></path>
+                        </svg>
+                    </button>
+
+                    <!-- Carousel Indicators -->
+                    <div class="flex items-center gap-2">
+                        <button
+                            class="carousel-indicator w-2 h-2 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/50"
+                            data-slide="0"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full transition-all duration-300 bg-white"
+                            data-slide="1"></button>
+                    </div>
+
+                    <button id="nextBtn"
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full border backdrop-blur transition-colors border-white/10 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-right">
+                            <path d="m9 18 6-6-6-6" class=""></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <script>
+                // Carousel functionality
+                let currentSlide = 0;
+                const totalSlides = 2;
+                const carousel = document.getElementById('testimonialCarousel');
+                const indicators = document.querySelectorAll('.carousel-indicator');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                function updateCarousel() {
+                    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                    // Update indicators
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentSlide) {
+                            indicator.classList.remove('bg-white/30', 'hover:bg-white/50');
+                            indicator.classList.add('bg-white');
+                        } else {
+                            indicator.classList.remove('bg-white');
+                            indicator.classList.add('bg-white/30', 'hover:bg-white/50');
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateCarousel();
+                }
+
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateCarousel();
+                }
+
+                function goToSlide(slideIndex) {
+                    currentSlide = slideIndex;
+                    updateCarousel();
+                }
+
+                // Event listeners
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => goToSlide(index));
+                });
+
+                // Auto-play functionality (optional)
+                setInterval(nextSlide, 5000);
+            </script>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section id="faq" class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <!-- Eyebrow -->
+        <div class="flex items-center justify-center scroll-fade visible">
+            <span
+                class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full px-3 py-1 text-slate-300/80 bg-white/5 border-white/10"
+                style="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="help-circle" class="lucide lucide-help-circle h-3.5 w-3.5 text-cyan-300">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <path d="M12 17h.01"></path>
+                </svg>
+                Common Questions
+            </span>
+        </div>
+
+        <!-- Heading -->
+        <div class="max-w-3xl text-center mx-auto mt-6 scroll-fade scroll-fade-delay visible">
+            <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-slate-50" style="">
+                Everything You <span
+                    class="bg-clip-text italic font-['Playfair_Display'] bg-gradient-to-r from-slate-200 via-cyan-300 to-indigo-300"
+                    style="">Need to Know</span>
+            </h1>
+            <p class="mt-4 text-base md:text-lg text-slate-400" style="">
+                Quick answers to help you get started with confidence
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="grid gap-6 lg:grid-cols-2 mt-12">
+            <!-- Left Support Card -->
+            <div class="relative overflow-hidden rounded-[1.2em] ring-1 ring-white/10 bg-white/5 hover:bg-white/10 hover:ring-white/20 transition-all self-start scroll-fade scroll-fade-delay-2 visible"
+                style="backdrop-filter: blur(16px);">
+                <div class="relative p-6 md:p-8 text-center flex flex-col items-center">
+                    <div class="h-12 w-12 flex ring-white/10 ring-1 bg-black/40 rounded-xl items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="message-circle-question"
+                            class="lucide lucide-message-circle-question h-6 w-6 text-slate-300">
+                            <path
+                                d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
+                            </path>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold tracking-tight text-slate-100 mt-4" style="">Need Personal
+                        Guidance?</h3>
+                    <p class="mt-2 text-sm md:text-base text-slate-400 max-w-md" style="">
+                        Our AI automation experts are here to help you find the perfect solution for your specific
+                        business needs.
+                    </p>
+                    <a href="/contact"
+                        class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white hover:bg-white/10 transition"
+                        style="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="calendar" class="lucide lucide-calendar h-4 w-4">
+                            <path d="M8 2v4"></path>
+                            <path d="M16 2v4"></path>
+                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                            <path d="M3 10h18"></path>
+                        </svg>
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Accordion -->
+            <div class="scroll-fade scroll-fade-delay-3 space-y-4 visible">
+                <!-- FAQ Items -->
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">What is Navchetna and who
+                            do you work with?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300 rotate-180">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 text-sm text-slate-400 pt-0 pr-4 pb-0 pl-4"
+                        style="max-height: 84px;">
+                        <div class="pb-6">
+                            Navchetna is a creative tech company that blends design, innovation, and engineering to
+                            solve real problems. We work with students, startups, institutions, and enterprises, anyone
+                            looking to grow with the right use of technology.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">What services do you
+                            provide?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down transition-transform duration-300 h-5 w-5 text-slate-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            We cover a wide range of solutions: Android, iOS, and web apps, AI/ML, UI/UX design,
+                            branding, marketing, SEO, cloud, IoT, automation, content creation, servers, and even games
+                            or desktop software. Basically, if it's tech or design, we've got it covered.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">Do you provide design
+                            separately or only with development?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            Yes, design can be taken as a standalone service. Many clients only need UI/UX or creative
+                            assets like logos and posters, and we're happy to provide that without full development.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">What makes Navchetna
+                            different from others?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            We believe in being a one-stop partner for tech and design needs. Our focus is on
+                            affordability, transparency, and long-term support, customization, maintenance, and guidance
+                            even after launch.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">What is Osmium and how
+                            does it help students?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            Osmium is our AI-powered learning platform. It helps students prepare smarter by generating
+                            personalized study material, quizzes, mock tests, and even career guidance, like a mentor
+                            that adapts to your learning style.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">What is Natraj and who
+                            can use it?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            Natraj is an AR/AI-based product for learning anatomy. By pointing your phone's camera at a
+                            body part, you can view realistic 3D models of bones or organs in place. Medical students,
+                            biology learners, or educators can use it to make complex concepts more interactive and
+                            engaging.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">How do you charge for
+                            services?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            Pricing depends on the scope and type of project. We keep it flexible, whether for
+                            individuals, startups, or enterprises, so clients only pay for what they really need.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition">
+                    <button type="button"
+                        class="w-full flex gap-4 focus:outline-none text-left pt-3 pr-4 pb-3 pl-4 items-center justify-between"
+                        data-faq-toggle="">
+                        <span class="text-sm md:text-base text-slate-200 font-medium" style="">How can I contact
+                            Navchetna for projects or support?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down"
+                            class="lucide lucide-chevron-down h-5 w-5 text-slate-300 transition-transform duration-300">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-4 pt-0 text-sm text-slate-400 overflow-hidden transition-all duration-300"
+                        style="max-height: 0px;">
+                        <div class="pb-6">
+                            You can reach us through our website or email. We respond quickly and also provide
+                            documentation, training, and ongoing support whenever required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="relative scroll-fade pt-20 visible">
+            <div class="flex items-center justify-center">
+                <span
+                    class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full px-3 py-1 text-slate-300/80 bg-white/5 border-white/10"
+                    style="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        data-lucide="rocket" class="lucide lucide-rocket h-3.5 w-3.5 text-cyan-300">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                        </path>
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                        </path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Start Your Transformation
+                </span>
+            </div>
+
+            <div class="max-w-3xl text-center mx-auto mt-6 scroll-fade scroll-fade-delay visible">
+                <h2 class="md:text-6xl text-4xl font-semibold text-slate-50 tracking-tight" style="">Ready to Transform
+                </h2>
+                <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-slate-50 mt-1" style="">
+                    Your <span
+                        class="bg-clip-text italic font-['Playfair_Display'] bg-gradient-to-r from-slate-200 via-cyan-300 to-indigo-300"
+                        style="">Business Operations?</span>
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-slate-400" style="">
+                    Book a personalized consultation and discover how AI can revolutionize your workflows
+                </p>
+
+                <!-- CTA Button -->
+                <div class="relative inline-block group mt-6 scroll-fade scroll-fade-delay-2 visible">
+                    <a href="/contact" aria-label="Contact us"
+                        class="animate-[slideInBlur_0.8s_ease-out_1.2s_forwards] relative z-10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-[transform] duration-150 ease-out active:scale-[0.98] text-white bg-neutral-900/60 border-white/20 border rounded-xl pt-3 pr-6 pb-3 pl-6"
+                        style="--x: 4.8125px; --y: 34px; --o: 0;" onmousemove="btnMove(event)"
+                        onmouseenter="this.style.setProperty('--o','1')"
+                        onmouseleave="this.style.setProperty('--o','0')">
+                        <span class="relative z-10 inline-flex items-center gap-2 font-semibold" style="">Contact us<svg
+                                class="h-5 w-5 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+                                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"></path>
+                            </svg></span>
+                        <span
+                            class="pointer-events-none absolute bottom-0 left-1/2 right-1/2 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80 transition-[left,right] duration-500 ease-out group-hover:left-0 group-hover:right-0"></span>
+                        <span class="glow pointer-events-none absolute inset-0 -z-10" aria-hidden="true"
+                            style="transform: scale(0.95) translate(0px, -24px);"></span>
+                    </a>
+                    <span aria-hidden="true"
+                        class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 h-6 w-52 rounded-full opacity-70 group-hover:opacity-100 transition-opacity"
+                        style="background: radial-gradient(60% 100% at 50% 50%, rgba(255,255,255,.45), rgba(255,255,255,.22) 35%, transparent 70%); filter: blur(10px) saturate(120%);"></span>
+                </div>
+
+                <!-- Contact info -->
+                <div
+                    class="mt-8 flex items-center justify-center gap-6 text-slate-400 scroll-fade scroll-fade-delay-3 visible">
+                    <a href="mailto:hello@navchetna.tech"
+                        class="group hover:text-slate-200 transition flex items-center gap-2" style="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="mail" class="lucide lucide-mail h-4 w-4">
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        </svg>
+                        hello@navchetna.tech
+                    </a>
+                    <span class="h-4 w-px bg-white/10"></span>
+                    <a href="tel:+918209199581" class="group hover:text-slate-200 transition flex items-center gap-2"
+                        style="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="phone" class="lucide lucide-phone h-4 w-4">
+                            <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                            </path>
+                        </svg>+918209199581</a>
+                </div>
+
+                <!-- Separator -->
+                <div class="relative mt-14">
+                    <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 -top-6">
+                        <span class="block mx-auto w-80 h-10 rounded-full bg-white/20 blur-2xl opacity-70"></span>
+                    </div>
+                    <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-10 scroll-fade visible">
+            <div class="flex gap-4 flex-wrap items-center justify-between">
+                <!-- Brand -->
+                <a href="#" class="inline-flex items-center gap-2">
+                    <img class="text-sm font-bold text-neutral-200 h-6 tracking-tight" style=""
+                        src="/assets/NAVCHETNA.svg" alt="NeuralFlow">
+                </a>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-4 text-slate-400">
+                    <a href="#" class="hover:text-slate-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="linkedin" class="lucide lucide-linkedin h-5 w-5">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-slate-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="twitter" class="lucide lucide-twitter h-5 w-5">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-slate-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="github" class="lucide lucide-github h-5 w-5">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                            </path>
+                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <nav class="flex flex-wrap gap-6 text-sm text-slate-400 mt-6">
+                <a href="#process" class="hover:text-slate-200 transition" style="">Process</a>
+                <a href="#clients" class="hover:text-slate-200 transition" style="">Clients</a>
+                <a href="#pricing" class="hover:text-slate-200 transition" style="">Pricing</a>
+                <a href="#faq" class="hover:text-slate-200 transition" style="">FAQ</a>
+                <a href="/contact" class="hover:text-slate-200 transition" style="">Contact</a>
+                <a href="/privacy/" class="hover:text-slate-200 transition" style="">Privacy</a>
+                <a href="/terms/" class="hover:text-slate-200 transition" style="">Terms</a>
+            </nav>
+
+            <!-- Bottom meta -->
+            <div class="mt-8 flex items-center justify-between text-xs text-slate-500 flex-wrap gap-4">
+                <span style="">Â© 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</span>
+                <a href="https://nineone152.com" style="">Co-Brand with NINEONE15Â²</a>
+            </div>
+        </footer>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Osmium Banner Management
+        (function() {
+            const banner = document.getElementById('osmium-banner');
+            const closeBtn = document.getElementById('close-banner');
+            
+            // Show banner on every page load
+            if (banner) {
+                banner.style.display = 'block';
+            }
+            
+            // Handle close button
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    if (banner) {
+                        banner.style.display = 'none';
+                    }
+                });
+            }
+        })();
+        
+
+
+        // Button hover effect
+        function btnMove(e) {
+            if (!e.currentTarget) return;
+            const r = e.currentTarget.getBoundingClientRect();
+            e.currentTarget.style.setProperty('--x', (e.clientX - r.left) + 'px');
+            e.currentTarget.style.setProperty('--y', (e.clientY - r.top) + 'px');
+        }
+
+        // Scroll reveal animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-fade elements
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Content toggle functionality
+        (function () {
+            const monthlyBtn = document.getElementById('monthly-btn');
+            const yearlyBtn = document.getElementById('yearly-btn');
+            const saveBtn = document.getElementById('save-btn');
+            const slider = document.getElementById('slider-indicator');
+            const contentImage = document.getElementById('content-image');
+
+            const contentSections = {
+                plan: document.getElementById('content-plan'),
+                development: document.getElementById('content-development'),
+                release: document.getElementById('content-release')
+            };
+
+            const images = {
+                plan: 'assets/plan.png',
+                development: 'assets/development.png',
+                release: 'assets/release.png'
+            };
+
+            const alts = {
+                plan: 'Strategic planning workspace',
+                development: 'Development team coding',
+                release: 'Product launch analytics'
+            };
+
+            let currentSelection = 'plan';
+
+            function updateContent(selection) {
+                if (!slider || !monthlyBtn || !yearlyBtn || !saveBtn) return;
+
+                // Reset all button styles
+                [monthlyBtn, yearlyBtn, saveBtn].forEach(btn => {
+                    btn.classList.add('text-slate-300');
+                    btn.classList.remove('text-slate-200');
+                });
+
+                // Hide all content sections with fade out
+                Object.values(contentSections).forEach(section => {
+                    if (section) {
+                        section.classList.add('opacity-0');
+                        setTimeout(() => {
+                            section.classList.add('hidden');
+                        }, 250);
+                    }
+                });
+
+                if (selection === 'plan') {
+                    slider.style.width = monthlyBtn.offsetWidth + 'px';
+                    slider.style.transform = 'translateX(0)';
+                    monthlyBtn.classList.add('text-slate-200');
+                    monthlyBtn.classList.remove('text-slate-300');
+
+                    if (contentSections.plan) {
+                        setTimeout(() => {
+                            contentSections.plan.classList.remove('hidden');
+                            setTimeout(() => {
+                                contentSections.plan.classList.remove('opacity-0');
+                            }, 50);
+                        }, 250);
+                    }
+                    if (contentImage) {
+                        contentImage.style.opacity = '0';
+                        setTimeout(() => {
+                            contentImage.src = images.plan;
+                            contentImage.alt = alts.plan;
+                            contentImage.style.opacity = '1';
+                        }, 350);
+                    }
+                } else if (selection === 'development') {
+                    const monthlyWidth = monthlyBtn.offsetWidth;
+                    slider.style.width = yearlyBtn.offsetWidth + 'px';
+                    slider.style.transform = `translateX(${monthlyWidth + 8}px)`;
+                    yearlyBtn.classList.add('text-slate-200');
+                    yearlyBtn.classList.remove('text-slate-300');
+
+                    if (contentSections.development) {
+                        setTimeout(() => {
+                            contentSections.development.classList.remove('hidden');
+                            setTimeout(() => {
+                                contentSections.development.classList.remove('opacity-0');
+                            }, 50);
+                        }, 250);
+                    }
+                    if (contentImage) {
+                        contentImage.style.opacity = '0';
+                        setTimeout(() => {
+                            contentImage.src = images.development;
+                            contentImage.alt = alts.development;
+                            contentImage.style.opacity = '1';
+                        }, 350);
+                    }
+                } else if (selection === 'release') {
+                    const monthlyWidth = monthlyBtn.offsetWidth;
+                    const yearlyWidth = yearlyBtn.offsetWidth;
+                    slider.style.width = saveBtn.offsetWidth + 'px';
+                    slider.style.transform = `translateX(${monthlyWidth + yearlyWidth + 16}px)`;
+                    saveBtn.classList.add('text-slate-200');
+                    saveBtn.classList.remove('text-slate-300');
+
+                    if (contentSections.release) {
+                        setTimeout(() => {
+                            contentSections.release.classList.remove('hidden');
+                            setTimeout(() => {
+                                contentSections.release.classList.remove('opacity-0');
+                            }, 50);
+                        }, 250);
+                    }
+                    if (contentImage) {
+                        contentImage.style.opacity = '0';
+                        setTimeout(() => {
+                            contentImage.src = images.release;
+                            contentImage.alt = alts.release;
+                            contentImage.style.opacity = '1';
+                        }, 350);
+                    }
+                }
+                currentSelection = selection;
+            }
+
+            monthlyBtn?.addEventListener('click', () => {
+                if (currentSelection !== 'plan') updateContent('plan');
+            });
+
+            yearlyBtn?.addEventListener('click', () => {
+                if (currentSelection !== 'development') updateContent('development');
+            });
+
+            saveBtn?.addEventListener('click', () => {
+                if (currentSelection !== 'release') updateContent('release');
+            });
+
+            setTimeout(() => updateContent('plan'), 100);
+        })();
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('[data-faq-toggle]').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.closest('.faq-item');
+                const content = faqItem.querySelector('.faq-content');
+                const icon = button.querySelector('[data-lucide="chevron-down"]');
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    const otherContent = item.querySelector('.faq-content');
+                    const otherIcon = item.querySelector('[data-lucide="chevron-down"]');
+                    if (item !== faqItem && otherContent) {
+                        otherContent.style.maxHeight = '0px';
+                        otherIcon?.classList.remove('rotate-180');
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    if (content) content.style.maxHeight = '0px';
+                    icon?.classList.remove('rotate-180');
+                } else {
+                    if (content) content.style.maxHeight = content.scrollHeight + 'px';
+                    icon?.classList.add('rotate-180');
+                }
+            });
+        });
+
+        // Open first FAQ by default
+        setTimeout(() => {
+            const firstFaq = document.querySelector('[data-faq-toggle]');
+            if (firstFaq) {
+                const content = firstFaq.closest('.faq-item')?.querySelector('.faq-content');
+                const icon = firstFaq.querySelector('[data-lucide="chevron-down"]');
+                if (content) content.style.maxHeight = content.scrollHeight + 'px';
+                icon?.classList.add('rotate-180');
+            }
+        }, 500);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Cursor glow effect styles
+        const style = document.createElement('style');
+        style.textContent = `
+      .cursor-glow-btn .glow {
+        opacity: var(--o, 0);
+        transition: opacity .25s ease;
+        background: radial-gradient(140px 90px at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.28), rgba(255,255,255,.14) 35%, rgba(255,255,255,.06) 55%, transparent 70%), radial-gradient(40px 28px at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.55), transparent 70%);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .cursor-glow-btn .glow { transition: none; }
+      }
+    `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

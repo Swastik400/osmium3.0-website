@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About - NAVCHETNA</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Image Preloader -->
+    <script src="/assets/js/imagePreloader.js"></script>
+    <style>
+        @keyframes slideInBlur {
+            0% {
+                opacity: 0;
+                transform: translateY(32px);
+                filter: blur(4px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(3px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .scroll-fade-delay {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-fade-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .scroll-fade-delay-3 {
+            transition-delay: 0.6s;
+        }
+        * {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-weight: 400;
+        }
+        body {
+            overflow-x: hidden;
+        }
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        /* Black & White Theme Override */
+        .text-cyan-300, .text-cyan-400, .text-emerald-300, .text-emerald-400,
+        .text-indigo-300, .text-indigo-400, .text-violet-300, .text-violet-400,
+        .text-blue-300, .text-blue-400, .text-green-300, .text-green-400,
+        .text-orange-300, .text-orange-400, .text-purple-300, .text-purple-400,
+        .text-pink-300, .text-pink-400, .text-teal-300, .text-teal-400,
+        .text-yellow-300, .text-yellow-400 {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        .bg-emerald-500\/20, .bg-teal-500\/20, .bg-blue-500\/20, .bg-indigo-500\/20,
+        .bg-purple-500\/20, .bg-pink-500\/20, .bg-orange-500\/20, .bg-red-500\/20,
+        .bg-cyan-500\/20 {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+        .ring-emerald-500\/30, .ring-blue-500\/30, .ring-purple-500\/30,
+        .ring-orange-500\/30, .ring-cyan-500\/30 {
+            --tw-ring-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .from-emerald-500\/20, .to-teal-500\/20, .from-blue-500\/20, .to-indigo-500\/20,
+        .from-purple-500\/20, .to-pink-500\/20, .from-orange-500\/20, .to-red-500\/20,
+        .from-cyan-500\/20, .to-blue-500\/20 {
+            --tw-gradient-from: rgba(255, 255, 255, 0.05) !important;
+            --tw-gradient-to: rgba(255, 255, 255, 0.05) !important;
+        }
+        .hover\:from-neutral-400\/30:hover, .hover\:from-purple-400\/30:hover,
+        .hover\:from-orange-400\/30:hover, .hover\:from-cyan-400\/30:hover {
+            --tw-gradient-from: rgba(255, 255, 255, 0.1) !important;
+        }
+        .bg-neutral-400, .bg-purple-400, .bg-orange-400 {
+            background-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .shadow-\[0_0_0_3px_rgba\(255\,255\,255\,0\.15\)\] {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15) !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-neutral-500/30 selection:text-neutral-200 text-white bg-black">
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900/50 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/20 to-neutral-950"></div>
+        <div class="pointer-events-none absolute inset-0" style="background-image:url('https://uploads-ssl.webflow.com/5f6d66c5f1e4a5f0c1b3b1a1/63a4d9b4b4c7d418f9ed2c73_noise.png'); opacity: 0.3;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 inset-x-0 z-40 transition animate-[slideInBlur_0.8s_ease-out_0.2s_forwards] bg-neutral-950/40 border-white/10 border-b blur-sm backdrop-blur translate-y-[-20px]">
+        <div class="w-full">
+            <div class="supports-[backdrop-filter]:bg-neutral-900/30 border-0 rounded-none pt-4 backdrop-blur-none">
+                <div class="flex sm:px-6 pt-0 pr-4 pb-3 pl-4 items-center justify-between">
+                    <div class="flex items-center gap-8">
+                        <a href="/" class="flex items-center gap-2">
+                            <img src="/assets/logo.svg" alt="Logo" class="h-6 w-auto filter brightness-0 invert">
+                        </a>
+                        <nav class="hidden md:flex gap-8 flex sm:px-6 rounded-full pt-3 pr-4 pb-3 pl-4 items-center justify-center">
+                            <a class="transition hover:text-neutral-100 text-sm font-normal text-neutral-100" href="/about">About</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/services">Services</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/products">Products</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/career">Career</a>
+                            <a class="text-sm font-normal transition text-neutral-300/80 hover:text-neutral-100" href="/news">News</a>
+                        </nav>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <a href="/contact" class="hidden sm:inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                            </svg>
+                            Contact Us
+                        </a>
+                        <button id="mobile-menu-btn" class="inline-flex md:hidden items-center justify-center h-9 w-9 rounded-full border border-white/10 bg-neutral-900/60 hover:bg-neutral-800/60">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-neutral-200">
+                                <path d="M4 5h16"></path>
+                                <path d="M4 12h16"></path>
+                                <path d="M4 19h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-[72px] z-30 bg-neutral-950/95 backdrop-blur-lg border-b border-white/10">
+            <nav class="px-4 py-6 space-y-4">
+                <a class="block text-sm font-normal text-neutral-100 hover:text-neutral-100 transition py-2" href="/about">About</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/services">Services</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/products">Products</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/career">Career</a>
+                <a class="block text-sm font-normal text-neutral-300/80 hover:text-neutral-100 transition py-2" href="/news">News</a>
+                <a href="/contact" class="inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60 mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Contact Us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative">
+        <section class="max-w-7xl sm:pt-44 md:pt-48 md:pb-32 mr-auto ml-auto pt-40 pr-6 pb-24 pl-6">
+            <div class="flex flex-col text-center space-y-6 items-center">
+                <div class="mb-6 opacity-0 translate-y-4 blur-sm animate-[slideInBlur_0.8s_ease-out_0.8s_forwards]">
+                    <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] border-white/10 bg-neutral-900/50 text-neutral-300">
+                        <span class="h-1.5 w-1.5 rounded-full shadow-[0_0_0_3px_rgba(255,255,255,0.15)] bg-white"></span>
+                        Our Story
+                    </span>
+                </div>
+
+                <h1 class="max-w-4xl text-5xl md:text-7xl font-light tracking-tighter leading-[0.9] text-white opacity-0 translate-y-8 blur-sm animate-[slideInBlur_1s_ease-out_1s_forwards]" style="font-family: 'Space Grotesk', sans-serif;">
+                    <span class="block">Building the Future with</span>
+                    <span class="block">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Conscious</span>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Intelligence</span>
+                    </span>
+                </h1>
+
+                <p class="max-w-2xl sm:text-lg animate-[slideInBlur_0.8s_ease-out_1.2s_forwards] text-base text-neutral-300/80 opacity-0 mt-6 blur-sm translate-y-6">
+                    From five friends with a shared dream to a story of friendship, late-night ideas, and the belief that learning and innovation can truly change the world.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mission & Vision -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="scroll-fade">
+                <div class="flex mt-6 mb-6 items-center">
+                    <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-cyan-300">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        Our Mission
+                    </span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-50 mb-6 font-space" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                    Our <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Journey</span>
+                </h2>
+                <p class="text-lg text-neutral-300 leading-relaxed mb-6">
+                    Every great journey starts with a simple idea and ours started on 6th September 2024. Five friends Ayushmaan, Varun, Suman, Swastik, and Dhraval were sitting together, talking about school, college, and life, and suddenly realized something: education could be so much better with the right tools and technology.
+                </p>
+                <p class="text-base text-neutral-400 leading-relaxed">
+                    From that conversation, late-night brainstorming sessions, and countless cups of coffee, Navchetna was born. Today, we're proud to be based in Jodhpur, Rajasthan, India, creating solutions that make learning smarter and more accessible.
+                </p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay">
+                <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8">
+                    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center ring-1 ring-blue-500/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-300">
+                                    <path d="M9 12l2 2 4-4"></path>
+                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"></path>
+                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"></path>
+                                    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"></path>
+                                    <path d="M12 21c0-1-1-3-3-3s-3 2-3 3 1 3 3 3 3-2 3-3"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white font-space" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Our Vision</h3>
+                        </div>
+                        <p class="text-neutral-300 leading-relaxed mb-4">
+                            We keep things simple, practical, and transparent. Our approach focuses on building technology that actually helps people and makes their lives better.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-neutral-400"></div>
+                                <span class="text-sm text-neutral-400">Plan - Listen, understand, and map together</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-neutral-400"></div>
+                                <span class="text-sm text-neutral-400">Strategy - Clear steps and milestones</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-purple-400"></div>
+                                <span class="text-sm text-neutral-400">Development - Build, tweak, perfect</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-orange-400"></div>
+                                <span class="text-sm text-neutral-400">Deployment - Launch, monitor, support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="flex mt-6 mb-12 items-center justify-center scroll-fade">
+            <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-cyan-300">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                Our Values
+            </span>
+        </div>
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-neutral-400/30 hover:to-neutral-400/0">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center ring-1 ring-emerald-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-emerald-300">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path>
+                            <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 font-space" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Osmium</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        AI-powered learning platform that makes studying smarter with personalized content and adaptive learning.
+                    </p>
+                </div>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-neutral-400/30 hover:to-neutral-400/0">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center ring-1 ring-blue-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-300">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 font-space" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Natraj</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        AR/AI tool for interactive anatomy learning that brings 3D models to life through your camera.
+                    </p>
+                </div>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-purple-400/30 hover:to-purple-400/0">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center ring-1 ring-purple-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-purple-300">
+                            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 font-space" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">Aegis auth</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        AI-driven automation platform that unifies workflow orchestration and content generation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="scroll-fade group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-orange-400/30 hover:to-orange-400/0">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center ring-1 ring-orange-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-orange-300">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                            <path d="M12 18h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Development Services</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        Web, iOS, Android development, AI/ML solutions, cybersecurity, and comprehensive tech services.
+                    </p>
+                </div>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay group relative overflow-hidden bg-white/5 border-white/10 border rounded-3xl pt-6 pr-6 pb-6 pl-6 hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-cyan-400/30 hover:to-cyan-400/0">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center ring-1 ring-cyan-500/30 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-cyan-300">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">AWS Partnership</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">
+                        Official collaboration with AWS India ensures reliable, scalable, and enterprise-ready solutions.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Culture & Values -->
+    <section id="team-culture" class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="flex mt-6 mb-12 items-center justify-center scroll-fade">
+            <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-cyan-300">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Our Culture
+            </span>
+        </div>
+
+        <div class="max-w-3xl scroll-fade scroll-fade-delay text-center mr-auto ml-auto mb-16">
+            <h2 class="md:text-6xl text-4xl font-semibold tracking-tight text-slate-50">
+                More Than Just <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Code</span>
+            </h2>
+            <p class="md:text-lg text-base text-slate-400 mt-4">We're friendly, approachable, and obsessed with making technology work for real people. Every idea we work on comes from the heart.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="scroll-fade">
+                <h3 class="text-2xl font-semibold text-white mb-6">From Dreamers to Builders</h3>
+                <p class="text-lg text-neutral-300 leading-relaxed mb-6">
+                    Back then, we were just a bunch of dreamers with laptops and big ideas. No fancy offices, no investors, no roadmap�just a shared vision and a lot of determination. We wanted to create solutions that actually help learners and make learning exciting, not just another tech project.
+                </p>
+                <p class="text-base text-neutral-400 leading-relaxed mb-6">
+                    Today, we've grown from five friends to a core team of six and a family of 15 passionate people. Our growth has always been powered by curiosity, creativity, and a love for building things that matter.
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white">15+</div>
+                        <div class="text-sm text-neutral-400">Team Members</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white">4</div>
+                        <div class="text-sm text-neutral-400">Core Products</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white">2024</div>
+                        <div class="text-sm text-neutral-400">Founded</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay">
+                <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8">
+                    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center ring-1 ring-orange-500/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-orange-300">
+                                    <path d="M8 2v4"></path>
+                                    <path d="M16 2v4"></path>
+                                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                    <path d="M3 10h18"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Our Location</h3>
+                        </div>
+                        <p class="text-neutral-300 leading-relaxed mb-4">
+                            Proudly based in Jodhpur, Rajasthan, and Ahmedabad, Gujarat India - where tradition meets innovation and every sunset inspires new possibilities.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-neutral-400"></div>
+                                <span class="text-sm text-neutral-400">Official AWS India collaboration</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-neutral-400"></div>
+                                <span class="text-sm text-neutral-400">Reliable, scalable solutions</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-purple-400"></div>
+                                <span class="text-sm text-neutral-400">Enterprise-ready infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Philosophy -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="text-center mb-16 scroll-fade">
+            <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-50 mb-6">
+                Innovation Served <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Hotter</span> Than Coffee
+            </h2>
+            <p class="text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+                Our philosophy is simple: technology should make life better, not more complicated. We believe in building solutions that people actually want to use, not just because they have to.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="scroll-fade text-center">
+                <div class="h-16 w-16 mx-auto mb-6 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center ring-1 ring-emerald-500/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-emerald-300">
+                        <path d="M12 18V5"></path>
+                        <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path>
+                        <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Human-Centered Design</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed">
+                    We start with people, not technology. Every solution begins with understanding real problems and real needs.
+                </p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay text-center">
+                <div class="h-16 w-16 mx-auto mb-6 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center ring-1 ring-blue-500/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-blue-300">
+                        <path d="M3 3v18h18"></path>
+                        <path d="m19 9-5 5-4-4-3 3"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Continuous Learning</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed">
+                    We're always learning, always improving. Every project teaches us something new about making technology better.
+                </p>
+            </div>
+
+            <div class="scroll-fade scroll-fade-delay-2 text-center">
+                <div class="h-16 w-16 mx-auto mb-6 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center ring-1 ring-purple-500/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-purple-300">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Community First</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed">
+                    We measure success by the positive impact we create in people's lives and communities, not just metrics.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="flex mt-6 mb-12 items-center justify-center scroll-fade">
+            <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full pt-1 pr-3 pb-1 pl-3 text-slate-300/80 bg-white/5 border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-cyan-300">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Our Team
+            </span>
+        </div>
+
+        <div class="max-w-3xl scroll-fade scroll-fade-delay text-center mr-auto ml-auto mb-16">
+            <h2 class="md:text-6xl text-4xl font-semibold tracking-tight text-slate-50">
+                Our <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Team</span>
+            </h2>
+            <p class="md:text-lg text-base text-slate-400 mt-4">From five friends with a shared dream to a core team of six and a family of 15 passionate people.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Ayushmaan Soni -->
+            <a href="/news/team/ayushmaan" class="scroll-fade group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="https://osmium.co.in/images/ayush.jpg" alt="Ayushmaan Soni" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Ayushmaan Soni</h3>
+                        <p class="text-sm text-blue-300 mb-3 font-medium">Founder | CEO</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            One of the five friends who started this journey, passionate about making technology work for real people.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Varun Kumar -->
+            <a href="/news/team/varun" class="scroll-fade scroll-fade-delay group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/varun.jpg" alt="Varun Kumar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Varun Kumar</h3>
+                        <p class="text-sm text-emerald-300 mb-3 font-medium">Co-Founder</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Another founding member focused on innovation and bringing creative ideas to life through technology.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Swastik Khatua -->
+            <a href="/news/team/swastik" class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/swastik.jpg" alt="Swastik Khatua" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Swastik Khatua</h3>
+                        <p class="text-sm text-purple-300 mb-3 font-medium">Co-Founder</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Part of the founding team, bringing technical expertise and innovative solutions to complex challenges.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Dhraval Narsinha -->
+            <a href="/news/team/dhraval" class="scroll-fade scroll-fade-delay-3 group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/dhraval.jpg" alt="Dhraval Narsinha" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Dhraval Narsinha</h3>
+                        <p class="text-sm text-orange-300 mb-3 font-medium">Co-Founder</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Founding member dedicated to building scalable solutions and driving product excellence.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Suman Yadav -->
+            <a href="/news/team/suman" class="scroll-fade group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/suman.jpg" alt="Suman Yadav" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Suman Yadav</h3>
+                        <p class="text-sm text-cyan-300 mb-3 font-medium">Co-Founder & HOD</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Part of the founding team, leading product development and ensuring quality in everything we build.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Aman Gupta -->
+            <a href="/news/team/aman" class="scroll-fade scroll-fade-delay group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 block">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/aman.jpg" alt="Aman Gupta" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Aman Gupta</h3>
+                        <p class="text-sm text-yellow-300 mb-3 font-medium">Executive</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Strategic executive focused on business development and operational excellence.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Kuldeep Thakar -->
+            <div class="scroll-fade scroll-fade-delay-2 group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/kuldeep.jpg" alt="Kuldeep Thakar" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Kuldeep Thakar</h3>
+                        <p class="text-sm text-pink-300 mb-3 font-medium">Executive</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Dedicated team member contributing to innovative solutions and technical excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tanmay -->
+            <div class="scroll-fade scroll-fade-delay-3 group relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                <div class="relative">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="/assets/people/tanmay.jpg" alt="Tanmay" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-white mb-1">Tanmay</h3>
+                        <p class="text-sm text-indigo-300 mb-3 font-medium">Team Member</p>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Dedicated team member contributing to innovative solutions and technical excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Team CTA -->
+        <div class="text-center mt-12 scroll-fade">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8">
+                <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+                <div class="relative">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Join Our Growing Family</h3>
+                    <p class="text-neutral-300 leading-relaxed max-w-2xl mx-auto mb-6">
+                        Navchetna isn't just a company. It's a story of friendship, late-night ideas, challenges, and small wins. It's about dreaming big, working hard, and believing that learning and innovation can truly change the world. And honestly? We're just getting started.
+                    </p>
+                    <a href="/career" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        View Open Positions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="w-full max-w-7xl sm:px-6 lg:px-8 md:py-20 mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
+        <div class="relative scroll-fade pt-20">
+            <div class="flex items-center justify-center">
+                <span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide border rounded-full px-3 py-1 text-slate-300/80 bg-white/5 border-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-cyan-300">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Let's Connect
+                </span>
+            </div>
+
+            <div class="max-w-3xl text-center mx-auto mt-6 scroll-fade scroll-fade-delay">
+                <h2 class="md:text-6xl text-4xl font-semibold text-slate-50 tracking-tight">Ready to Transform</h2>
+                <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-slate-50 mt-1">
+                    Your <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400/80">Vision</span> into Reality?
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-slate-400">
+                    Let's discuss how NAVCHETNA can help bring your ideas to life with conscious intelligence.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 scroll-fade scroll-fade-delay-2">
+                    <a href="/contact" class="inline-flex items-center gap-2 rounded-xl border px-6 py-3 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition border-white/10 bg-neutral-900/60 text-neutral-100 hover:bg-neutral-800/60">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                            <path d="M8 2v4"></path>
+                            <path d="M16 2v4"></path>
+                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                            <path d="M3 10h18"></path>
+                        </svg>
+                        Start a Conversation
+                    </a>
+                    <a href="/services" class="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition">
+                        Explore Our Services
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                            <path d="M5 12h14"></path>
+                            <path d="M13 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pt-10 pr-4 pb-10 pl-4 scroll-fade">
+        <div class="relative">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10"></div>
+        </div>
+        
+        <div class="flex gap-4 flex-wrap items-center justify-between">
+            <a href="/" class="inline-flex items-center gap-2">
+                <img class="h-6 tracking-tight" src="/assets/NAVCHETNA.svg" alt="NAVCHETNA">
+            </a>
+
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect width="4" height="12" x="2" y="9"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-slate-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <nav class="flex flex-wrap gap-6 text-sm text-slate-400 mt-6">
+            <a href="/about" class="hover:text-slate-200 transition">About</a>
+            <a href="/services" class="hover:text-slate-200 transition">Services</a>
+            <a href="/products" class="hover:text-slate-200 transition">Products</a>
+            <a href="/career" class="hover:text-slate-200 transition">Career</a>
+            <a href="/news" class="hover:text-slate-200 transition">News</a>
+            <a href="/contact" class="hover:text-slate-200 transition">Contact</a>
+            <a href="/privacy/" class="hover:text-slate-200 transition">Privacy</a>
+            <a href="/terms/" class="hover:text-slate-200 transition">Terms</a>
+        </nav>
+
+        <div class="mt-8 flex items-center justify-between text-xs text-slate-500 flex-wrap gap-4">
+            <span>� 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</span>
+            <a href="https://nineone152.com">Co-Brand with NINEONE15�</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-fade elements
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's a hash in the URL
+            if (window.location.hash === '#team') {
+                // Hide everything except the team section
+                document.querySelector('header').style.display = 'none';
+                document.querySelector('main').style.display = 'none';
+                document.querySelectorAll('section:not(#team)').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.querySelector('footer').style.display = 'none';
+                
+                const target = document.querySelector('#team');
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } else if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                }
+            }
+        });
+
+        // Handle anchor links clicked on the same page
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

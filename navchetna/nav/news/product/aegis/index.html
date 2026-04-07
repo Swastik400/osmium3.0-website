@@ -1,0 +1,428 @@
+﻿<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Auth v3.0: Unified Identity Platform | Navchetna</title>
+    <link rel="icon" href="/assets/logo.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <link rel="stylesheet" crossorigin="" href="/assets/css/styles.css">
+</head>
+<body>
+    <div id="root">
+        <header class="fixed top-0 left-0 right-0 z-50 py-4 px-0 transition-all duration-300 ease-in-out backdrop-blur-xl border-b border-border/30">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="relative"><a class="block" href="/"><img src="/assets/logo.svg" alt="Logo" class="h-9 w-auto transition-all p-1 hover:bg-neutral-900 hover:dark:bg-neutral-900 dark:invert-0 invert"></a></div>
+                    <nav class="hidden md:flex items-center space-x-2">
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/about">About</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/services">Services</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/products">Products</a>
+                        <a class="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 px-4 py-2 rounded-md" href="/career">Career</a>
+                        <a class="text-xs items-center gap-1 px-4 py-2 rounded-md hidden dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 lg:inline-flex" href="/news">News</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative flex h-6 w-auto bg-neutral-50 dark:bg-neutral-900 px-0.5 py-1 rounded-full border border-neutral-200/50 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700 theme-toggle light">
+                        <button class="relative -top-[1px] -left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-900 dark:text-white" aria-label="Light mode" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-3 w-3">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg>
+                        </button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="System theme" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor h-3 w-3">
+                                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                                <line x1="8" x2="16" y1="21" y2="21"></line>
+                                <line x1="12" x2="12" y1="17" y2="21"></line>
+                            </svg>
+                        </button>
+                        <button class="relative -top-[1px] left-[1px] z-10 flex items-center justify-center h-4 w-6 rounded-full transition-colors text-neutral-500 hover:text-neutral-900 dark:hover:text-white" aria-label="Dark mode" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-3 w-3">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="/contact"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent h-10 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">Contact</button></a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="pt-20 min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <main class="flex-1 transition-all duration-300 p-8">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Breadcrumb -->
+                    <nav class="mb-8">
+                        <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-neutral-500">
+                            <li><a href="/news" class="hover:text-gray-700 dark:hover:text-neutral-300">News</a></li>
+                            <li><span class="mx-2">/</span></li>
+                            <li><a href="/news/product" class="hover:text-gray-700 dark:hover:text-neutral-300">Product Launches</a></li>
+                            <li><span class="mx-2">/</span></li>
+                            <li class="text-gray-900 dark:text-white">Aegis Auth v3.0</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Article Header -->
+                    <header class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400 rounded-full text-sm font-medium">Product Launch</span>
+                            <span class="ml-4 text-sm text-gray-500 dark:text-neutral-500">January 15, 2025</span>
+                        </div>
+                        <h1 class="text-2xl md:text-4xl font-light uppercase tracking-tight leading-[1.2] text-gray-900 dark:text-white mb-4" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.025em;">
+                            Aegis Auth v3.0: Centralized Truth, Decentralized Access
+                        </h1>
+                        <p class="text-base md:text-lg text-gray-600 max-w-[32rem] mb-2" style="font-family: 'Geist', sans-serif; font-weight: 400; line-height: 1.625; color: #666666;">
+                            The New Standard for Digital Identity by Navchetna
+                        </p>
+                        <p class="text-sm text-gray-500 dark:text-neutral-500">
+                            By Varun Yadav, Co-Founder & Director, Navchetna Technologies | System Status: v3.0.11 stable | FIPS 140-2 Compliant
+                        </p>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-200 dark:border-neutral-800">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">By Varun Yadav, Co-Founder & Director, Navchetna</span>
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">•</span>
+                                <span class="text-sm text-gray-500 dark:text-neutral-500">12 min read</span>
+                            </div>
+                            <a href="https://aegis.navchetna.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white font-medium rounded-lg transition-colors duration-300">
+                                Try Now
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+                                    <path d="M7 7h10v10"></path>
+                                    <path d="M7 17 17 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </header>
+
+                    <!-- Article Content -->
+                    <article class="prose dark:prose-invert max-w-none">
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Stop Managing Disparate Users</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                In the chaotic world of modern tech, most startups are just gluing together third-party identity providers. They are renting trust rather than building it. We decided to take a harder path. Aegis Auth v3.0 is our answer to the fragmentation of digital identity. It is a unified identity management system providing memory-safe Rust-based authentication that consolidates the chaos of identity into a single canonical source of truth.
+                            </p>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Start managing Unified Access with cryptographic certainty.
+                            </p>
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 mt-8">The Core Philosophy: Memory-Safe and Rust-Based</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                We built Aegis entirely in Rust for a specific reason which is zero memory vulnerabilities. While other platforms struggle with buffer overflows and race conditions, Aegis Auth operates with mathematical precision.
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li><strong>Latency:</strong> We are clocking token validation at less than 5ms.</li>
+                                <li><strong>Security:</strong> We are fully FIPS 140-2 Compliant ensuring government-grade cryptographic security.</li>
+                                <li><strong>Stability:</strong> The system is currently running version v3.0.11 stable in production environments.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">The Architecture: How It Works</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Aegis functions as a massive funnel that takes the noise of the internet and converts it into a single clean signal.
+                            </p>
+                            
+                            <div class="space-y-6 mb-6">
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">01. Unified Sources</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm">We ingest identities from everywhere. Whether a user comes from Email and Password, FIDO2 Passkeys, Google, Apple, or SAML 2.0 for enterprise, Aegis accepts them all.</p>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">02. Engine Core</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm">This is the heart of the machine. Our Rust-based processing engine enforces Role-Based Access Control (RBAC) and handles session rotation. It normalizes the data regardless of where it came from.</p>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">03. Edge Delivery</h4>
+                                    <p class="text-gray-600 dark:text-neutral-400 text-sm">The output is the aegis_token. This is a signed delivery via isolated secure tunnels.</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3 mt-8">Identity Consolidation: The Canonical Rule</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                This is our most critical innovation. Aegis issues a single aegis_token regardless of the source. It does not matter if the user utilized Android Biometrics or a SAML 2.0 Enterprise login. We verify and standardize the identity payload so your backend only ever has to trust one thing which is Aegis.
+                            </p>
+                            
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3 mt-6">Hierarchical RBAC</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                We provide granular control that flows from the top down.
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Level 1: Super Admin</li>
+                                <li>Level 2: Org Owners</li>
+                                <li>Level 3: Resource Scoping</li>
+                            </ul>
+                            
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3 mt-6">Immutable Audit</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Every identity action is signed and stored in a cryptographically verifiable log. We employ dynamic token rotation on every sensitive action to effectively prevent lateral movement by attackers.
+                            </p>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Engineered for Scale: Native SDKs</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                We did not just build an API. We built native packages for high-velocity engineering teams to integrate Aegis immediately.
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li><strong>JavaScript:</strong> For client-side authentication. <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">npm i aegis-auth-navchetna</code></li>
+                                <li><strong>CDN:</strong> For direct browser integration. <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">&lt;script src="...aegis-sdk.min.js"&gt;&lt;/script&gt;</code></li>
+                                <li><strong>Python:</strong> For server-side integration. <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">pip install aegis-auth-navchetna</code></li>
+                                <li><strong>Rust:</strong> For memory-safe performance. <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">cargo add aegis-auth-navchetna</code></li>
+                                <li><strong>Flutter:</strong> For cross-platform mobile apps. <code class="bg-gray-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm">aegis_auth: ^1.0.0</code></li>
+                                <li><strong>Native Mobile:</strong> Android and iOS SDKs are currently in development.</li>
+                            </ul>
+                        </section>
+                            
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Unified Access Control</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Aegis consolidates identity chaos into a single, authoritative system:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Single Sign-On (SSO) across all applications</li>
+                                <li>Role-Based Access Control (RBAC) with fine-grained permissions</li>
+                                <li>Multi-Factor Authentication (MFA) with biometric support</li>
+                                <li>Session management with automatic timeout and refresh</li>
+                            </ul>
+
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Cryptographic Security</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Built on modern cryptographic primitives for uncompromising security:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Ed25519 digital signatures for authentication</li>
+                                <li>ChaCha20-Poly1305 for data encryption</li>
+                                <li>Argon2id for password hashing</li>
+                                <li>Quantum-resistant key exchange protocols</li>
+                            </ul>
+
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Memory Safety & Performance</h3>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Rust's ownership model eliminates entire classes of vulnerabilities:
+                            </p>
+                            <ul class="list-disc pl-6 mb-6 text-gray-700 dark:text-neutral-300">
+                                <li>Zero buffer overflows or use-after-free bugs</li>
+                                <li>Thread-safe concurrency without data races</li>
+                                <li>Sub-millisecond authentication latency</li>
+                                <li>Minimal memory footprint with predictable performance</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Performance Metrics</h2>
+                            <div class="bg-gray-50 dark:bg-neutral-900/30 rounded-lg p-6 mb-6">
+                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Benchmark Results</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 dark:text-white mb-2">Speed & Efficiency</h5>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Authentication: <0.5ms average latency</li>
+                                            <li>• Token Generation: 0.2ms per token</li>
+                                            <li>• Memory Usage: 12MB baseline footprint</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 dark:text-white mb-2">Scalability</h5>
+                                        <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-1">
+                                            <li>• Concurrent Users: 100K+ per instance</li>
+                                            <li>• Throughput: 50K auth/sec sustained</li>
+                                            <li>• Uptime: 99.99% SLA guaranteed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Enterprise Features</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Compliance & Audit</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-2">
+                                        <li>• SOC 2 Type II certified</li>
+                                        <li>• GDPR and CCPA compliant</li>
+                                        <li>• Complete audit trail with tamper-proof logs</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg p-6">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Integration</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-neutral-400 space-y-2">
+                                        <li>• OAuth 2.0 and OpenID Connect support</li>
+                                        <li>• SAML 2.0 for enterprise SSO</li>
+                                        <li>• REST and gRPC APIs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Integration Example</h2>
+                            <div class="bg-gray-900 dark:bg-neutral-800 rounded-lg p-6 mb-6">
+                                <pre class="text-green-400 text-sm overflow-x-auto"><code>// Aegis Auth Integration
+use aegis_auth::Client;
+
+#[tokio::main]
+async fn main() {
+    let client = Client::new("your-api-key");
+    
+    let result = client.authenticate({
+        username: "user@example.com",
+        password: "secure_password",
+        mfa_token: Some("123456")
+    }).await?;
+    
+    println!("Access Token: {}", result.access_token);
+}
+</code></pre>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Migration Guide</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Seamless migration from legacy authentication systems:
+                            </p>
+                            <ol class="list-decimal pl-6 mb-6 text-gray-700 dark:text-neutral-300 space-y-2">
+                                <li>Install Aegis SDK v3.0</li>
+                                <li>Configure identity providers</li>
+                                <li>Import existing user database</li>
+                                <li>Test in staging environment</li>
+                                <li>Deploy with zero downtime</li>
+                            </ol>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Try It Now</h2>
+                            <div class="bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-2xl overflow-hidden">
+                                <iframe src="https://aegis.navchetna.tech" class="w-full h-96 rounded-2xl" title="Aegis Platform" allowfullscreen=""></iframe>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Conclusion</h2>
+                            <p class="text-gray-700 dark:text-neutral-300 leading-relaxed mb-4">
+                                Aegis Auth v3.0 is not just an update. It is a new foundation. With unified access control and a memory-safe architecture backed by the power of Rust, we have created the platform that enterprises can finally trust. We are securing decentralized identity with centralized truth.
+                            </p>
+                            <div class="bg-pink-50 dark:bg-pink-900/10 border border-pink-200 dark:border-pink-800/20 rounded-lg p-6">
+                                <h4 class="text-lg font-medium text-pink-900 dark:text-pink-300 mb-3">Contact</h4>
+                                <p class="text-pink-800 dark:text-pink-400 mb-2">auth@navchetna.tech</p>
+                                <p class="text-sm text-pink-700 dark:text-pink-500">NINELLMS SOLUTIONS LLP © 2025 Navchetna Technologies</p>
+                            </div>
+                        </section>
+                    </article>
+
+                    <!-- Related Articles -->
+                    <section class="mt-12 pt-8 border-t border-gray-200 dark:border-neutral-800">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Related Articles</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <a href="../osmium" class="block p-6 bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg hover:border-purple-300 dark:hover:border-purple-700 transition-colors">
+                                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded text-xs font-medium">Product Launch</span>
+                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mt-3 mb-2">Osmium 2.0: AI-Powered Education</h4>
+                                <p class="text-gray-600 dark:text-neutral-400 text-sm">Revolutionary platform with predictive intelligence and mental health support</p>
+                            </a>
+                            <a href="../natraj" class="block p-6 bg-white dark:bg-neutral-900/30 border border-gray-200 dark:border-neutral-800 rounded-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors">
+                                <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded text-xs font-medium">Feature Update</span>
+                                <h4 class="text-lg font-medium text-gray-900 dark:text-white mt-3 mb-2">Natraj Creative Suite</h4>
+                                <p class="text-gray-600 dark:text-neutral-400 text-sm">Advanced design tools with AI-powered assistance</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            <footer class="border-t border-gray-200 dark:border-neutral-800 mt-16 py-8">
+                        <div class="container px-4 md:px-6">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Product</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://osmium.co.in">Osmium</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="https://natraj.navchetna.tech">Natraj</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/products/#kriya">Kriya</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Resources</h3>
+                                    <ul class="space-y-2">
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/Documentation">Documentation</a></li>
+                                        <li><a class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/learn/video-tutorials">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">APIs</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="https://aegis.navchetna.tech/api" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Aegis Auth API</a></li>
+                                        <li><a href="https://osmium.co.in/channels/API/?version=Vidyanukriti" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Vidyānukriti</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-4">Connect</h3>
+                                    <ul class="space-y-2">
+                                        <li><a href="https://x.com/Navchetna_labs" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">X</a></li>
+                                        <li><a href="https://www.linkedin.com/company/navchetna" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">LinkedIn</a></li>
+                                        <li><a target="_blank" href="https://www.instagram.com/navchetna.tech/" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Instagram</a></li>
+                                        <li><a href="/contact/" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white">Contacts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-12 border-t border-gray-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center"><img src="/assets/logo.svg" alt="Logo" class="h-8 w-8 mr-2 brightness-0 dark:invert">
+                                    <p class="text-sm text-gray-600 dark:text-neutral-400">© 2025 NINELLMS SOLUTIONS LLP. All rights reserved.</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <div class="flex space-x-4"><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/privacy">Privacy Policy</a><a class="text-xs text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white" href="/terms">Terms of Service</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer></main>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightBtn = document.querySelector('button[aria-label="Light mode"]');
+            const systemBtn = document.querySelector('button[aria-label="System theme"]');
+            const darkBtn = document.querySelector('button[aria-label="Dark mode"]');
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            function updateButtonStates(active) {
+                [lightBtn, systemBtn, darkBtn].forEach(btn => {
+                    btn?.classList.remove('text-neutral-900', 'dark:text-white');
+                    btn?.classList.add('text-neutral-500');
+                });
+                active?.classList.remove('text-neutral-500');
+                active?.classList.add('text-neutral-900', 'dark:text-white');
+            }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                themeToggle?.classList.remove('light', 'system', 'dark');
+                themeToggle?.classList.add(theme);
+
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    updateButtonStates(lightBtn);
+                } else if (theme === 'system') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    html.classList.toggle('dark', prefersDark);
+                    updateButtonStates(systemBtn);
+                } else {
+                    html.classList.add('dark');
+                    updateButtonStates(darkBtn);
+                }
+            }
+
+            lightBtn?.addEventListener('click', () => setTheme('light'));
+            systemBtn?.addEventListener('click', () => setTheme('system'));
+            darkBtn?.addEventListener('click', () => setTheme('dark'));
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+        });
+    </script>
+
+</body></html>

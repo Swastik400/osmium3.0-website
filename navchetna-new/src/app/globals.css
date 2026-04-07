@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-eggshell: #FDFCFC;
+  --color-warm-50: #F5F3F1;
+  --color-warm-100: #EAE5E1;
+  --color-warm-200: #D5CAC3;
+  --color-warm-300: #BDBDBD;
+  --color-warm-400: #949494;
+  --color-warm-500: #767676;
+  --color-warm-600: #6E6E6E;
+  --color-warm-700: #525252;
+  --color-warm-800: #464646;
+  --color-warm-900: #3D3D3D;
+  --color-warm-950: #1C1C1C;
+
+  --font-heading: var(--font-dm-serif);
+  --font-body: var(--font-inter);
+}
+
+:root {
+  --page-bg: #FDFCFC;
+  --contextual-nav-height: 64px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: #000;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Scroll-triggered animations */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker 35s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth section transitions */
+.section-transition {
+  transition: background-color 0.3s ease;
+}
