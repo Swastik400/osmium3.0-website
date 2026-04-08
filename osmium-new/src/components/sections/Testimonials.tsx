@@ -9,35 +9,35 @@ const testimonials = [
     name: "Priya Kumari",
     role: "JEE Aspirant, Patna",
     color: "#3b82f6",
-    avatar: "/ref/voice-bg-01.png",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Priya",
     quote: "I used Osmium for my JEE prep. It felt less like an app and more like a study partner. The mock tests were scarily close to the actual exam pattern. I improved 40% in just 3 weeks.",
   },
   {
     name: "Dr. Mehul Shah",
     role: "Professor, Ahmedabad",
     color: "#8b5cf6",
-    avatar: "/ref/voice-bg-03.png",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Mehul",
     quote: "We integrated Osmium into our college for managing course content. Usually, software means headaches, but this one was surprisingly smooth. Students actually enjoy using it.",
   },
   {
     name: "Rajesh Yadav",
     role: "Parent, Lucknow",
     color: "#22c55e",
-    avatar: "/ref/voice-bg-05.png",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Rajesh",
     quote: "My son spends hours on Osmium and for the first time, I don't have to worry it's a waste of time. He actually studies! The career mapping feature gave him real direction.",
   },
   {
     name: "Ananya Reddy",
     role: "NEET Student, Hyderabad",
     color: "#f59e0b",
-    avatar: "/ref/voice-bg-07.png",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Ananya",
     quote: "The AI tutor is incredible. I asked about organic chemistry at 2 AM and got a better explanation than my coaching class. Step-by-step, with diagrams. Game changer.",
   },
   {
     name: "Arjun Nair",
     role: "Teacher, Bangalore",
     color: "#ef4444",
-    avatar: "/ref/voice-bg-02.png",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Arjun",
     quote: "As a teacher, I can see exactly where each student struggles. The analytics dashboard saves me hours of manual assessment. Osmium is what edtech should have been from the start.",
   },
 ];
@@ -79,10 +79,17 @@ export function Testimonials() {
         <div className="relative border-l border-r border-black/[0.06]">
           <div className="px-4 py-8 sm:px-6 md:py-10">
             <ScrollReveal>
+              <div className="mb-6">
+                <p className="type-sm text-warm-500 font-medium mb-2">Testimonials</p>
+                <h2 className="type-4xl text-black text-balance max-w-lg">
+                  Hear from those who use Osmium
+                </h2>
+              </div>
+
               <div className="relative flex flex-col gap-x-10 gap-y-6 sm:flex-row sm:justify-between">
                 <div className="flex flex-auto flex-col gap-x-5 gap-y-3 sm:flex-auto md:flex-row md:items-start">
                   {/* Avatar tabs with progress ring */}
-                  <div className="flex flex-none gap-4">
+                  <div className="flex flex-none gap-5 items-center py-2">
                     {testimonials.map((person, i) => {
                       const isActive = active === i;
                       const ringProgress = isActive ? progress : 0;
@@ -94,7 +101,11 @@ export function Testimonials() {
                         <button
                           key={person.name}
                           onClick={() => goTo(i)}
-                          className="group relative cursor-pointer outline-none"
+                          className={`group relative cursor-pointer outline-none transition-all duration-300 ease-out ${
+                            isActive
+                              ? "scale-[1.25] z-10 drop-shadow-lg"
+                              : "scale-100 opacity-60 hover:opacity-90 hover:scale-110"
+                          }`}
                           aria-label={person.name}
                         >
                           <svg
@@ -112,12 +123,11 @@ export function Testimonials() {
                               fill={isActive ? person.color : "#E0DFDD"}
                               className="transition-colors duration-300"
                             />
-                            {/* Avatar image */}
+                            {/* DiceBear avatar */}
                             <image
                               href={person.avatar}
                               x="5" y="5" width="44" height="44"
                               clipPath={`url(#clip-${i})`}
-                              style={{ opacity: 0.7 }}
                             />
                             {/* Progress ring */}
                             {isActive && (
@@ -133,9 +143,7 @@ export function Testimonials() {
                               />
                             )}
                           </svg>
-                          <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-white">
-                            {person.name.charAt(0)}
-                          </span>
+
                         </button>
                       );
                     })}

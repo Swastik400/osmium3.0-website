@@ -11,7 +11,6 @@ import { InstituteFeatures } from "@/components/sections/InstituteFeatures";
 import { ResearchIntro } from "@/components/sections/ResearchIntro";
 import { Comparison } from "@/components/sections/Comparison";
 import { FeatureShowcase } from "@/components/sections/FeatureShowcase";
-import { LatestUpdates } from "@/components/sections/LatestUpdates";
 import { Team } from "@/components/sections/Team";
 import { FAQ } from "@/components/sections/FAQ";
 
@@ -62,8 +61,7 @@ export default function Home() {
       <Comparison />
 
       {/* ━━━ ACT 7: LATEST + ABOUT ━━━ */}
-      {/* Blog posts */}
-      <LatestUpdates />
+
 
       {/* Team section */}
       <Team />

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const logos = [
@@ -33,22 +32,10 @@ export function TrustedBy() {
 
           <div className="py-16 md:py-20">
             <ScrollReveal>
-              <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12 px-4 sm:px-6">
-                <div className="lg:col-span-6">
-                  <h2 className="type-base text-black text-balance max-w-lg lg:max-w-none">
-                    Trusted by leading institutions and partners
-                  </h2>
-                </div>
-                <div className="mt-8 lg:mt-0 lg:col-span-6 lg:text-right relative">
-                  <div className="lg:absolute lg:right-0" style={{ top: "max(-1.14rem, calc(100% - 3rem))" }}>
-                    <Link
-                      href="/about"
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50 h-12 px-5 type-base"
-                    >
-                      Read all stories
-                    </Link>
-                  </div>
-                </div>
+              <div className="px-4 sm:px-6">
+                <h2 className="type-base text-black text-balance max-w-lg">
+                  Trusted by leading institutions and partners
+                </h2>
               </div>
             </ScrollReveal>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { Brain, Target, MessageCircle, TrendingUp, Map, Heart, BookOpen, Smartphone } from "lucide-react";
+import { MagnifyZone } from "@/components/ui/MagnifyImage";
 
 const features = [
   {
@@ -48,7 +49,7 @@ const features = [
     tag: "AI Chat",
     title: "Osmium AI Study Mentor",
     desc: "An intelligent study companion that understands your learning style, remembers your progress, and adapts its teaching approach.",
-    image: "/AI study mentor chat interface design.png",
+    image: "/iphone mockup.png",
     color: "#D8D5E8",
   },
   {
@@ -56,7 +57,7 @@ const features = [
     tag: "Mobile",
     title: "Learn Anywhere, Anytime",
     desc: "Full Osmium experience on your phone. Study on the bus, revise before bed, or take a quick quiz during lunch break.",
-    image: "/iphone mockup.png",
+    image: "/AI study mentor chat interface design.png",
     color: "#E8D5D8",
   },
   {
@@ -64,7 +65,7 @@ const features = [
     tag: "Wellness",
     title: "Mental Health & Wellness",
     desc: "Stress management tools, motivation check-ins, and wellness resources built right into your learning journey.",
-    image: "/Profile.png",
+    image: "/mental and career.png",
     color: "#D5E0D8",
   },
 ];
@@ -106,7 +107,7 @@ export function FeatureShowcase() {
                 }}
               >
                 {/* Image */}
-                <div
+                <MagnifyZone
                   className={`relative flex items-center justify-center p-8 sm:p-10 min-h-[18rem] ${i % 2 !== 0 ? "lg:order-2" : ""}`}
                   style={{ backgroundColor: f.color }}
                 >
@@ -115,9 +116,9 @@ export function FeatureShowcase() {
                     src={f.image}
                     alt={f.title}
                     loading="lazy"
-                    className="max-h-52 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-105"
+                    className="max-h-80 w-auto object-contain drop-shadow-lg"
                   />
-                </div>
+                </MagnifyZone>
 
                 {/* Content */}
                 <div className={`flex flex-col justify-center p-6 sm:p-10 ${i % 2 !== 0 ? "lg:order-1" : ""}`}>

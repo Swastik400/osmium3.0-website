@@ -91,7 +91,7 @@ export function Navbar() {
               {/* Right CTA */}
               <div className="hidden md:flex flex-1 justify-end items-center gap-3">
                 <Link
-                  href="/contact"
+                  href="/get-started"
                   className="group relative inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-[#131313] text-white overflow-hidden transition-all duration-500 active:scale-95 whitespace-nowrap"
                   style={{ boxShadow: "inset 0 0 12px rgba(255,255,255,0.2), 0px 0px 2px 0 rgba(0,0,0,0.1)" }}
                 >
@@ -147,7 +147,7 @@ export function Navbar() {
                 </div>
                 <div className="mt-4 pt-4 border-t border-black/[0.06] flex gap-2">
                   <Link
-                    href="/contact"
+                    href="/get-started"
                     onClick={() => setOpen(false)}
                     className="flex-1 inline-flex items-center justify-center rounded-full bg-[#131313] text-white px-5 py-2.5 text-sm font-medium active:scale-95 transition-transform"
                   >

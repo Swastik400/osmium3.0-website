@@ -98,7 +98,7 @@ export function Hero() {
             <div className="mt-8 order-last lg:order-none">
               <div className="flex flex-wrap gap-2">
                 <Link
-                  href="/contact"
+                  href="/get-started"
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-black text-white transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-900 h-12 px-5 type-base"
                 >
                   Get started
@@ -138,21 +138,20 @@ export function Hero() {
 
               {/* ── Product tabs (top) ── */}
               <div className="z-50 col-span-full row-start-1 pt-4 sm:pt-6 lg:pt-0 lg:pb-6 w-full lg:w-fit">
-                <div className="flex items-center gap-1.5 w-full min-w-max">
-                  <div className="grid auto-cols-fr rounded-full whitespace-nowrap h-11 ring-[0.5px] ring-inset ring-black/[0.075] mx-auto">
+                <div className="overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="flex w-fit rounded-full h-11 ring-[0.5px] ring-inset ring-black/[0.075] mx-auto">
                     {tabs.map((tab, i) => (
                       <button
                         key={tab.id}
                         onClick={() => { switchTab(i); }}
-                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-11 px-4 sm:px-5"
-                        style={{ gridColumnStart: i + 1 }}
+                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-11 px-3 sm:px-5 flex-none"
                       >
                         <div className="relative flex items-center gap-1.5" style={{ color: activeTab === i ? "#000" : "#57534e" }}>
                           <div className="mr-0.5 size-3 rounded-full relative overflow-hidden hidden sm:block">
                             <Image src={TAB_ICONS[i]} alt="" fill sizes="100vw" className="object-cover" />
                           </div>
-                          <span className="type-base hidden sm:block">{tab.label}</span>
-                          <span className="type-base sm:hidden">{tab.shortLabel}</span>
+                          <span className="type-xs sm:type-base hidden sm:block">{tab.label}</span>
+                          <span className="type-xs sm:hidden">{tab.shortLabel}</span>
                         </div>
                         <div
                           className="absolute -z-10 rounded-full inset-0"
@@ -225,16 +224,15 @@ export function Hero() {
 
               {/* ── Bottom sub-tabs (pill buttons) ── */}
               <div className="col-span-full row-start-3 pt-4 sm:pt-6 lg:pt-0 lg:pb-6 w-full lg:w-fit">
-                <div className="flex items-center gap-1.5 w-max min-w-full">
-                  <div className="grid auto-cols-fr rounded-full whitespace-nowrap h-10 mx-auto">
+                <div className="overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="flex w-fit rounded-full h-10 mx-auto">
                     {current.subtabs.map((st, i) => (
                       <button
                         key={st.label}
                         onClick={() => switchSubtab(i)}
-                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-10 px-4"
-                        style={{ gridColumnStart: i + 1 }}
+                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-10 px-3 sm:px-4 flex-none"
                       >
-                        <span className="relative type-base" style={{ color: activeSubtab === i ? "#000" : "#57534e" }}>{st.label}</span>
+                        <span className="relative type-xs sm:type-base whitespace-nowrap" style={{ color: activeSubtab === i ? "#000" : "#57534e" }}>{st.label}</span>
                         <div
                           className="absolute -z-10 rounded-full inset-0"
                           style={{

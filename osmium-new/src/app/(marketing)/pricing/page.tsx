@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, Plus, Minus } from "lucide-react";
+import Image from "next/image";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Check, X, Minus, Plus } from "lucide-react";
+
+/* ── Types & Data ── */
 
 const BILLING_OPTIONS = ["Monthly", "Annual"] as const;
 type Billing = (typeof BILLING_OPTIONS)[number];
 
 interface Plan {
   name: string;
+  tagline: string;
   badge?: string;
   monthlyPrice: number;
   annualPrice: number;
@@ -16,32 +21,37 @@ interface Plan {
   ctaHref: string;
   features: string[];
   highlighted?: boolean;
+  bg: string;
 }
 
 const plans: Plan[] = [
   {
     name: "Free",
+    tagline: "For curious learners getting started",
     monthlyPrice: 0,
     annualPrice: 0,
-    cta: "Register",
+    cta: "Register Free",
     ctaHref: "/contact",
+    bg: "/download.webp",
     features: [
       "2 mock tests per month",
       "Basic personalization level",
       "Courses & skills access",
-      "PDF resources include",
+      "PDF resources included",
       "AI career guidance",
-      "More",
+      "Community support",
     ],
   },
   {
     name: "Pro",
+    tagline: "For serious students aiming higher",
     badge: "Most Popular",
     monthlyPrice: 499,
     annualPrice: 4990,
-    cta: "Subscribe",
+    cta: "Get Pro",
     ctaHref: "/contact",
     highlighted: true,
+    bg: "/pro-bg.jpeg",
     features: [
       "15 mock tests per month",
       "High personalization level",
@@ -53,10 +63,12 @@ const plans: Plan[] = [
   },
   {
     name: "Premium",
+    tagline: "For those who want everything",
     monthlyPrice: 1199,
     annualPrice: 11990,
-    cta: "Subscribe",
+    cta: "Go Premium",
     ctaHref: "/contact",
+    bg: "/premium-bg.jpeg",
     features: [
       "30 mock tests per month",
       "Highest personalization level",
@@ -68,276 +80,372 @@ const plans: Plan[] = [
   },
 ];
 
-function DottedDivider() {
-  return (
-    <div className="relative h-[2px]">
-      <div
-        aria-hidden="true"
-        className="absolute left-0 w-full h-[2px]"
-        style={{
-          backgroundImage:
-            "repeating-radial-gradient(circle, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 6px)",
-          backgroundSize: "6px 100%",
-        }}
-      />
-    </div>
-  );
-}
+const comparisonFeatures = [
+  { name: "Mock tests per month", free: "2", pro: "15", premium: "30" },
+  { name: "AI personalization", free: "Basic", pro: "Advanced", premium: "Highest" },
+  { name: "Course access", free: true, pro: true, premium: true },
+  { name: "PDF resources", free: true, pro: true, premium: true },
+  { name: "AI career guidance", free: true, pro: true, premium: true },
+  { name: "Personalized learning paths", free: false, pro: true, premium: true },
+  { name: "Priority support", free: false, pro: true, premium: true },
+  { name: "Detailed analytics", free: false, pro: true, premium: true },
+  { name: "Exclusive content", free: false, pro: false, premium: true },
+  { name: "1-on-1 mentorship access", free: false, pro: false, premium: true },
+];
 
-function PlanCard({
-  plan,
-  billing,
-  isLast,
-}: {
-  plan: Plan;
-  billing: Billing;
-  isLast: boolean;
-}) {
-  const price = billing === "Monthly" ? plan.monthlyPrice : plan.annualPrice;
+const faqs = [
+  {
+    q: "What is Osmium?",
+    a: "Osmium is an AI-powered education and career guidance platform designed to help students excel in their exams and make informed career decisions through personalized learning paths and expert guidance.",
+  },
+  {
+    q: "How does AI personalization work?",
+    a: "Our AI analyzes your performance, learning patterns, and goals to create customized study plans, recommend relevant content, and provide targeted practice questions that adapt to your strengths and weaknesses.",
+  },
+  {
+    q: "Can I switch plans anytime?",
+    a: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate the billing accordingly.",
+  },
+  {
+    q: "What payment methods do you accept?",
+    a: "We accept all major credit cards, debit cards, UPI, net banking, and digital wallets. All payments are processed securely through our trusted payment partners.",
+  },
+  {
+    q: "Do you offer student discounts?",
+    a: "Yes! We offer special pricing for students. Contact our support team with your student ID to learn about available discounts and educational offers.",
+  },
+  {
+    q: "Can I cancel my subscription anytime?",
+    a: "Absolutely! You can cancel your subscription at any time. You'll continue to have access to premium features until the end of your billing period.",
+  },
+];
 
-  return (
-    <div className="relative min-w-[260px] flex-1 p-3 sm:p-4">
-      <div className="relative flex flex-col h-full">
-        {/* Card header */}
-        <div className="relative max-w-full overflow-hidden rounded-[1.25rem] min-h-[12.5rem]">
-          <div
-            className={`absolute inset-0 w-full h-full ${
-              plan.highlighted
-                ? "bg-gradient-to-br from-warm-900 via-warm-800 to-warm-950"
-                : "bg-gradient-to-br from-warm-100 via-warm-50 to-warm-200"
-            }`}
-          />
-          {plan.name === "Free" && (
-            <img
-              src="/download.webp"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover rounded-[1.25rem]"
-            />
-          )}
-          {plan.name === "Pro" && (
-            <img
-              src="/pro-bg.jpeg"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover rounded-[1.25rem]"
-            />
-          )}
-          {plan.name === "Premium" && (
-            <img
-              src="/premium-bg.jpeg"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover rounded-[1.25rem]"
-            />
-          )}
-          <div className="relative p-5 flex flex-col justify-between min-h-[12.5rem] z-10">
-            <div>
-              <h3 className="mb-3 type-3xl text-white">
-                {plan.name}
-              </h3>
-              {plan.badge && (
-                <span className="inline-block border border-white/40 px-3 py-1 rounded-lg font-medium type-2xs text-white">
-                  {plan.badge}
-                </span>
-              )}
-            </div>
-            <div className="text-white">
-              <div className="flex items-end gap-1">
-                <span className="type-2xl">₹{price}</span>
-                <span className="opacity-80 type-xs">
-                  {billing === "Monthly" ? "per month" : "per year"}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="absolute pointer-events-none inset-0 ring-[0.5px] ring-black/[0.075] ring-inset z-30 rounded-[1.25rem]" />
-        </div>
-
-        {/* CTA */}
-        <div className="mt-4 mb-10">
-          <Link
-            href={plan.ctaHref}
-            className={`inline-flex items-center justify-center whitespace-nowrap rounded-full w-full h-12 type-sm font-medium transition-all duration-300 ease-out active:scale-[0.98] ${
-              plan.highlighted
-                ? "bg-brand text-white hover:bg-brand-dark"
-                : "bg-black text-white hover:bg-warm-800"
-            }`}
-          >
-            {plan.cta}
-          </Link>
-        </div>
-
-        {/* Features */}
-        <div className="flex-1">
-          <ul>
-            {plan.features.map((feature, i) => (
-              <li key={feature}>
-                <div className="flex items-start gap-3 py-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Check
-                      className="h-4 w-4 text-brand"
-                      strokeWidth={2.5}
-                    />
-                  </div>
-                  <span className="type-xs">{feature}</span>
-                </div>
-                {i < plan.features.length - 1 && <DottedDivider />}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Vertical divider between cards */}
-      {!isLast && (
-        <div className="absolute right-0 top-0 bottom-0 w-[1px] bg-warm-200 hidden lg:block">
-          <div
-            className="absolute z-20 flex h-5 w-5 items-center justify-center rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{ backgroundColor: "#fdfcfc" }}
-          >
-            <div className="h-1.5 w-1.5 rounded-full bg-warm-300" />
-          </div>
-          <div
-            className="absolute z-20 flex h-5 w-5 items-center justify-center rounded-full bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"
-            style={{ backgroundColor: "#fdfcfc" }}
-          >
-            <div className="h-1.5 w-1.5 rounded-full bg-warm-300" />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+/* ── Page ── */
 
 export default function PricingPage() {
   const [billing, setBilling] = useState<Billing>("Monthly");
 
   return (
-    <section className="pt-28 sm:pt-36 md:pt-44 pb-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h1 className="type-5xl text-black">
-            Simple pricing for every learner
-          </h1>
-          <p className="mt-4 type-base text-warm-500">
-            Start free. Upgrade when you&apos;re ready. Cancel anytime.
-          </p>
-
-          {/* Billing toggle */}
-          <div className="mt-8 inline-flex rounded-full ring-[0.5px] ring-inset ring-black/[0.075] bg-warm-50 p-1">
-            {BILLING_OPTIONS.map((option) => (
-              <button
-                key={option}
-                onClick={() => setBilling(option)}
-                className={`relative rounded-full px-5 py-2 type-sm font-medium transition-all duration-200 ${
-                  billing === option
-                    ? "bg-white text-black shadow-[0_0_1px_rgba(0,0,0,0.4),0_4px_4px_rgba(0,0,0,0.04)]"
-                    : "text-black/50 hover:text-black/70"
-                }`}
+    <>
+      {/* ━━━ HERO ━━━ */}
+      <section className="pt-28 sm:pt-36 md:pt-44 pb-4">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto">
+              <p className="type-sm text-brand font-semibold uppercase tracking-wider mb-4">
+                Pricing
+              </p>
+              <h1
+                className="type-6xl text-black text-balance"
+                style={{ fontSize: "clamp(1.875rem, 4vw, 2.75rem)" }}
               >
-                {option}
-                {option === "Annual" && (
-                  <span className="ml-1.5 text-brand type-2xs font-medium">
-                    Save 20%
-                  </span>
-                )}
-              </button>
+                Simple pricing, powerful learning
+              </h1>
+              <p className="mt-5 type-base text-warm-500 text-pretty">
+                Start free. Upgrade when you&apos;re ready. Cancel anytime.
+                Every plan includes our core AI features.
+              </p>
+
+              {/* Billing toggle */}
+              <div className="mt-8 inline-flex items-center rounded-full ring-[0.5px] ring-inset ring-black/[0.075] bg-warm-50 p-1">
+                {BILLING_OPTIONS.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => setBilling(option)}
+                    className={`relative rounded-full px-6 py-2.5 type-sm font-medium transition-all duration-200 cursor-pointer ${
+                      billing === option
+                        ? "bg-white text-black shadow-[0_0_1px_rgba(0,0,0,0.4),0_4px_4px_rgba(0,0,0,0.04)]"
+                        : "text-black/40 hover:text-black/60"
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+             
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ━━━ PLAN CARDS ━━━ */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {plans.map((plan, i) => (
+              <ScrollReveal key={plan.name} delay={i * 100}>
+                <PlanCard plan={plan} billing={billing} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Pricing cards */}
-        <div className="flex flex-col lg:flex-nowrap lg:flex-row">
-          {plans.map((plan, i) => (
-            <PlanCard
-              key={plan.name}
-              plan={plan}
-              billing={billing}
-              isLast={i === plans.length - 1}
-            />
-          ))}
+      {/* ━━━ FEATURE COMPARISON ━━━ */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <h2 className="type-5xl text-black">Compare all features</h2>
+              <p className="mt-3 type-sm text-warm-500">
+                See exactly what you get with each plan
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="border-b border-black/[0.06]">
+                    <th className="text-left py-4 pr-4 type-sm font-medium text-warm-400 w-2/5">
+                      Feature
+                    </th>
+                    <th className="text-center py-4 px-4 type-sm font-medium text-warm-400">
+                      Free
+                    </th>
+                    <th className="text-center py-4 px-4">
+                      <span className="type-sm font-semibold text-brand">Pro</span>
+                    </th>
+                    <th className="text-center py-4 pl-4 type-sm font-medium text-warm-400">
+                      Premium
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((f) => (
+                    <tr key={f.name} className="border-b border-black/[0.04]">
+                      <td className="py-4 pr-4 type-sm text-black">{f.name}</td>
+                      <td className="py-4 px-4 text-center">
+                        <CellValue value={f.free} />
+                      </td>
+                      <td className="py-4 px-4 text-center bg-brand/[0.02]">
+                        <CellValue value={f.pro} highlight />
+                      </td>
+                      <td className="py-4 pl-4 text-center">
+                        <CellValue value={f.premium} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ScrollReveal>
         </div>
+      </section>
 
-        {/* FAQ Section */}
-        <PricingFAQ />
-      </div>
-    </section>
+      {/* ━━━ FAQ ━━━ */}
+      <section className="py-16 md:py-24 bg-warm-50">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <ScrollReveal>
+            <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16">
+              {/* Left */}
+              <div>
+                <p className="type-sm text-warm-500 font-medium mb-4">FAQ</p>
+                <h2 className="type-5xl text-black text-balance max-w-sm">
+                  Frequently asked questions
+                </h2>
+                <p className="mt-4 type-sm text-warm-400 text-pretty max-w-sm">
+                  Can&apos;t find what you&apos;re looking for? Reach out to our
+                  support team.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 mt-6 type-sm font-medium text-brand hover:text-brand-dark transition-colors"
+                >
+                  Contact us
+                  <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
+                    <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Right */}
+              <FAQAccordion />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ━━━ CTA ━━━ */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <ScrollReveal>
+            <div className="relative isolate overflow-hidden rounded-3xl bg-black text-center">
+              <div className="absolute inset-0">
+                <Image
+                  src="/ref/qrihua4053-nvida-bg.jpeg"
+                  alt=""
+                  fill
+                  className="object-cover opacity-30"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-[0.5px] ring-inset ring-white/[0.075]" />
+
+              <div className="relative z-10 px-6 sm:px-10 md:px-14 py-16 md:py-20 max-w-2xl mx-auto">
+                <h2
+                  className="type-5xl text-balance"
+                  style={{ color: "#ffffff" }}
+                >
+                  Still not sure? Start free today.
+                </h2>
+                <p className="mt-5 type-base text-white/60 text-pretty">
+                  No credit card required. Upgrade anytime. Join thousands of
+                  students already learning smarter with Osmium.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3 justify-center">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white text-black transition-all duration-300 active:scale-[0.98] hover:bg-warm-100 h-12 px-7 type-base font-medium"
+                  >
+                    Get started free
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white/10 text-white transition-all duration-300 active:scale-[0.98] hover:bg-white/20 h-12 px-7 type-base font-medium ring-[0.5px] ring-inset ring-white/20"
+                  >
+                    Talk to sales
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }
 
-const faqs = [
-  {
-    question: "What is Osmium?",
-    answer:
-      "Osmium is an AI-powered education and career guidance platform designed to help students excel in their exams and make informed career decisions through personalized learning paths and expert guidance.",
-  },
-  {
-    question: "How does AI personalization work?",
-    answer:
-      "Our AI analyzes your performance, learning patterns, and goals to create customized study plans, recommend relevant content, and provide targeted practice questions that adapt to your strengths and weaknesses.",
-  },
-  {
-    question: "Can I switch plans anytime?",
-    answer:
-      "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate the billing accordingly.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept all major credit cards, debit cards, UPI, net banking, and digital wallets. All payments are processed securely through our trusted payment partners.",
-  },
-  {
-    question: "Do you offer student discounts?",
-    answer:
-      "Yes! We offer special pricing for students. Contact our support team with your student ID to learn about available discounts and educational offers.",
-  },
-  {
-    question: "Can I cancel my subscription anytime?",
-    answer:
-      "Absolutely! You can cancel your subscription at any time. You'll continue to have access to premium features until the end of your billing period.",
-  },
-];
+/* ── Plan Card ── */
 
-function PricingFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggle = (i: number) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
+  const price = billing === "Monthly" ? plan.monthlyPrice : plan.annualPrice;
+  const period = billing === "Monthly" ? "/mo" : "/yr";
 
   return (
-    <div className="mt-24 pb-12 max-w-3xl mx-auto">
-      <h2 className="type-4xl text-black text-center mb-10">
-        Frequently Asked Questions
-      </h2>
-
-      <div className="flex flex-col">
-        {faqs.map((faq, i) => (
-          <div key={i} className="border-b border-warm-200">
-            <button
-              onClick={() => toggle(i)}
-              className="flex items-center justify-between w-full py-5 text-left gap-4"
-            >
-              <span className="type-base text-black font-medium">
-                {faq.question}
+    <div
+      className={`relative flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-300 ${
+        plan.highlighted
+          ? "ring-2 ring-brand shadow-[0_0_40px_-8px_rgba(125,72,53,0.2)] lg:scale-[1.03]"
+          : "ring-[0.5px] ring-inset ring-black/[0.075]"
+      }`}
+    >
+      {/* Card image header */}
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={plan.bg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        <div className="relative z-10 p-6 flex flex-col justify-end h-full">
+          <div className="flex items-center gap-2.5">
+            <h3 className="type-3xl" style={{ color: "#ffffff" }}>{plan.name}</h3>
+            {plan.badge && (
+              <span className="type-2xs font-bold uppercase tracking-wider text-white bg-brand px-2.5 py-1 rounded-md">
+                {plan.badge}
               </span>
-              <span className="flex-shrink-0 text-warm-500">
-                {openIndex === i ? (
-                  <Minus className="h-4 w-4" />
-                ) : (
-                  <Plus className="h-4 w-4" />
-                )}
-              </span>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ease-out ${
-                openIndex === i ? "max-h-96 pb-5" : "max-h-0"
-              }`}
-            >
-              <p className="type-sm text-warm-500">{faq.answer}</p>
-            </div>
+            )}
           </div>
-        ))}
+          <p className="type-2xs text-white/60 mt-1">{plan.tagline}</p>
+        </div>
       </div>
+
+      {/* Price + CTA + Features */}
+      <div className="flex flex-col flex-1 bg-cream p-6">
+        {/* Price */}
+        <div className="flex items-baseline gap-1 mb-5">
+          <span className="type-4xl text-black font-bold">
+            {price === 0 ? "Free" : `₹${price}`}
+          </span>
+          {price > 0 && (
+            <span className="type-xs text-warm-400">{period}</span>
+          )}
+        </div>
+
+        {/* CTA */}
+        <Link
+          href={plan.ctaHref}
+          className={`inline-flex items-center justify-center whitespace-nowrap rounded-full w-full h-11 type-sm font-medium transition-all duration-300 active:scale-[0.98] mb-6 ${
+            plan.highlighted
+              ? "bg-brand text-white hover:bg-brand-dark"
+              : "bg-black text-white hover:bg-warm-800"
+          }`}
+          style={
+            plan.highlighted
+              ? { boxShadow: "0 0 20px -4px rgba(125,72,53,0.3)" }
+              : undefined
+          }
+        >
+          {plan.cta}
+        </Link>
+
+        {/* Features */}
+        <ul className="flex-1 space-y-0">
+          {plan.features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3 py-2.5">
+              <Check className="h-4 w-4 text-brand flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+              <span className="type-xs text-warm-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+/* ── Comparison cell ── */
+
+function CellValue({ value, highlight }: { value: string | boolean; highlight?: boolean }) {
+  if (typeof value === "string") {
+    return (
+      <span className={`type-sm font-medium ${highlight ? "text-brand" : "text-black"}`}>
+        {value}
+      </span>
+    );
+  }
+  if (value) {
+    return (
+      <Check
+        className={`h-4 w-4 mx-auto ${highlight ? "text-brand" : "text-warm-400"}`}
+        strokeWidth={2.5}
+      />
+    );
+  }
+  return <X className="h-4 w-4 mx-auto text-warm-200" strokeWidth={2} />;
+}
+
+/* ── FAQ Accordion ── */
+
+function FAQAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <div className="flex flex-col">
+      {faqs.map((faq, i) => (
+        <div key={i} className="border-b border-black/[0.06]">
+          <button
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            className="flex items-center justify-between w-full py-5 text-left gap-4 cursor-pointer"
+          >
+            <span className="type-base text-black font-medium">{faq.q}</span>
+            <span className="flex-shrink-0 flex items-center justify-center size-7 rounded-full bg-black/[0.04] text-warm-500">
+              {openIndex === i ? (
+                <Minus className="h-3.5 w-3.5" />
+              ) : (
+                <Plus className="h-3.5 w-3.5" />
+              )}
+            </span>
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-out ${
+              openIndex === i ? "max-h-96 pb-5" : "max-h-0"
+            }`}
+          >
+            <p className="type-sm text-warm-500 leading-relaxed">{faq.a}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

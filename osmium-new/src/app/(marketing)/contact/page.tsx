@@ -83,6 +83,15 @@ export default function ContactPage() {
             </div>
           ) : (
             <>
+              <button
+                onClick={() => window.history.back()}
+                className="inline-flex items-center gap-1.5 mb-6 type-xs text-warm-400 hover:text-black transition-colors cursor-pointer"
+              >
+                <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
+                  <path d="M12.667 8H3.333M7.333 4l-4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Back
+              </button>
               <h1 className="type-3xl text-black mb-8">Contact Sales</h1>
 
               <form onSubmit={handleSubmit} className="space-y-5">
