@@ -9,7 +9,7 @@ const productLinks = [
 const companyLinks = [
   { href: "/about", label: "About Us" },
   { href: "/about#our-story", label: "Our Story" },
-  { href: "https://navchetna.tech/", label: "NAVCHETNA", external: true },
+  { href: "https://navchetna.tech/", label: "Navchetna Technology", external: true },
 ];
 
 const socialLinks = [

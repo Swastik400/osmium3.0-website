@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Brain, Target, MessageCircle, TrendingUp, Map, Heart, BookOpen, Smartphone } from "lucide-react";
 import { MagnifyZone } from "@/components/ui/MagnifyImage";
 
@@ -110,12 +111,13 @@ export function FeatureShowcase() {
                 <MagnifyZone
                   className={`relative flex items-center justify-center p-8 sm:p-10 min-h-[18rem] ${i % 2 !== 0 ? "lg:order-2" : ""}`}
                   style={{ backgroundColor: f.color }}
+                  imageSrc={f.image}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={f.image}
                     alt={f.title}
-                    loading="lazy"
+                    width={600}
+                    height={400}
                     className="max-h-80 w-auto object-contain drop-shadow-lg"
                   />
                 </MagnifyZone>

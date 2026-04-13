@@ -8,7 +8,7 @@ const layers = [
     title: "Smart Mock Tests",
     description: "AI-generated tests trained on thousands of past papers. Adaptive difficulty that adjusts to your level, real exam patterns, instant scoring, and detailed analytics.",
     tags: ["Exam Prediction", "Adaptive", "Analytics"],
-    image: "/ref/mock test.png",
+    image: "/Group 1712.png",
     bg: "/ref/gmhm1kxxzgd-Background7.jpeg",
   },
   {
@@ -16,7 +16,7 @@ const layers = [
     title: "AI Study Mentor",
     description: "Get crystal-clear answers in seconds with visual explanations, step-by-step logic, and real examples. Like having a personal tutor available 24/7 in 70+ languages.",
     tags: ["Doubt Solving", "Concepts", "Practice", "Languages"],
-    image: "/ref/AI MENTOR.png",
+    image: "/Group 1713.png",
     bg: "/ref/green.jpeg",
   },
   {
@@ -24,7 +24,7 @@ const layers = [
     title: "Career Path Intelligence",
     description: "No confusion, no guessing. Osmium builds a crystal-clear roadmap showing where to begin, what to learn next, and how to reach your goals.",
     tags: ["Skill Analysis", "Roadmap", "Jobs", "Mentorship"],
-    image: "/ref/MOCKUP1.png",
+    image: "/Group 1708 1.png",
     bg: "/ref/redchdw2op-bento-orange-blue-2@3x.jpeg",
   },
   {
@@ -73,15 +73,16 @@ export function StackLayers() {
       };
     }
     if (diff === 1) {
+      const delayed = Math.max(0, (layerProgress - 0.5) * 2);
       return {
-        opacity: layerProgress * 0.6,
-        transform: `scale(${0.9 + layerProgress * 0.1}) translateY(${30 - layerProgress * 30}px)`,
+        opacity: delayed * 0.5,
+        transform: `scale(${0.92 + delayed * 0.08}) translateY(${20 - delayed * 20}px)`,
         zIndex: 5,
       };
     }
     if (diff === -1) {
       return {
-        opacity: Math.max(0, 1 - layerProgress * 3),
+        opacity: Math.max(0, 1 - layerProgress * 4),
         transform: `scale(${1 - layerProgress * 0.1}) translateY(${-layerProgress * 30}px)`,
         zIndex: 5,
       };
@@ -91,7 +92,10 @@ export function StackLayers() {
 
   const getTextStyle = (i: number): { opacity: number; blur: number; translateY: number } => {
     if (i === activeIndex) return { opacity: 1, blur: 0, translateY: 0 };
-    if (i === activeIndex + 1) return { opacity: layerProgress * 0.3, blur: 6 - layerProgress * 6, translateY: 10 - layerProgress * 10 };
+    if (i === activeIndex + 1) {
+      const delayed = Math.max(0, (layerProgress - 0.5) * 2);
+      return { opacity: delayed * 0.4, blur: 6 - delayed * 6, translateY: 10 - delayed * 10 };
+    }
     return { opacity: 0, blur: 6, translateY: 10 };
   };
 

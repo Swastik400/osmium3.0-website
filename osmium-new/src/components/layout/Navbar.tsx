@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -13,8 +13,16 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#")) {
@@ -41,28 +49,41 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 right-0 left-0 z-[10000] w-full">
-      {/* Top fade gradient */}
+      {/* Top fade gradient — only when scrolled */}
       <div
-        className="absolute top-0 right-0 left-0 h-8 lg:h-10 pointer-events-none"
+        className="absolute top-0 right-0 left-0 h-8 lg:h-10 pointer-events-none transition-opacity duration-500"
         style={{
+          opacity: scrolled ? 1 : 0,
           background: "linear-gradient(rgb(253 252 252) 40%, transparent)",
           maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
           WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
         }}
       />
 
-      {/* Floating container */}
-      <div className="relative mx-auto w-full max-w-[1400px] px-3 pt-2.5 lg:px-8 lg:pt-3">
+      <div
+        className="relative mx-auto w-full transition-all duration-500 ease-out"
+        style={{ maxWidth: scrolled ? "1400px" : "100%" }}
+      >
         <div
-          className="rounded-[34px] overflow-hidden"
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.55)",
-            border: "1px solid rgba(220, 220, 220, 0.4)",
-            backdropFilter: "blur(24px) saturate(1.3) brightness(1.04)",
-            WebkitBackdropFilter: "blur(24px) saturate(1.3) brightness(1.04)",
-            boxShadow: "rgba(0, 0, 0, 0.02) 0px 2px 24px, rgba(0, 0, 0, 0.04) 0px 1px 3px inset",
-          }}
+          className="transition-all duration-500 ease-out"
+          style={{ padding: scrolled ? "0.625rem 0.75rem 0 0.75rem" : "0" }}
         >
+          <div
+            className="overflow-hidden transition-all duration-500 ease-out"
+            style={{
+              borderRadius: scrolled ? "34px" : "0px",
+              backgroundColor: "rgba(255, 255, 255, 0.55)",
+              borderBottom: "1px solid rgba(220, 220, 220, 0.4)",
+              borderTop: scrolled ? "1px solid rgba(220, 220, 220, 0.4)" : "1px solid transparent",
+              borderLeft: scrolled ? "1px solid rgba(220, 220, 220, 0.4)" : "1px solid transparent",
+              borderRight: scrolled ? "1px solid rgba(220, 220, 220, 0.4)" : "1px solid transparent",
+              backdropFilter: "blur(24px) saturate(1.3) brightness(1.04)",
+              WebkitBackdropFilter: "blur(24px) saturate(1.3) brightness(1.04)",
+              boxShadow: scrolled
+                ? "rgba(0, 0, 0, 0.02) 0px 2px 24px, rgba(0, 0, 0, 0.04) 0px 1px 3px inset"
+                : "rgba(0, 0, 0, 0.04) 0px 1px 2px",
+            }}
+          >
           {/* Desktop nav */}
           <nav className="hidden md:flex justify-between items-center py-2.5 pr-2.5 pl-9 w-full">
             <div className="flex flex-1 justify-between items-center mx-auto">
@@ -164,6 +185,7 @@ export function Navbar() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

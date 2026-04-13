@@ -12,7 +12,7 @@ const tabs = [
     shortLabel: "Tests",
     heading: "Predict Your Exam",
     desc: "Our AI analyzes thousands of past papers to generate mock tests that mirror your real exam. Adaptive difficulty, instant scoring, and deep performance insights.",
-    image: "/ref/mock test.png",
+    image: "/Group 1712.png",
     subtabs: [
       { label: "Paper Generate", text: "Upload any 5 previous year question papers from JEE, NEET, CUET, or any competitive exam — our AI analyzes patterns and generates a predicted paper with up to 50% accuracy." },
       { label: "Adaptive", text: "Difficulty adjusts in real-time based on your performance. Stronger in mechanics? We push harder. Weak in optics? We reinforce." },
@@ -26,7 +26,7 @@ const tabs = [
     shortLabel: "Tutor",
     heading: "Your Personal Tutor",
     desc: "Get instant, step-by-step answers to any question. Visual explanations, concept breakdowns, and practice problems across 70+ languages.",
-    image: "/ref/AI MENTOR.png",
+    image: "/Group 1713.png",
     subtabs: [
       { label: "Doubt Solving", text: "Ask any question and get crystal-clear answers instantly. No waiting, no scheduling — just type and learn." },
       { label: "Concepts", text: "Deep concept breakdowns with visual diagrams, analogies, and real-world examples that make complex topics click." },
@@ -40,7 +40,7 @@ const tabs = [
     shortLabel: "Career",
     heading: "Map Your Future",
     desc: "Discover the right career path based on your skills, interests, and goals. AI-powered roadmaps with step-by-step guidance.",
-    image: "/ref/MOCKUP1.png",
+    image: "/Group 1708 1.png",
     subtabs: [
       { label: "Skill Analysis", text: "AI evaluates your academic strengths, interests, and aptitude to identify the career paths where you'll thrive." },
       { label: "Roadmap", text: "A clear, step-by-step plan from where you are today to your dream career. Every milestone mapped out." },

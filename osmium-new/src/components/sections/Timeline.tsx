@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const events = [
-  { title: "Osmium Concept", desc: "The idea of AI-powered exam prediction born at NAVCHETNA", date: "Jan 2024" },
+  { title: "Osmium Concept", desc: "The idea of AI-powered exam prediction born at Navchetna Technology", date: "Jan 2024" },
   { title: "First Prototype", desc: "Mock test engine trained on 10,000+ past papers across 5 subjects", date: "Apr 2024" },
   { title: "AI Tutor v1", desc: "Personalized doubt resolution with step-by-step explanations launched", date: "Jul 2024" },
   { title: "Institute Beta", desc: "First 50 institutes onboarded across Gujarat and Maharashtra", date: "Oct 2024" },

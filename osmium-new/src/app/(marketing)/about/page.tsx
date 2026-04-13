@@ -231,7 +231,7 @@ export default function AboutPage() {
       </section>
 
       {/* ━━━ OUR STORY — immersive alternating blocks ━━━ */}
-      <section id="our-story" className="py-8 md:py-12">
+      <section id="our-story" className="pt-20 pb-8 md:pt-28 md:pb-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>
             <p className="type-sm text-warm-500 font-medium mb-4">Our Story</p>
@@ -295,7 +295,7 @@ export default function AboutPage() {
                       chance on that idea. It was our first time working together,
                       and honestly, some of us didn&apos;t even own laptops. During
                       SIH, a teacher joked, &ldquo;<span className="text-brand/80 font-medium">Kaam ek karta hai aur laptop
-                      teen pakadte hain.</span>&rdquo; Everyone laughed, except us.
+                        teen pakadte hain.</span>&rdquo; Everyone laughed, except us.
                       Somewhere inside, that moment pushed us harder.
                     </p>
                   </div>
@@ -384,16 +384,14 @@ export default function AboutPage() {
               const isLeft = i % 2 === 0;
               return (
                 <ScrollReveal key={`${m.date}-${i}`} delay={i * 60}>
-                  <div className={`relative flex items-start mb-10 last:mb-0 ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}>
+                  <div className={`relative flex items-start mb-10 last:mb-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}>
                     {/* Dot */}
                     <div className="absolute left-4 md:left-1/2 top-1.5 w-3 h-3 rounded-full bg-brand ring-4 ring-warm-50 -translate-x-1/2 z-10" />
 
                     {/* Content */}
-                    <div className={`ml-12 md:ml-0 md:w-1/2 ${
-                      isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
-                    }`}>
+                    <div className={`ml-12 md:ml-0 md:w-1/2 ${isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
+                      }`}>
                       <p className="type-2xs font-bold uppercase tracking-wider text-brand">{m.date}</p>
                       <p className="type-sm text-black mt-1 text-pretty">{m.title}</p>
                     </div>
@@ -487,7 +485,7 @@ export default function AboutPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white/10 text-white transition-all duration-300 active:scale-[0.98] hover:bg-white/20 h-12 px-7 type-base font-medium ring-[0.5px] ring-inset ring-white/20"
                   >
-                    Visit NAVCHETNA
+                    Visit Navchetna Technology
                   </a>
                 </div>
               </div>

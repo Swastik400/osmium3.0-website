@@ -12,7 +12,7 @@ export function WebGLBackground() {
 
     // Scene
     const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0xffcc80, 25, 75);
+    // No scene fog — let CSS gradient handle all background color
 
     // Camera
     const camera = new THREE.PerspectiveCamera(
@@ -25,8 +25,8 @@ export function WebGLBackground() {
     camera.lookAt(0, 5, 0);
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setClearColor(0xffcc80, 1);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);

@@ -124,7 +124,7 @@ const faqs = [
   { q: "Is Osmium available for individual students?", a: "Osmium is currently available for institutes. Access for individual students is on the way!" },
   { q: "What exams does Osmium support?", a: "Osmium supports a wide range of competitive and academic exams across India, with AI-powered preparation tailored to each exam's unique pattern." },
   { q: "How does the career guidance feature work?", a: "Osmium analyzes your skills, interests, and academic performance to build a personalized career roadmap." },
-  { q: "Who built Osmium?", a: "Osmium is built by NAVCHETNA (NINELLMS SOLUTIONS LLP), a passionate team of student innovators dedicated to transforming education through AI." },
+  { q: "Who built Osmium?", a: "Osmium is built by Navchetna Technology (NINELLMS SOLUTIONS LLP), a passionate team of student innovators dedicated to transforming education through AI." },
 ];
 
 export default function TestingPage() {
@@ -207,11 +207,10 @@ export default function TestingPage() {
                 <button
                   key={tab.label}
                   onClick={() => { setActiveTab(i); setProgress(0); }}
-                  className={`relative text-left rounded-2xl p-5 transition-all duration-300 cursor-pointer overflow-hidden ${
-                    activeTab === i
+                  className={`relative text-left rounded-2xl p-5 transition-all duration-300 cursor-pointer overflow-hidden ${activeTab === i
                       ? "bg-white/15 ring-[0.5px] ring-inset ring-white/20 backdrop-blur-md"
                       : "bg-white/5 ring-[0.5px] ring-inset ring-white/10 hover:bg-white/10"
-                  }`}
+                    }`}
                 >
                   {/* Progress bar */}
                   {activeTab === i && (

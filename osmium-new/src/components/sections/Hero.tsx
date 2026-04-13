@@ -30,16 +30,6 @@ export function Hero() {
         <WebGLBackground />
       </div>
 
-      {/* ── Fog overlay to soften mountains into the gradient ── */}
-      <div
-        className="absolute left-0 right-0 z-[2]"
-        style={{
-          top: "45%",
-          height: "30%",
-          background:
-            "linear-gradient(to bottom, rgba(255,224,178,0.85) 0%, transparent 30%, transparent 60%, rgba(245,230,208,0.9) 100%)",
-        }}
-      />
 
       {/* ── Hero content ── */}
       <div className="relative z-10 h-screen min-h-[700px] flex flex-col justify-center items-center text-center px-6">

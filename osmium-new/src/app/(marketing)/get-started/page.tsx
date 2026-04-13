@@ -36,7 +36,7 @@ export default function GetStartedPage() {
       <div className="relative hidden md:flex w-full md:w-1/2 h-screen flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/ref/purpleblue.jpeg"
+          src="/hero-bg.png"
           alt=""
           className="absolute inset-0 size-full object-cover"
         />

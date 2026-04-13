@@ -58,7 +58,7 @@ export default function ContactPage() {
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/ref/redchdw2op-bento-orange-blue-2@3x.jpeg"
+          src="/contact-bg.png"
           alt=""
           className="absolute inset-0 size-full object-cover"
         />
