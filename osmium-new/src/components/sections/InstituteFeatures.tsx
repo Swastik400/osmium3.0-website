@@ -183,7 +183,7 @@ export function InstituteFeatures() {
                 {/* Right — active feature detail */}
                 <div
                   className="flex flex-col justify-center px-5 md:px-10 py-8 md:py-12"
-                  style={{ backgroundColor: "#f5f3f1", borderRadius: "1.25rem" }}
+                  style={{ backgroundColor: "#f5f3f1", borderRadius: "0 1.25rem 1.25rem 0" }}
                 >
                   <div key={activeIdx} className="animate-fade-up">
                     <div className="flex items-center justify-center size-14 rounded-2xl bg-white ring-1 ring-inset ring-black/[0.06] mb-6 [&>svg]:size-7 [&>svg]:text-black">
